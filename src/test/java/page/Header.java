@@ -2,12 +2,6 @@ package page;
 
 import org.openqa.selenium.WebDriver;
 
-public class Header extends AbstractBasePage {
-    protected Header(WebDriver driver) {
-        super(driver);
-    }
+public class Header {
 
-    AbstractBasePage openPage() {
-        return null;
-    }
 }
