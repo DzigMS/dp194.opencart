@@ -11,8 +11,4 @@ public class SearchPage extends AbstractBasePage {
         content = new SearchContent();
     }
 
-
-    public void getContent(String str) {
-        this.content.sendKeys(str);
-    }
 }
