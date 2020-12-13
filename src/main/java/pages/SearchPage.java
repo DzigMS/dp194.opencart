@@ -1,13 +1,13 @@
-package page;
+package pages;
 
 import content.SearchContent;
 import org.openqa.selenium.WebDriver;
 
-public class SearchPage extends AbstractBasePage {
+public class SearchPage extends BasePage {
     private SearchContent content;
 
-    public SearchPage(WebDriver driver) {
-        super(driver);
+    public SearchPage() {
+
         content = new SearchContent();
     }
 
