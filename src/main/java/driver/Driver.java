@@ -11,6 +11,9 @@ public class Driver {
     private Driver(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getWebDriver(){
+        return this.driver;
+    }
 
     public static Driver configureDriver(String nameDriver) {
         WebDriver driver;
