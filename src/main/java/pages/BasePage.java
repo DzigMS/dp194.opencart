@@ -10,16 +10,25 @@ import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory
 
 public abstract class BasePage {
     protected Driver driver;
-
-    public TopNavBar topNavBar;
-    public Header header;
-    public CategoryMenu categoryMenu;
+    private TopNavBar topNavBar;
+    private Header header;
+    private CategoryMenu categoryMenu;
 
     public BasePage(Driver driver) {
         this.driver = driver;
         PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(this.driver.getWebDriver())), this);
     }
-
-    public abstract void openPage();
+    
+    public TopNavBar getTopNavBar() {
+    	return this.topNavBar;
+    }
+    
+    public Header getHeader() {
+    	return this.header;
+    }
+    
+    public CategoryMenu getCategoryMenu() {
+    	return this.categoryMenu;
+    }
 
 }
