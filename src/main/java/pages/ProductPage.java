@@ -3,17 +3,15 @@ package pages;
 import driver.Driver;
 import model.ProductReview;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.Link;
-import ru.yandex.qatools.htmlelements.element.Radio;
 import ru.yandex.qatools.htmlelements.element.TextBlock;
 import ru.yandex.qatools.htmlelements.element.TextInput;
-
-import java.awt.*;
 
 public class ProductPage extends BasePage {
     private ProductReview productReview;
     @FindBy(id = "input-quantity")
-    private TextInput quantityTextBox;
+    private TextInput productQuantity;
     @FindBy(id = "button-cart")
     private Button addToCardButton;
     @FindBy(xpath = "//button[@data-original-title='Add to Wish List']")
@@ -24,6 +22,8 @@ public class ProductPage extends BasePage {
     private TextBlock productPrice;
     @FindBy(xpath = "//*[contains(text(),'Reviews')]")
     private Link reviews;
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    private TextBlock successMessage;
 
     public ProductPage(Driver driver) {
         super(driver);
@@ -35,5 +35,29 @@ public class ProductPage extends BasePage {
 
     public void goToModelProductReview() {
         reviews.click();
+    }
+
+    public void fillFieldProductQuantity(String quantity) {
+        productQuantity.sendKeys(quantity);
+    }
+
+    public void addProductToShoppingCart() {
+        addToCardButton.click();
+    }
+
+    public String getSuccessMessage() {
+        return successMessage.getText();
+    }
+
+    public String getProductName() {
+        return productName.getText();
+    }
+
+    public void AddProductToWishList() {
+        addToWishListButton.click();
+    }
+
+    public String getProductPrice() {
+        return productPrice.getText();
     }
 }

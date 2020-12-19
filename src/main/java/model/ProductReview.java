@@ -6,7 +6,7 @@ import ru.yandex.qatools.htmlelements.element.Radio;
 import ru.yandex.qatools.htmlelements.element.TextBlock;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
-@FindBy(id="form-review")
+@FindBy(id = "form-review")
 public class ProductReview extends HtmlElement {
 
     @FindBy(id = "input-name")
@@ -22,22 +22,23 @@ public class ProductReview extends HtmlElement {
     @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
     private TextBlock messageNotSuccess;
 
-    public void fillNameTexBox(String name){
+    public void fillNameTexBox(String name) {
         nameTexBox.sendKeys(name);
     }
-    public void fillReviewTextBox(String review){
+
+    public void fillReviewTextBox(String review) {
         reviewTextBox.sendKeys(review);
     }
 
-    public void murkDownProductRatingRadio(){
+    public void murkDownProductRatingRadio() {
         ratingRadio.click();
     }
 
-    public void clickContinueButtonReview(){
+    public void clickContinueButtonReview() {
         continueButtonReview.click();
-      }
+    }
 
-    public String getMessageSuccess(){
+    public String getMessageSuccess() {
         return messageSuccess.getText();
     }
 
