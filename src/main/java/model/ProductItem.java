@@ -37,7 +37,7 @@ public class ProductItem extends HtmlElement {
         addToCompareButton.click();
     }
 
-    public String getImage(){
+    public String getImageName(){
         return productImage.getText();
     }
 
