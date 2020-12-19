@@ -1,16 +1,24 @@
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import pages.ProductPage;
+import org.junit.jupiter.api.Test;
 import steps.ProductPageSteps;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProductPageTest extends CommonConditionTest {
 
     ProductPageSteps productPageSteps;
 
     @Test
-    public void writeProductReview() {
+    public void writeProductReviewTest() {
         productPageSteps = new ProductPageSteps(driver);
-        String actual = productPageSteps.writeProductReview();
-        Assert.assertEquals(actual,"Thank you for your review. It has been submitted to the webmaster for approval.");
+        assertEquals(productPageSteps.writeProductReviewStep(),
+                productPageSteps.createExpectedSuccessMessageAddProductReview());
+    }
+
+    @Test
+    public void getSuccessMessageAboutAddedProductToShoppingCartTest() {
+        productPageSteps = new ProductPageSteps(driver);
+        assertEquals
+                (productPageSteps.getSuccessMessageAboutAddedProductToShoppingCartStep(),
+                        productPageSteps.createExpectedSuccessMessageAddProductToShoppingCart());
     }
 }
