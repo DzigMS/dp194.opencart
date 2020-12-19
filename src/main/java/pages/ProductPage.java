@@ -33,9 +33,6 @@ public class ProductPage extends BasePage {
         return productReview;
     }
 
-    public void goToModelProductReview() {
-        reviews.click();
-    }
 
     public void fillFieldProductQuantity(String quantity) {
         productQuantity.sendKeys(quantity);
@@ -45,19 +42,23 @@ public class ProductPage extends BasePage {
         addToCardButton.click();
     }
 
-    public String getSuccessMessage() {
-        return successMessage.getText();
+    public void addProductToWishList() {
+        addToWishListButton.click();
     }
 
     public String getProductName() {
         return productName.getText();
     }
 
-    public void AddProductToWishList() {
-        addToWishListButton.click();
-    }
-
     public String getProductPrice() {
         return productPrice.getText();
+    }
+
+    public void goToModelProductReview() {
+        reviews.click();
+    }
+
+    public String getSuccessMessage() {
+        return successMessage.getText();
     }
 }

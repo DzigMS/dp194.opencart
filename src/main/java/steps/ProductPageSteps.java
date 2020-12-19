@@ -19,16 +19,26 @@ public class ProductPageSteps {
         productPage.getProductReview().clickContinueButtonReview();
         return productPage.getProductReview().getMessageSuccess();
     }
-    public String createExpectedSuccessMessageAddProductReview(){
+
+    public String createExpectedSuccessMessageAddProductReview() {
         return "Thank you for your review. It has been submitted to the webmaster for approval.";
     }
 
-    public String getSuccessMessageAboutAddedProductToShoppingCartStep(){
+    public String getSuccessMessageAboutAddedProductToShoppingCartStep() {
         productPage.addProductToShoppingCart();
         return productPage.getSuccessMessage();
     }
+    public String getProductNameFromProductPage(){
+        return productPage.getProductName();
+    }
 
-    public String createExpectedSuccessMessageAddProductToShoppingCart(){
+    public String createExpectedSuccessMessageAddProductToShoppingCart() {
         return "Success: You have added" + " " + productPage.getProductName() + " " + "to your shopping cart!\n×";
     }
+    public ShoppingCartSteps goToShoppingCart(Driver driver){
+        productPage.addProductToShoppingCart();
+        productPage.getTopNavBar().goToShoppingCartPage();
+        return new ShoppingCartSteps(driver);
+    }
+
 }
