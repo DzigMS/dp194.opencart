@@ -9,26 +9,25 @@ import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 
 public abstract class BasePage {
-    protected Driver driver;
     private TopNavBar topNavBar;
     private Header header;
     private CategoryMenu categoryMenu;
 
     public BasePage(Driver driver) {
-        this.driver = driver;
-        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(this.driver.getWebDriver())), this);
+        PageFactory.initElements
+                (new HtmlElementDecorator(new HtmlElementLocatorFactory(driver.getWebDriver())), this);
     }
-    
+
     public TopNavBar getTopNavBar() {
-    	return this.topNavBar;
+        return this.topNavBar;
     }
-    
+
     public Header getHeader() {
-    	return this.header;
+        return this.header;
     }
-    
+
     public CategoryMenu getCategoryMenu() {
-    	return this.categoryMenu;
+        return this.categoryMenu;
     }
 
 }
