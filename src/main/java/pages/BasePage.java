@@ -13,20 +13,21 @@ public abstract class BasePage {
     private Header header;
     private CategoryMenu categoryMenu;
 
-    public BasePage(Driver driver) { 
-        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver.getWebDriver())), this);
+    public BasePage(Driver driver) {
+        PageFactory.initElements
+                (new HtmlElementDecorator(new HtmlElementLocatorFactory(driver.getWebDriver())), this);
     }
-    
+
     public TopNavBar getTopNavBar() {
-    	return this.topNavBar;
+        return this.topNavBar;
     }
-    
+
     public Header getHeader() {
-    	return this.header;
+        return this.header;
     }
-    
+
     public CategoryMenu getCategoryMenu() {
-    	return this.categoryMenu;
+        return this.categoryMenu;
     }
 
 }

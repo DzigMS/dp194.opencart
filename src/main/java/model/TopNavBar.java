@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 @FindBy(id = "top")
 public class TopNavBar extends HtmlElement {
+<<<<<<< HEAD
 	@FindBy(xpath = "//*[@class='fa fa-phone']/..")
     private Link contactUsLink;
 	@FindBy(xpath = "//a[@class='dropdown-toggle'][@title='My Account']")
@@ -20,13 +21,14 @@ public class TopNavBar extends HtmlElement {
     private Link myAccountLink;
 	@FindBy(xpath = "//ul[@class='dropdown-menu dropdown-menu-right']//a[text()='Logout']")
     private Link logoutLink;
-	@FindBy(id = "wishlist-total")
+    @FindBy(id = "wishlist-total")
     private Link wishListLink;
-	@FindBy(xpath = "//a[@title='Shopping Cart']")
+
+    @FindBy(xpath = "//a[@title='Shopping Cart']")
     private Link shoppingCartLink;
-	@FindBy(xpath = "//a[@title='Checkout']")
+    @FindBy(xpath = "//a[@title='Checkout']")
     private Link checkoutLink;
-	public void clickShopping() {
-		this.shoppingCartLink.click();
-	}
+    public void goToShoppingCartPage() {
+        shoppingCartLink.click();
+    }
 }
