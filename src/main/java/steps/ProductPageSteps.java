@@ -30,7 +30,8 @@ public class ProductPageSteps {
     public void fillFieldProductQuantityStep() {
         productPage.fillFieldProductQuantity("2");
     }
-    public void clearFieldProductQuantityStep(){
+
+    public void clearFieldProductQuantityStep() {
         productPage.clearFieldProductQuantity();
     }
 
