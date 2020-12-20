@@ -4,8 +4,6 @@ import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.Link;
 
-import java.util.ArrayList;
-
 @FindBy(id = "top")
 public class TopNavBar extends HtmlElement {
 	@FindBy(xpath = "//*[@class='fa fa-phone']/..")
