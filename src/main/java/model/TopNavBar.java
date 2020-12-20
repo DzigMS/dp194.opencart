@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 @FindBy(id = "top")
 public class TopNavBar extends HtmlElement {
-<<<<<<< HEAD
 	@FindBy(xpath = "//*[@class='fa fa-phone']/..")
     private Link contactUsLink;
 	@FindBy(xpath = "//a[@class='dropdown-toggle'][@title='My Account']")
