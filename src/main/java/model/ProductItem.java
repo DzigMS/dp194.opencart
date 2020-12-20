@@ -15,9 +15,9 @@ public class ProductItem extends HtmlElement {
     @FindBy(xpath = "//*[@class='caption']/h4/a")
     public Link productName;
     @FindBy(xpath = "//*[@class='price']")
-    public Double productPrice;
+    public TextBlock productPrice;
     @FindBy(xpath = "//*[@id='price-tax']")
-    public Double productTax;
+    public TextBlock productTax;
     @FindBy(xpath = "//*[@class='button-group']/button[1]")
     public Button addToCartButton;
     @FindBy(xpath = "//*[@class='button-group']/button[2]")
@@ -37,12 +37,13 @@ public class ProductItem extends HtmlElement {
         addToCompareButton.click();
     }
 
-    public String getImageName(){
-        return productImage.getText();
-    }
 
     public String getPrice(){
-        return price.getText();
+        return productPrice.getText();
+    }
+
+    public String getProductTax(){
+        return productTax.getText();
     }
 
 }
