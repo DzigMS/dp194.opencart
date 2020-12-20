@@ -18,12 +18,14 @@ public class CategoryPage extends BasePage{
         super(driver);
     }
 
-    public void getPriceItems(){
-        for (ProductItem item :
-             productItemList) {
-            System.out.println(item.getPrice());
-        }
-    }
+
+
+//    public void getPriceItems(){
+//        for (ProductItem item :
+//             productItemList) {
+//            System.out.println(item.getPrice());
+//        }
+//    }
 
     public ProductActions getProductActions() {
         return productActions;

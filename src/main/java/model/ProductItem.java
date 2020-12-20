@@ -11,19 +11,19 @@ public class ProductItem extends HtmlElement {
     private TextBlock price;
 
     @FindBy(className = "img-responsive")
-    public Link productImage;
+    private Link productImage;
     @FindBy(xpath = "//*[@class='caption']/h4/a")
-    public Link productName;
+    private Link productName;
     @FindBy(xpath = "//*[@class='price']")
-    public TextBlock productPrice;
+    private TextBlock productPrice;
     @FindBy(xpath = "//*[@id='price-tax']")
-    public TextBlock productTax;
+    private TextBlock productTax;
     @FindBy(xpath = "//*[@class='button-group']/button[1]")
-    public Button addToCartButton;
+    private Button addToCartButton;
     @FindBy(xpath = "//*[@class='button-group']/button[2]")
-    public Button addToWishListButton;
+    private Button addToWishListButton;
     @FindBy(xpath = "//*[@class='button-group']/button[3]")
-    public Button addToCompareButton;
+    private Button addToCompareButton;
 
     public void clickAddToCart(){
         addToCartButton.click();
