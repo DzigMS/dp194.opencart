@@ -8,17 +8,20 @@ public class ProductPageTest extends CommonConditionTest {
     ProductPageSteps productPageSteps;
 
     @Test
-    public void writeProductReviewTest() {
+    public void checkWriteProductReviewTest() {
         productPageSteps = new ProductPageSteps(driver);
         assertEquals(productPageSteps.writeProductReviewStep(),
-                productPageSteps.createExpectedSuccessMessageAddProductReview());
+                productPageSteps.createExpectedSuccessMessageAddProductReviewStep());
     }
 
     @Test
-    public void getSuccessMessageAboutAddedProductToShoppingCartTest() {
+    public void checkGetSuccessMessageAboutAddedProductToShoppingCartTest() {
         productPageSteps = new ProductPageSteps(driver);
+        productPageSteps.clearFieldProductQuantityStep();
+        productPageSteps.fillFieldProductQuantityStep();
+        productPageSteps.addProductToShoppingCartStep();
         assertEquals
                 (productPageSteps.getSuccessMessageAboutAddedProductToShoppingCartStep(),
-                        productPageSteps.createExpectedSuccessMessageAddProductToShoppingCart());
+                        productPageSteps.createExpectedSuccessMessageAddProductToShoppingCartStep());
     }
 }

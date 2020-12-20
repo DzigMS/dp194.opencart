@@ -33,9 +33,15 @@ public class ProductPage extends BasePage {
         return productReview;
     }
 
-
+    public void clearFieldProductQuantity(){
+        productQuantity.clear();
+    }
     public void fillFieldProductQuantity(String quantity) {
         productQuantity.sendKeys(quantity);
+    }
+
+    public String getProductQuantity() {
+        return productQuantity.getText();
     }
 
     public void addProductToShoppingCart() {

@@ -10,8 +10,32 @@ public class ShoppingCartSteps {
         this.shoppingCartPage = new ShoppingCartPage(driver);
     }
 
-    public String getAddedProductNameIntoShoppingCartTest() {
+    public String getAddedProductNameFromShoppingCartStep() {
         return shoppingCartPage.getProductNameFromShoppingCarTable();
     }
 
+    public String getAddedProductPriceFromShoppingCartStep() {
+        return shoppingCartPage.getProductPriceFromShoppingCarTable();
+    }
+
+    public String getAddedProductQuantityFromShoppingCartStep() {
+        return shoppingCartPage.getProductQuantityFromShoppingCarTable();
+    }
+
+    public void clearFieldQuantityProductInShoppingCartStep() {
+        shoppingCartPage.clearFieldProductQuantityInShoppingCartTable();
+    }
+
+    public void fillQuantityProductInShoppingCartStep() {
+        shoppingCartPage.fillProductQuantityInShoppingCartTable("2");
+    }
+
+    public void updateQuantityInShoppingCartStep() {
+        shoppingCartPage.clickUpdateButtonFromShoppingCar();
+    }
+
+    public void removeShoppingCartStep() {
+        shoppingCartPage.clickRemoveButtonFromShoppingCar();
+    }
 }
+

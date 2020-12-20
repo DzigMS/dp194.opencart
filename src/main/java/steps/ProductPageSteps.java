@@ -1,7 +1,6 @@
 package steps;
 
 import driver.Driver;
-import model.ProductReview;
 import pages.ProductPage;
 
 public class ProductPageSteps {
@@ -20,25 +19,43 @@ public class ProductPageSteps {
         return productPage.getProductReview().getMessageSuccess();
     }
 
-    public String createExpectedSuccessMessageAddProductReview() {
+    public String createExpectedSuccessMessageAddProductReviewStep() {
         return "Thank you for your review. It has been submitted to the webmaster for approval.";
     }
 
-    public String getSuccessMessageAboutAddedProductToShoppingCartStep() {
+    public void addProductToShoppingCartStep() {
         productPage.addProductToShoppingCart();
+    }
+
+    public void fillFieldProductQuantityStep() {
+        productPage.fillFieldProductQuantity("2");
+    }
+    public void clearFieldProductQuantityStep(){
+        productPage.clearFieldProductQuantity();
+    }
+
+    public String getSuccessMessageAboutAddedProductToShoppingCartStep() {
         return productPage.getSuccessMessage();
     }
-    public String getProductNameFromProductPage(){
+
+    public String getProductNameFromProductPageStep() {
         return productPage.getProductName();
     }
 
-    public String createExpectedSuccessMessageAddProductToShoppingCart() {
-        return "Success: You have added" + " " + productPage.getProductName() + " " + "to your shopping cart!\n×";
+    public String getProductPriceFromProductPagStep() {
+        return productPage.getProductPrice();
     }
-    public ShoppingCartSteps goToShoppingCart(Driver driver){
-        productPage.addProductToShoppingCart();
+
+    public String getProductQuantityFromProductPagStep() {
+        return productPage.getProductQuantity();
+    }
+
+    public String createExpectedSuccessMessageAddProductToShoppingCartStep() {
+        return "Success: You have added" + " " + this.getProductNameFromProductPageStep() + " " + "to your shopping cart!\n×";
+    }
+
+    public ShoppingCartSteps goToShoppingCartStep(Driver driver) {
         productPage.getTopNavBar().goToShoppingCartPage();
         return new ShoppingCartSteps(driver);
     }
-
 }
