@@ -7,11 +7,12 @@ import pages.CategoryPage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryPageSteps {
+public class CategoryPageStep extends BaseStep{
     private CategoryPage categoryPage;
 
-    public CategoryPageSteps(Driver driver) {
-        this.categoryPage = new CategoryPage(driver);
+    public CategoryPageStep(Driver driver) {
+        super(driver);
+        this.categoryPage = new CategoryPage(this.getDriver());
     }
 
     public List<String> selectShowValueNameAZStep() {
@@ -124,7 +125,6 @@ public class CategoryPageSteps {
             names.add(item.getProductName());
 
         }
-        System.out.println(names);
         return names;
     }
 
