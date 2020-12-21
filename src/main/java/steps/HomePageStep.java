@@ -2,15 +2,13 @@ package steps;
 
 import driver.Driver;
 import pages.HomePage;
-import pages.SearchPage;
 
-public class HomePageStep {
-	private Driver driver;
+public class HomePageStep extends BaseStep {
 	private HomePage homePage;
 	
 	public HomePageStep(Driver driver) {
-		this.driver = driver;
-		this.homePage = new HomePage(driver);
+		super(driver);
+		this.homePage = new HomePage(this.getDriver());
 	}
 
 	public HomePageStep fillSearchField(String keyword) {
@@ -20,7 +18,7 @@ public class HomePageStep {
 	
 	public SearchPageStep clickSearchButton() {
 		homePage.getHeader().clickSearchButton();
-		return new SearchPageStep(this.driver);
+		return new SearchPageStep(this.getDriver());
 	}
 	
 	public HomePageStep clickShoppingCartButton() {
@@ -29,6 +27,6 @@ public class HomePageStep {
 	}
 	public ContactPageStep clickContactUsLink() {
 		homePage.getTopNavBar().clickContactUsLink();
-		return new ContactPageStep(driver);
+		return new ContactPageStep(this.getDriver());
 	}
 }
