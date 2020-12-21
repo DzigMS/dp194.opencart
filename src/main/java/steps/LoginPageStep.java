@@ -5,13 +5,12 @@ import pages.LoginPage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LoginPageStep {
-    private Driver driver;
+public class LoginPageStep extends BaseStep {
     private LoginPage page;
 
     public LoginPageStep(Driver driver) {
-        this.driver = driver;
-        this.page = new LoginPage(this.driver);
+        super(driver);
+        this.page = new LoginPage(this.getDriver());
     }
 
     public LoginPageStep fillEmailField(String text) {
@@ -28,16 +27,16 @@ public class LoginPageStep {
 
     public ForgottenPasswordPageStep clickForgottenPasswordLink() {
         this.page.clickForgottenPasswordLink();
-        return new ForgottenPasswordPageStep(this.driver);
+        return new ForgottenPasswordPageStep(this.getDriver());
     }
 
     public MyAccountPageStep clickLoginButton() {
         this.page.clickLoginButton();
-        return new MyAccountPageStep(this.driver);
+        return new MyAccountPageStep(this.getDriver());
     }
 
     public RegisterPageStep clickNewCustomerContinueLink() {
         this.page.clickNewCustomerContinueLink();
-        return new RegisterPageStep(this.driver);
+        return new RegisterPageStep(this.getDriver());
     }
 }

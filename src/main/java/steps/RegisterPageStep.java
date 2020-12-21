@@ -5,11 +5,12 @@ import pages.RegisterPage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RegisterPageStep {
+public class RegisterPageStep extends BaseStep {
     private RegisterPage page;
 
     public RegisterPageStep(Driver driver) {
-        this.page = new RegisterPage(driver);
+        super(driver);
+        this.page = new RegisterPage(this.getDriver());
     }
 
     public RegisterPageStep fillFirstNameField(String text) {

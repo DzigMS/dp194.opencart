@@ -3,10 +3,11 @@ package steps;
 import driver.Driver;
 import pages.ForgottenPasswordPage;
 
-public class ForgottenPasswordPageStep {
+public class ForgottenPasswordPageStep extends BaseStep {
     private ForgottenPasswordPage page;
 
     public ForgottenPasswordPageStep(Driver driver) {
-        this.page = new ForgottenPasswordPage(driver);
+        super(driver);
+        this.page = new ForgottenPasswordPage(this.getDriver());
     }
 }
