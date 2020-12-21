@@ -5,13 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import driver.Driver;
 import pages.ContactUsPage;
 
-public class ContactPageStep {
-	private Driver driver;
+public class ContactPageStep extends BaseStep {
 	private ContactUsPage contactUsPage;
 	
 	public ContactPageStep(Driver driver) {
-		this.driver = driver;
-		this.contactUsPage = new ContactUsPage(this.driver);
+		super(driver);
+		this.contactUsPage = new ContactUsPage(this.getDriver());
 	}
 	
 	public ContactPageStep fillNameField(String name) {
@@ -37,7 +36,7 @@ public class ContactPageStep {
 	public ContactPageStep verifyCurrentPage(String expectedUrl) {
 //		boolean actual = contactUsPage.getcontinueButton().exists();
 //		assertEquals(expected, actual);
-		String actual = driver.getLinkUrl();
+		String actual = this.getDriver().getLinkUrl();
 		assertEquals(expectedUrl, actual);
 		return this;
 	}
