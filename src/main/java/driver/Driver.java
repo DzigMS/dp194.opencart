@@ -66,4 +66,7 @@ public class Driver {
             driver.get(url);
         }
     }
+    public String getLinkUrl() {
+        return driver.getCurrentUrl();
+    }
 }

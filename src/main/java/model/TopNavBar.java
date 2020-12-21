@@ -28,4 +28,8 @@ public class TopNavBar extends HtmlElement {
     public void goToShoppingCartPage() {
         shoppingCartLink.click();
     }
+
+    public void clickContactUsLink() {
+        contactUsLink.click();
+    }
 }
