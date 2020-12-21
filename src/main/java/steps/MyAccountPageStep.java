@@ -3,12 +3,11 @@ package steps;
 import driver.Driver;
 import pages.MyAccountPage;
 
-public class MyAccountPageStep {
-    private Driver driver;
+public class MyAccountPageStep extends BaseStep {
     private MyAccountPage page;
 
     public MyAccountPageStep(Driver driver) {
-        this.driver = driver;
-        this.page = new MyAccountPage(this.driver);
+        super(driver);
+        this.page = new MyAccountPage(this.getDriver());
     }
 }

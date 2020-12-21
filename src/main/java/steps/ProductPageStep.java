@@ -4,11 +4,12 @@ import driver.Driver;
 import model.ProductReview;
 import pages.ProductPage;
 
-public class ProductPageSteps {
+public class ProductPageStep extends BaseStep {
     private ProductPage productPage;
 
-    public ProductPageSteps(Driver driver) {
-        this.productPage = new ProductPage(driver);
+    public ProductPageStep(Driver driver) {
+        super(driver);
+        this.productPage = new ProductPage(this.getDriver());
     }
 
     public String writeProductReviewStep() {

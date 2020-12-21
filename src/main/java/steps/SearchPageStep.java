@@ -9,13 +9,12 @@ import driver.Driver;
 import model.ProductItem;
 import pages.SearchPage;
 
-public class SearchPageStep {
-	private Driver driver;
+public class SearchPageStep extends BaseStep {
 	private SearchPage searchPage;
 	
 	public SearchPageStep(Driver driver) {
-		this.driver = driver;
-		this.searchPage = new SearchPage(driver);
+		super(driver);
+		this.searchPage = new SearchPage(this.getDriver());
 	}
 	
     public SearchPageStep fillSearchField(String keyword) {
@@ -35,7 +34,7 @@ public class SearchPageStep {
     
     public SearchPageStep clickSearchButton() {
     	searchPage.getSearchForm().clickSearchButton();
-    	this.searchPage = new SearchPage(driver);
+    	this.searchPage = new SearchPage(this.getDriver());
     	return this; 
     }
     
