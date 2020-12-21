@@ -1,22 +1,22 @@
 import org.junit.jupiter.api.Test;
-import steps.ProductPageSteps;
+import steps.ProductPageStep;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProductPageTest extends CommonConditionTest {
 
-    ProductPageSteps productPageSteps;
+    ProductPageStep productPageSteps;
 
     @Test
     public void writeProductReviewTest() {
-        productPageSteps = new ProductPageSteps(driver);
+        productPageSteps = new ProductPageStep(driver);
         assertEquals(productPageSteps.writeProductReviewStep(),
                 productPageSteps.createExpectedSuccessMessageAddProductReview());
     }
 
     @Test
     public void getSuccessMessageAboutAddedProductToShoppingCartTest() {
-        productPageSteps = new ProductPageSteps(driver);
+        productPageSteps = new ProductPageStep(driver);
         assertEquals
                 (productPageSteps.getSuccessMessageAboutAddedProductToShoppingCartStep(),
                         productPageSteps.createExpectedSuccessMessageAddProductToShoppingCart());
