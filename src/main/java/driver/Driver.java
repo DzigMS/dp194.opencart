@@ -33,23 +33,19 @@ public class Driver {
         switch (nameDriver.toLowerCase()) {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
-
-                driver = new FirefoxDriver(new FirefoxOptions(capabilities));
+                driver = new FirefoxDriver(new FirefoxOptions().merge(capabilities));
                 break;
             case "edge":
                 WebDriverManager.edgedriver().setup();
-
                 driver = new EdgeDriver(new EdgeOptions().merge(capabilities));
                 break;
             case "opera":
                 WebDriverManager.operadriver().setup();
-
                 driver = new OperaDriver(new OperaOptions().merge(capabilities));
                 break;
             case "chrome":
             default:
                 WebDriverManager.chromedriver().setup();
-
                 driver = new ChromeDriver(new ChromeOptions().merge(capabilities));
         }
         driver.manage().window().maximize();
