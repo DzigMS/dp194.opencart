@@ -15,16 +15,22 @@ public class ContactPageStep extends BaseStep {
 	
 	public ContactPageStep fillNameField(String name) {
 		contactUsPage.fillNameField(name);
+		String actual = contactUsPage.getNameFieldText();
+		assertEquals(name, actual);
 		return this;
 	}
 	
 	public ContactPageStep fillEmailField(String email) {
 		contactUsPage.fillEmailField(email);
+		String actual = contactUsPage.getEmailFieldText();
+		assertEquals(email, actual);
 		return this;
 	}
 	
 	public ContactPageStep fillEnquiryField(String enquiry) {
 		contactUsPage.fillEnquiryField(enquiry);
+		String actual = contactUsPage.getEnquiryFieldText();
+		assertEquals(enquiry, actual);
 		return this;
 	}
 	
@@ -34,10 +40,26 @@ public class ContactPageStep extends BaseStep {
 	}
 	
 	public ContactPageStep verifyCurrentPage(String expectedUrl) {
-//		boolean actual = contactUsPage.getcontinueButton().exists();
-//		assertEquals(expected, actual);
 		String actual = this.getDriver().getLinkUrl();
 		assertEquals(expectedUrl, actual);
+		return this;
+	}
+
+	public ContactPageStep verifyNameErrorMsg(boolean expected) {
+		boolean actual = contactUsPage.isNameErrorMsgExist();
+		assertEquals(expected, actual);
+		return this;
+	}
+
+	public ContactPageStep verifyEmailErrorMsg(boolean expected) {
+		boolean actual = contactUsPage.isEmailErrorMsgExist();
+		assertEquals(expected, actual);
+		return this;
+	}
+
+	public ContactPageStep verifyEnquiryErrorMsg(boolean expected) {
+		boolean actual = contactUsPage.isEnquiryErrorMsgExist();
+		assertEquals(expected, actual);
 		return this;
 	}
 }
