@@ -1,3 +1,5 @@
+package searchTests;
+import basetest.CommonConditionTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import steps.HomePageStep;

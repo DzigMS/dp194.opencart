@@ -1,3 +1,4 @@
+import basetest.CommonConditionTest;
 import org.junit.jupiter.api.Test;
 import steps.ProductPageStep;
 
