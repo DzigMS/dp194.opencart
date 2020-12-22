@@ -11,48 +11,56 @@ public class ProductPageStep extends BaseStep {
         this.productPage = new ProductPage(this.getDriver());
     }
 
-    public void goToModelProductReviewStep() {
+    public String getUrlProductPage(){
+        return productPage.getLinkUrl(this.getDriver());
+    }
+
+    public ProductPageStep goToModelProductReviewStep() {
         productPage.goToModelProductReview();
+        return this;
     }
 
-    public void fillNameTexBoxProductReviewStep() {
-        productPage.getProductReview().fillNameTexBox("gjdlrjg;a lrjlej");
+    public ProductPageStep fillNameTexBoxProductReviewStep(String name) {
+        productPage.getProductReview().fillNameTexBox(name);
+        return this;
     }
 
-    public void fillReviewTexBoxProductReviewStep() {
-        productPage.getProductReview().fillReviewTextBox("fhjarlfEFKekfn nwenEWKFLHEKWJFwfNEDGRSGSEGKN>kn >NEKJEW");
+    public ProductPageStep fillReviewTexBoxProductReviewStep(String review) {
+        productPage.getProductReview().fillReviewTextBox(review);
+        return this;
     }
 
-    public void murkDownProductRatingRadioProductReviewStep() {
+    public ProductPageStep murkDownProductRatingRadioProductReviewStep() {
         productPage.getProductReview().murkDownProductRatingRadio();
+        return this;
     }
 
-    public void clickContinueButtonProductReviewStep() {
+    public ProductPageStep clickContinueButtonProductReviewStep() {
         productPage.getProductReview().clickContinueButtonReview();
+        return this;
     }
 
     public String getMessageSuccessProductReviewStep() {
         return productPage.getProductReview().getMessageSuccess();
     }
 
-    public String createExpectedSuccessMessageAddProductReviewStep() {
-        return "Thank you for your review. It has been submitted to the webmaster for approval.";
-    }
 
-    public void addProductToShoppingCartStep() {
+    public ProductPageStep addProductToShoppingCartStep() {
         productPage.addProductToShoppingCart();
+        return this;
     }
-    public void fillFieldProductQuantityStep(String quantity) {
+    public ProductPageStep fillFieldProductQuantityStep(String quantity) {
         productPage.fillFieldProductQuantity(quantity);
+        return this;
     }
-
-
-//    public void fillFieldProductQuantityStep(int quantity) {
+//        public ProductPageStep fillFieldProductQuantityStep(int quantity) {
 //        productPage.fillFieldProductQuantity(String.valueOf(quantity));
+//            return this;
 //    }
 
-    public void clearFieldProductQuantityStep() {
+    public ProductPageStep clearFieldProductQuantityStep() {
         productPage.clearFieldProductQuantity();
+        return this;
     }
 
     public String getSuccessMessageAboutAddedProductToShoppingCartStep() {
@@ -72,11 +80,13 @@ public class ProductPageStep extends BaseStep {
     }
 
     public String createExpectedSuccessMessageAddProductToShoppingCartStep() {
-        return "Success: You have added " + this.getProductNameFromProductPageStep() + " to your shopping cart!\n×";
+        return "Success: You have added "
+                + this.getProductNameFromProductPageStep() +
+                " to your shopping cart!\n×";
     }
 
-    public ShoppingCartSteps goToShoppingCartStep(Driver driver) {
+    public ShoppingCartStep goToShoppingCartStep(Driver driver) {
         productPage.getTopNavBar().goToShoppingCartPage();
-        return new ShoppingCartSteps(driver);
+        return new ShoppingCartStep(driver);
     }
 }

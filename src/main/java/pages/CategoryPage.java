@@ -6,9 +6,10 @@ import model.ProductItem;
 
 import java.util.List;
 
-public class CategoryPage extends BasePage{
+public class CategoryPage extends BasePage {
     private ProductActions productActions;
     private List<ProductItem> productItemList;
+    private ProductItem productItem;
 
     public CategoryPage(Driver driver) {
         super(driver);
@@ -22,5 +23,8 @@ public class CategoryPage extends BasePage{
         return productItemList;
     }
 
+    public ProductItem getProductItem() {
+        return productItem;
+    }
 }
 

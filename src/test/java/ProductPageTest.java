@@ -1,32 +1,36 @@
 import org.junit.jupiter.api.Test;
-import steps.ProductPageSteps;
+import steps.ProductPageStep;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProductPageTest extends CommonConditionTest {
+//   ProductPageTest productPageStep;
+    private final String ExpectedSuccessMessageAddProductReview = "Thank you for your review. It has been submitted to the webmaster for approval.";
 
-    ProductPageSteps productPageSteps;
 
-    @Test
-    public void validationWriteProductReviewTest() {
-        productPageSteps = new ProductPageSteps(driver);
-        productPageSteps.goToModelProductReviewStep();
-        productPageSteps.fillNameTexBoxProductReviewStep();
-        productPageSteps.fillReviewTexBoxProductReviewStep();
-        productPageSteps.murkDownProductRatingRadioProductReviewStep();
-        productPageSteps.clickContinueButtonProductReviewStep();
-        assertEquals(productPageSteps.getMessageSuccessProductReviewStep(),
-                productPageSteps.createExpectedSuccessMessageAddProductReviewStep());
-    }
 
+
+//
+//    @Test
+//    public void validationWriteProductReviewTest() {
+//        productPageStep = new ProductPageTest();
+//        productPageStep.goToModelProductReviewStep();
+//        productPageStep.fillNameTexBoxProductReviewStep();
+//        productPageStep.fillReviewTexBoxProductReviewStep();
+//        productPageStep.murkDownProductRatingRadioProductReviewStep();
+//        productPageStep.clickContinueButtonProductReviewStep();
+//        assertEquals(productPageStep.getMessageSuccessProductReviewStep(),
+//                productPageStep.createExpectedSuccessMessageAddProductReviewStep());
+//    }
+//
     @Test
     public void validationGetSuccessMessageAboutAddedProductToShoppingCartTest() {
-        productPageSteps = new ProductPageSteps(driver);
-        productPageSteps.clearFieldProductQuantityStep();
-        productPageSteps.fillFieldProductQuantityStep("2");
-        productPageSteps.addProductToShoppingCartStep();
+        ProductPageStep productPageStep = new ProductPageStep(this.driver);
+        productPageStep.clearFieldProductQuantityStep();
+        productPageStep.fillFieldProductQuantityStep("2");
+        productPageStep.addProductToShoppingCartStep();
         assertEquals
-                (productPageSteps.getSuccessMessageAboutAddedProductToShoppingCartStep(),
-                        productPageSteps.createExpectedSuccessMessageAddProductToShoppingCartStep());
+                (productPageStep.getSuccessMessageAboutAddedProductToShoppingCartStep(),
+                        productPageStep.createExpectedSuccessMessageAddProductToShoppingCartStep());
     }
 }

@@ -46,4 +46,5 @@ public class ProductItem extends HtmlElement {
     public String getProductName() {
     	return productNameLink.getText();
     }
+
 }

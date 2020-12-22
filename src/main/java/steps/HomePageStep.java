@@ -29,4 +29,14 @@ public class HomePageStep extends BaseStep {
 		homePage.getTopNavBar().clickContactUsLink();
 		return new ContactPageStep(this.getDriver());
 	}
+
+	public CategoryPageStep goToPhonesAndPDAsCategoryPageStep(){
+		homePage.getCategoryMenu().clickPhonesAndPDAsCategoryMenu();
+		return new CategoryPageStep(this.getDriver());
+	}
+	public String getCurrentUrl(){
+		return homePage.getLinkUrl(this.getDriver());
+	}
+
+
 }

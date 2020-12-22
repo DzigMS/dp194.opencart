@@ -33,9 +33,14 @@ public class ProductPage extends BasePage {
         return productReview;
     }
 
-    public void clearFieldProductQuantity(){
+    public String getLinkUrl(Driver driver) {
+        return driver.getWebDriver().getCurrentUrl();
+    }
+
+    public void clearFieldProductQuantity() {
         productQuantity.clear();
     }
+
     public void fillFieldProductQuantity(String quantity) {
         productQuantity.sendKeys(quantity);
     }
