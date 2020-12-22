@@ -1,3 +1,4 @@
+import constants.PagesURL;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import steps.ContactPageStep;
@@ -13,6 +14,6 @@ public class TC_DP194_54 extends CommonConditionTest {
 		contactPageStep.fillNameField(name)
 		.fillEmailField(email)
 		.fillEnquiryField(enquiry)
-		.clickSubmitButton().verifyCurrentPage(successPageUrl);
+		.clickSubmitButton().verifyCurrentPage(PagesURL.SUCCESS_CONTACT_PAGE_URL);
 	}
 }
