@@ -25,7 +25,7 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     private TextBlock successMessage;
     @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
-    private TextBlock waringMessage;
+    private TextBlock warningMessage;
 
 
     public ProductPage(Driver driver) {
@@ -75,7 +75,7 @@ public class ProductPage extends BasePage {
     public String getSuccessMessage() {
         return successMessage.getText();
     }
-    public String getWaringMessage() {
-        return waringMessage.getText();
+    public String getWarningMessage() {
+        return warningMessage.getText();
     }
 }

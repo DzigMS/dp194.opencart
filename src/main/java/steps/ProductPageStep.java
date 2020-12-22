@@ -67,7 +67,7 @@ public class ProductPageStep extends BaseStep {
         return productPage.getSuccessMessage();
     }
     public String getWaringMessageAboutAddedProductToShoppingCartStep() {
-        return productPage.getWaringMessage();
+        return productPage.getWarningMessage();
     }
 
     public String getProductNameFromProductPageStep() {
