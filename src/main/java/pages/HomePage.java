@@ -10,4 +10,8 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
+    public String getLinkUrl(Driver driver) {
+        return driver.getWebDriver().getCurrentUrl();
+
+    }
 }

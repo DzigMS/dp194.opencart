@@ -1,11 +1,12 @@
 package pages;
 
 import driver.Driver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import ru.yandex.qatools.htmlelements.element.Button;
-import ru.yandex.qatools.htmlelements.element.Table;
-import ru.yandex.qatools.htmlelements.element.TextBlock;
-import ru.yandex.qatools.htmlelements.element.TextInput;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.htmlelements.element.*;
 
 public class ShoppingCartPage extends BasePage {
     @FindBy(xpath = "//div[@class='table-responsive']")
@@ -22,6 +23,12 @@ public class ShoppingCartPage extends BasePage {
     private Button updateButtonFromShoppingCar;
     @FindBy(xpath = "//button[@data-original-title='Remove']")
     private Button removeButtonFromShoppingCar;
+    @FindBy(xpath = "//a[contains(text(),'Continue Shopping')]")
+    private Button continueShoppingButtonFromShoppingCar;
+    @FindBy(xpath = "//a[contains(text(),'Continue')]")
+    private Link continueButtonFromShoppingCar;
+
+
 
     public ShoppingCartPage(Driver driver) {
         super(driver);
@@ -42,16 +49,13 @@ public class ShoppingCartPage extends BasePage {
     public String getProductQuantityFromShoppingCarTable() {
         return productQuantityFromShoppingCar.getText();
     }
-    public void clearFieldProductQuantityInShoppingCartTable(){
+
+    public void clearFieldProductQuantityInShoppingCartTable() {
         productQuantityFromShoppingCar.clear();
     }
 
     public void fillProductQuantityInShoppingCartTable(String quantity) {
         productQuantityFromShoppingCar.sendKeys(quantity);
-    }
-
-    public void removeProductQuantityInShoppingCartTable() {
-        productQuantityFromShoppingCar.clear();
     }
 
     public void clickUpdateButtonFromShoppingCar() {
@@ -61,4 +65,16 @@ public class ShoppingCartPage extends BasePage {
     public void clickRemoveButtonFromShoppingCar() {
         removeButtonFromShoppingCar.click();
     }
+
+    public void clickContinueShoppingButtonFromShoppingCar() {
+        continueShoppingButtonFromShoppingCar.click();
+    }
+
+    public void clickContinueButtonFromShoppingCar(Driver driver) {
+        WebDriverWait webDriverWait;
+        webDriverWait = new WebDriverWait(driver.getWebDriver(),50);
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Continue')]")));
+        continueButtonFromShoppingCar.click();
+    }
+
 }

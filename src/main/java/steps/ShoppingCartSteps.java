@@ -1,6 +1,7 @@
 package steps;
 
 import driver.Driver;
+import pages.HomePage;
 import pages.ShoppingCartPage;
 
 public class ShoppingCartSteps {
@@ -37,5 +38,12 @@ public class ShoppingCartSteps {
     public void removeShoppingCartStep() {
         shoppingCartPage.clickRemoveButtonFromShoppingCar();
     }
+
+    public HomePageStep clickContinueButtonInShoppingCartStep(Driver driver) {
+
+        shoppingCartPage.clickContinueButtonFromShoppingCar(driver);
+        return new HomePageStep(driver);
+    }
+
 }
 

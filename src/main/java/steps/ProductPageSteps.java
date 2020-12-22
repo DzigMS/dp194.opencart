@@ -10,12 +10,27 @@ public class ProductPageSteps {
         this.productPage = new ProductPage(driver);
     }
 
-    public String writeProductReviewStep() {
+    public void goToModelProductReviewStep() {
         productPage.goToModelProductReview();
+    }
+
+    public void fillNameTexBoxProductReviewStep() {
         productPage.getProductReview().fillNameTexBox("gjdlrjg;a lrjlej");
+    }
+
+    public void fillReviewTexBoxProductReviewStep() {
         productPage.getProductReview().fillReviewTextBox("fhjarlfEFKekfn nwenEWKFLHEKWJFwfNEDGRSGSEGKN>kn >NEKJEW");
+    }
+
+    public void murkDownProductRatingRadioProductReviewStep() {
         productPage.getProductReview().murkDownProductRatingRadio();
+    }
+
+    public void clickContinueButtonProductReviewStep() {
         productPage.getProductReview().clickContinueButtonReview();
+    }
+
+    public String getMessageSuccessProductReviewStep() {
         return productPage.getProductReview().getMessageSuccess();
     }
 
@@ -26,10 +41,14 @@ public class ProductPageSteps {
     public void addProductToShoppingCartStep() {
         productPage.addProductToShoppingCart();
     }
-
-    public void fillFieldProductQuantityStep() {
-        productPage.fillFieldProductQuantity("2");
+    public void fillFieldProductQuantityStep(String quantity) {
+        productPage.fillFieldProductQuantity(quantity);
     }
+
+
+//    public void fillFieldProductQuantityStep(int quantity) {
+//        productPage.fillFieldProductQuantity(String.valueOf(quantity));
+//    }
 
     public void clearFieldProductQuantityStep() {
         productPage.clearFieldProductQuantity();
@@ -52,7 +71,7 @@ public class ProductPageSteps {
     }
 
     public String createExpectedSuccessMessageAddProductToShoppingCartStep() {
-        return "Success: You have added" + " " + this.getProductNameFromProductPageStep() + " " + "to your shopping cart!\n×";
+        return "Success: You have added " + this.getProductNameFromProductPageStep() + " to your shopping cart!\n×";
     }
 
     public ShoppingCartSteps goToShoppingCartStep(Driver driver) {
