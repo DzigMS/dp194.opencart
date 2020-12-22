@@ -36,10 +36,6 @@ public class ProductPage extends BasePage {
         return productReview;
     }
 
-    public String getLinkUrl(Driver driver) {
-        return driver.getWebDriver().getCurrentUrl();
-    }
-
     public void clearFieldProductQuantity() {
         productQuantity.clear();
     }
@@ -75,6 +71,7 @@ public class ProductPage extends BasePage {
     public String getSuccessMessage() {
         return successMessage.getText();
     }
+
     public String getWarningMessage() {
         return warningMessage.getText();
     }

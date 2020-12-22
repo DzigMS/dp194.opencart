@@ -1,3 +1,4 @@
+import basetest.CommonConditionTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import steps.ProductPageStep;
@@ -18,7 +19,7 @@ public class TC_DP194_14 extends CommonConditionTest {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
         String actual = productPageStep.addProductToShoppingCartStep()
                 .goToShoppingCartStep(driver)
-                .clickLinkProductNameFromShoppingCarTable().getUrlProductPage();
+                .clickLinkProductNameFromShoppingCarTable().getCurrentPage();
         assertEquals(PRODUCT_PAGE_URL, actual);
     }
 }

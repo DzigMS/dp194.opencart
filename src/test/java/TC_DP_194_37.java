@@ -1,3 +1,4 @@
+import basetest.CommonConditionTest;
 import driver.Driver;
 
 
@@ -7,7 +8,7 @@ import steps.HomePageStep;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TC_DP_194_37 extends CommonConditionTest{
+public class TC_DP_194_37 extends CommonConditionTest {
 
     Driver driver;
     CategoryPageStep categoryPageStep;

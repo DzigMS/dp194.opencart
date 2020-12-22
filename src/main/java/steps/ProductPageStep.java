@@ -11,8 +11,8 @@ public class ProductPageStep extends BaseStep {
         this.productPage = new ProductPage(this.getDriver());
     }
 
-    public String getUrlProductPage(){
-        return productPage.getLinkUrl(this.getDriver());
+    public String getCurrentPage() {
+        return this.getDriver().getLinkUrl();
     }
 
     public ProductPageStep goToModelProductReviewStep() {
@@ -49,14 +49,11 @@ public class ProductPageStep extends BaseStep {
         productPage.addProductToShoppingCart();
         return this;
     }
+
     public ProductPageStep fillFieldProductQuantityStep(String quantity) {
         productPage.fillFieldProductQuantity(quantity);
         return this;
     }
-//        public ProductPageStep fillFieldProductQuantityStep(int quantity) {
-//        productPage.fillFieldProductQuantity(String.valueOf(quantity));
-//            return this;
-//    }
 
     public ProductPageStep clearFieldProductQuantityStep() {
         productPage.clearFieldProductQuantity();
@@ -66,6 +63,7 @@ public class ProductPageStep extends BaseStep {
     public String getSuccessMessageAboutAddedProductToShoppingCartStep() {
         return productPage.getSuccessMessage();
     }
+
     public String getWaringMessageAboutAddedProductToShoppingCartStep() {
         return productPage.getWarningMessage();
     }
