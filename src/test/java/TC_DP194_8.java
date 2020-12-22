@@ -5,10 +5,11 @@ import steps.ProductPageStep;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//Validation changing quantity of items in cart to correct value
-public class TC_DP194_21 extends CommonConditionTest {
+//Validation applying correct coupon code
+
+public class TC_DP194_8 extends CommonConditionTest {
+    private static final String SUCCESS_MESSAGE = "Success: Your coupon discount has been applied!\n×";
     private static final String PRODUCT_PAGE_URL = "http://34.121.117.87/htc-touch-hd";
-    private String successMessage = "Success: You have modified your shopping cart!\n×";
 
     @BeforeEach
     public void openProductPage() {
@@ -16,16 +17,15 @@ public class TC_DP194_21 extends CommonConditionTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/cartQuantity.csv", numLinesToSkip = 1)
-    public void TCDP194_21(String quantity) {
+    @CsvFileSource(resources = "/validCoupon.csv", numLinesToSkip = 1)
+    public void TCDP194_4(String coupon) {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
         String actual = productPageStep.addProductToShoppingCartStep()
                 .goToShoppingCartStep(this.driver)
-                .clearFieldQuantityProductInShoppingCartStep()
-                .fillQuantityProductInShoppingCartStep(quantity)
-                .updateQuantityInShoppingCartStep()
+                .clickUseCouponCodeLinkDropdownStep()
+                .fillCouponTextInputStep(coupon)
+                .clickApplyCouponButtonStep()
                 .getSuccessMessageModifiedShoppingCartStep();
-
-        assertEquals(successMessage, actual);
+        assertEquals(SUCCESS_MESSAGE, actual);
     }
 }

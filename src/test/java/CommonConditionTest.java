@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 public class CommonConditionTest {
     protected Driver driver;
 
-    private static final String BASE_URL = "http://34.121.117.87/htc-touch-hd";
+    private static final String BASE_URL = "http://34.121.117.87/index.php?route=common/home";
 
     @BeforeEach
     public void startTest() {
