@@ -24,6 +24,10 @@ public class SearchForm extends HtmlElement {
     public void fillSearchField(String keyword) {
     	searchField.sendKeys(keyword);
     }
+
+    public String getSearchFieldText() {
+        return searchField.getText();
+    }
     
     public void cleanSearchField() {
     	searchField.clear();
