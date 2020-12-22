@@ -1,3 +1,5 @@
+package basetest;
+
 import driver.Driver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

@@ -27,7 +27,6 @@ public class ProductActions extends HtmlElement{
         showSelect.selectByIndex(index);
     }
 
-
     public void selectSortByValue(String value){
         sortBySelect.selectByValue(value);
     }

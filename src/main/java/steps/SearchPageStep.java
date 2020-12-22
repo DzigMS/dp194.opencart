@@ -19,6 +19,8 @@ public class SearchPageStep extends BaseStep {
 	
     public SearchPageStep fillSearchField(String keyword) {
     	searchPage.getSearchForm().fillSearchField(keyword);
+    	String actual = searchPage.getSearchForm().getSearchFieldText();
+		assertEquals(keyword, actual);
     	return this;
     }
 	
@@ -44,9 +46,7 @@ public class SearchPageStep extends BaseStep {
     } 
     
     public SearchPageStep verifyQuantity(int maxValue) {
-    	boolean expected = true;
-    	boolean actual = (searchPage.getProductItems().size() <= maxValue);
-    	assertEquals(expected, actual);
+    	assert(searchPage.getProductItems().size() <= maxValue);
     	return this;
     }
     
@@ -59,13 +59,10 @@ public class SearchPageStep extends BaseStep {
     }
     
     public SearchPageStep verifySearchResults(String expectedName) {
-    	boolean expected = true;
-    	boolean actual;
     	expectedName = expectedName.toLowerCase();
     	List<String> names = this.getProductNames();
     	for (String name : names) {
-    		actual = name.toLowerCase().contains(expectedName);
-    		assertEquals(expected, actual);
+    		assert(name.toLowerCase().contains(expectedName));
     	}
     	return this; 
     }

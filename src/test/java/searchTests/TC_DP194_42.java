@@ -1,9 +1,12 @@
+package searchTests;
+import basetest.CommonConditionTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 import steps.HomePageStep;
 import steps.SearchPageStep;
+//Search page: Validation the search by invalid keywords
 public class TC_DP194_42 extends CommonConditionTest {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/InvalidKeywords.csv", numLinesToSkip = 1)
