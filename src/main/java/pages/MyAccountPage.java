@@ -5,10 +5,10 @@ import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.element.Link;
 
 public class MyAccountPage extends BasePage {
-    @FindBy(xpath = "//a[contains(text(),'Edit your account information')]")
+    @FindBy(linkText = "Edit your account information")
     private Link editInfoLink;
 
-    @FindBy(linkText = "Edit your account information")
+    @FindBy(linkText = "Change your password")
     private Link changePasswordLink;
 
 

@@ -13,7 +13,7 @@ import steps.LoginPageStep;
  */
 public class TC_DP194_81 extends CommonConditionTest {
     @ParameterizedTest
-    @CsvFileSource(resources = "/InvalidLoginCredits.csv", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/LoginPageInvalidLoginCredits.csv", numLinesToSkip = 1)
     public void TCDP194_81(String email, String password) {
         HomePageStep homePageStep = new HomePageStep(this.driver);
         LoginPageStep loginPageStep = homePageStep.goToLoginPage();

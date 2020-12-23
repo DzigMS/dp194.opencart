@@ -2,7 +2,6 @@ package myAccountPageTests.changePasswordTests;
 
 import basetest.CommonConditionTest;
 import constants.PagesURL;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import steps.ChangePasswordPageStep;
@@ -11,13 +10,13 @@ import steps.LoginPageStep;
 import steps.MyAccountPageStep;
 
 /**
- * TC_DP194_65
- * My Account page: Validation of Password Change, valid values
+ * TC_DP194_84
+ * My Account page: Validation of Password Change, invalid values
  */
-public class TC_DP194_65 extends CommonConditionTest {
+public class TC_DP194_84 extends CommonConditionTest {
     @ParameterizedTest
-    @CsvFileSource(resources = "/ChangePasswordPageValidValues.csv", numLinesToSkip = 1)
-    public void TCDP194_65(String email, String oldPassword, String newPassword) {
+    @CsvFileSource(resources = "/ChangePasswordPageInvalidValues.csv", numLinesToSkip = 1)
+    public void TCDP194_84(String email, String oldPassword, String newPassword) {
         HomePageStep homePageStep = new HomePageStep(this.driver);
         homePageStep.goToLoginPage();
 
@@ -34,19 +33,7 @@ public class TC_DP194_65 extends CommonConditionTest {
                 fillPasswordField(newPassword).
                 fillPasswordConfirmField(newPassword).
                 clickContinueButton().
-                verifyCurrentPage(PagesURL.MY_ACCOUNT_PAGE);
-
-        this.setPasswordBack(oldPassword);
-    }
-
-    public void setPasswordBack(String oldPassword) {
-        MyAccountPageStep myAccountPageStep = new MyAccountPageStep(this.driver);
-        myAccountPageStep.clickChangePasswordLink();
-
-        ChangePasswordPageStep changePasswordPageStep = new ChangePasswordPageStep(this.driver);
-        changePasswordPageStep.
-                fillPasswordField(oldPassword).
-                fillPasswordConfirmField(oldPassword).
-                clickContinueButton();
+                verifyCurrentPage(PagesURL.PASSWORD_CHANGE_PAGE_PAGE).
+                passwordErrorMessageAppeared();
     }
 }

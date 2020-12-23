@@ -19,11 +19,11 @@ public class ChangePasswordPage extends BasePage {
     @FindBy(xpath = "//input[@value='Continue']")
     private Button continueButton;
 
-    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+    @FindBy(xpath = "//div[@class='text-danger'][contains(text(),'Password must be between 4 and 20 characters!')]")
     private HtmlElement passwordErrorMessage;
 
-    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
-    private HtmlElement confirmPasswordErrorMessage;
+    @FindBy(xpath = "//div[@class='text-danger'][contains(text(),'Password confirmation does not match password!')]")
+    private HtmlElement passwordConfirmErrorMessage;
 
 
     public ChangePasswordPage(Driver driver) {
@@ -63,7 +63,7 @@ public class ChangePasswordPage extends BasePage {
         return this.passwordErrorMessage.exists();
     }
 
-    public boolean confirmPasswordErrorMessageExists() {
-        return this.confirmPasswordErrorMessage.exists();
+    public boolean passwordConfirmErrorMessageExists() {
+        return this.passwordConfirmErrorMessage.exists();
     }
 }

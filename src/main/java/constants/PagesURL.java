@@ -8,4 +8,5 @@ public interface PagesURL {
     String REGISTER_PAGE_URL = "https://34.121.117.87/index.php?route=account/register";
     String MY_ACCOUNT_PAGE = "https://34.121.117.87/index.php?route=account/account";
     String FORGOTTEN_PASS_PAGE_PAGE = "https://34.121.117.87/index.php?route=account/forgotten";
+    String PASSWORD_CHANGE_PAGE_PAGE = "https://34.121.117.87/index.php?route=account/password";
 }
