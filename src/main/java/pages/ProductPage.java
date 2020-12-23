@@ -24,6 +24,9 @@ public class ProductPage extends BasePage {
     private Link reviews;
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     private TextBlock successMessage;
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+    private TextBlock warningMessage;
+
 
     public ProductPage(Driver driver) {
         super(driver);
@@ -33,31 +36,43 @@ public class ProductPage extends BasePage {
         return productReview;
     }
 
-    public void goToModelProductReview() {
-        reviews.click();
+    public void clearFieldProductQuantity() {
+        productQuantity.clear();
     }
 
     public void fillFieldProductQuantity(String quantity) {
         productQuantity.sendKeys(quantity);
     }
 
+    public String getProductQuantity() {
+        return productQuantity.getText();
+    }
+
     public void addProductToShoppingCart() {
         addToCardButton.click();
     }
 
-    public String getSuccessMessage() {
-        return successMessage.getText();
+    public void addProductToWishList() {
+        addToWishListButton.click();
     }
 
     public String getProductName() {
         return productName.getText();
     }
 
-    public void AddProductToWishList() {
-        addToWishListButton.click();
-    }
-
     public String getProductPrice() {
         return productPrice.getText();
+    }
+
+    public void goToModelProductReview() {
+        reviews.click();
+    }
+
+    public String getSuccessMessage() {
+        return successMessage.getText();
+    }
+
+    public String getWarningMessage() {
+        return warningMessage.getText();
     }
 }

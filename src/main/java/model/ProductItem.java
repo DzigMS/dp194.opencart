@@ -5,6 +5,7 @@ import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.Link;
 import ru.yandex.qatools.htmlelements.element.TextBlock;
+
 @FindBy(className = "product-thumb")
 public class ProductItem extends HtmlElement {
 
@@ -23,27 +24,27 @@ public class ProductItem extends HtmlElement {
     @FindBy(xpath = "button[@data-original-title='Compare this Product']")
     private Button addToCompareButton;
 
-    public void clickAddToCart(){
+    public void clickAddToCart() {
         addToCartButton.click();
     }
 
-    public void clickAddToWishList(){
+    public void clickAddToWishList() {
         addToWishListButton.click();
     }
 
-    public void clickAddToComparePage(){
+    public void clickAddToComparePage() {
         addToCompareButton.click();
     }
 
-    public String getProductPrice(){
+    public String getProductPrice() {
         return productPrice.getText();
     }
 
-    public String getProductTax(){
+    public String getProductTax() {
         return productTax.getText();
     }
-    
+
     public String getProductName() {
-    	return productNameLink.getText();
+        return productNameLink.getText();
     }
 }
