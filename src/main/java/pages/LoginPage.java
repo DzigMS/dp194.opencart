@@ -2,9 +2,7 @@ package pages;
 
 import driver.Driver;
 import org.openqa.selenium.support.FindBy;
-import ru.yandex.qatools.htmlelements.element.Button;
-import ru.yandex.qatools.htmlelements.element.Link;
-import ru.yandex.qatools.htmlelements.element.TextInput;
+import ru.yandex.qatools.htmlelements.element.*;
 
 public class LoginPage extends BasePage {
 
@@ -22,12 +20,15 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(),'Continue')]")
     private Link newCustomerContinueLink;
 
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+    private HtmlElement loginErrorMessage;
+
     public LoginPage(Driver driver) {
         super(driver);
     }
 
-    public void fillEmailField(CharSequence... firstName) {
-        this.email.sendKeys(firstName);
+    public void fillEmailField(CharSequence... email) {
+        this.email.sendKeys(email);
     }
 
     public String getEmailText() {
@@ -35,8 +36,8 @@ public class LoginPage extends BasePage {
     }
 
 
-    public void fillPasswordField(CharSequence... firstName) {
-        this.password.sendKeys(firstName);
+    public void fillPasswordField(CharSequence... password) {
+        this.password.sendKeys(password);
     }
 
     public String getPasswordText() {
@@ -57,4 +58,9 @@ public class LoginPage extends BasePage {
     public void clickNewCustomerContinueLink() {
         this.newCustomerContinueLink.click();
     }
+
+    public boolean loginErrorMessageExists() {
+        return this.loginErrorMessage.exists();
+    }
+
 }

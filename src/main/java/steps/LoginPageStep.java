@@ -30,13 +30,19 @@ public class LoginPageStep extends BaseStep {
         return new ForgottenPasswordPageStep(this.getDriver());
     }
 
-    public MyAccountPageStep clickLoginButton() {
+    public LoginPageStep clickLoginButton() {
         this.page.clickLoginButton();
-        return new MyAccountPageStep(this.getDriver());
+        return this;
     }
 
-    public RegisterPageStep clickNewCustomerContinueLink() {
-        this.page.clickNewCustomerContinueLink();
-        return new RegisterPageStep(this.getDriver());
+    public LoginPageStep verifyCurrentPage(String pageURL) {
+        assertEquals(pageURL, this.getDriver().getLinkUrl());
+        return this;
+    }
+
+    public LoginPageStep loginErrorMessageAppeared() {
+        boolean expected = true;
+        assertEquals(expected, this.page.loginErrorMessageExists());
+        return this;
     }
 }

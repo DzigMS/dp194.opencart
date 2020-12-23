@@ -25,9 +25,6 @@ public class TopNavBar extends HtmlElement {
     private Link shoppingCartLink;
     @FindBy(xpath = "//a[@title='Checkout']")
     private Link checkoutLink;
-    public void goToShoppingCartPage() {
-        shoppingCartLink.click();
-    }
 
     public void clickContactUsLink() {
         contactUsLink.click();
@@ -35,5 +32,35 @@ public class TopNavBar extends HtmlElement {
 
     public void clickCheckoutLink() {
         checkoutLink.click();
+    }
+
+
+    public void clickMyAccountDropdown() {
+        this.myAccountDropdown.click();
+    }
+
+    public void clickRegisterLink() {
+        if (this.registerLink.exists()) {
+            this.registerLink.click();
+        }
+    }
+    public void clickLoginLink() {
+        if (this.loginLink.exists()) {
+            this.loginLink.click();
+        }
+    }
+    public void clickMyAccountLink() {
+        if (this.myAccountLink.exists()) {
+            this.myAccountLink.click();
+        }
+    }
+    public void clickLogoutLink() {
+        if (this.logoutLink.exists()) {
+            this.logoutLink.click();
+        }
+    }
+
+    public void goToShoppingCartPage() {
+        shoppingCartLink.click();
     }
 }
