@@ -11,6 +11,8 @@ public class LoginPageStep extends BaseStep {
     public LoginPageStep(Driver driver) {
         super(driver);
         this.page = new LoginPage(this.getDriver());
+        this.page.getTopNavBar().clickMyAccountDropdown();
+        this.page.getTopNavBar().clickLoginLink();
     }
 
     public LoginPageStep fillEmailField(String text) {
