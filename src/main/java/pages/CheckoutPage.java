@@ -22,6 +22,7 @@ public class CheckoutPage extends BasePage{
         return this.firstStepOfCheckoutPage;
     }
 
+
     public SecondStepOfCheckoutPage getSecondStepOfCheckoutPage() {
         return secondStepOfCheckoutPage;
     }
