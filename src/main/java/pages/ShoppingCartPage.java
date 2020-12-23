@@ -84,9 +84,6 @@ public class ShoppingCartPage extends BasePage {
     }
 
     public void clickContinueButtonFromShoppingCar() {
-//        WebDriverWait webDriverWait;
-//        webDriverWait = new WebDriverWait(driver.getWebDriver(),50);
-//        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Continue')]")));
         continueButtonFromShoppingCar.click();
     }
 
