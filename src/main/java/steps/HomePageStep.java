@@ -40,6 +40,26 @@ public class HomePageStep extends BaseStep {
         return new CategoryPageStep(this.getDriver());
     }
 
+    public CategoryPageStep clickPhoneNavBar(){
+        homePage.getCategoryMenu().clickPhoneLink();
+        return new CategoryPageStep(this.getDriver());
+    }
+
+    public CheckoutPageAsGuestStep clickOnCheckoutLinkAsGuest(){
+        homePage.getTopNavBar().clickCheckoutLink();
+        return new CheckoutPageAsGuestStep(this.getDriver());
+    }
+
+    public CheckoutPageRegisterStep clickOnCheckoutLinkRegister(){
+        homePage.getTopNavBar().clickCheckoutLink();
+        return new CheckoutPageRegisterStep(this.getDriver());
+    }
+
+    public CheckoutPageAsLoggedUserStep clickOnCheckoutLinkLogged(){
+        homePage.getTopNavBar().clickCheckoutLink();
+        return new CheckoutPageAsLoggedUserStep(this.getDriver());
+    }
+
     public String getCurrentPage() {
         return this.getDriver().getLinkUrl();
     }

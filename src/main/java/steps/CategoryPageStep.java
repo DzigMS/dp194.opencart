@@ -7,101 +7,77 @@ import pages.CategoryPage;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class CategoryPageStep extends BaseStep{
-    private CategoryPage categoryPage;
+    CategoryPage categoryPage;
 
     public CategoryPageStep(Driver driver) {
         super(driver);
-        this.categoryPage = new CategoryPage(this.getDriver());
+        this.categoryPage = new CategoryPage(driver);
     }
 
-    public List<String> selectShowValueNameAZStep() {
+    public CategoryPageStep clickProduct(){
+        categoryPage.getProductItemList().get(0).clickOnProductLink();
+        return this;
+    }
+
+    public CategoryPageStep selectShowValueNameAZStep(){
         categoryPage.getProductActions().selectSortByIndex(1);
-        return this.getItemNames();
-
+        return this;
     }
 
-    public List<String> createShowValueNameAZStepResult(){
-        List<String> result = new ArrayList<>();
-        result.add("HTC Touch HD");
-        result.add("iPhone");
-        result.add("Palm Treo Pro");
-        return result;
-    }
-
-
-    public List<String> selectShowValueNameZAStep() {
+    public CategoryPageStep selectShowValueNameZAStep(){
         categoryPage.getProductActions().selectSortByIndex(2);
-        return this.getItemNames();
-
+        return this;
     }
 
-    public List<String> createShowValueNameZAStepResult(){
-        List<String> result = new ArrayList<>();
-        result.add("Palm Treo Pro");
-        result.add("iPhone");
-        result.add("HTC Touch HD");
-        return result;
-    }
-
-    public List<String> selectShowValueNamePriceLowHighStep() {
+    public CategoryPageStep selectShowValueNamePriceLowHigh(){
         categoryPage.getProductActions().selectSortByIndex(3);
-        System.out.println(this.getItemNames());
-        return this.getItemNames();
-
+        return this;
     }
 
-    public List<String> createShowValuePriceLowHighStepResult(){
-        List<String> result = new ArrayList<>();
-        result.add("HTC Touch HD");
-        result.add("iPhone");
-        result.add("Palm Treo Pro");
-        return result;
-    }
-
-    public List<String> selectShowValueNamePriceHighLowStep() {
+    public CategoryPageStep selectShowValueNamePriceHighLow(){
         categoryPage.getProductActions().selectSortByIndex(4);
-        System.out.println(this.getItemNames());
-        return this.getItemNames();
-
+        return this;
     }
 
-    public List<String> createShowValuePriceHighLowStepResult(){
-        List<String> result = new ArrayList<>();
-        result.add("Palm Treo Pro");
-        result.add("iPhone");
-        result.add("HTC Touch HD");
-        return result;
-    }
-
-    public List<String> selectShowValueNameHighestRatingStep() {
+    public CategoryPageStep selectShowValueNameHighestRatingStep() {
         categoryPage.getProductActions().selectSortByIndex(5);
-        System.out.println(this.getItemNames());
-        return this.getItemNames();
-
+        return this;
     }
 
-    public List<String> createShowValueHighestRatingResult(){
-        List<String> result = new ArrayList<>();
-        result.add("Palm Treo Pro");
-        result.add("iPhone");
-        result.add("HTC Touch HD");
-        return result;
-    }
-
-    public List<String> selectShowValueNameLowestRatingStep() {
+    public CategoryPageStep selectShowValueNameLowestRatingStep() {
         categoryPage.getProductActions().selectSortByIndex(6);
-        System.out.println(this.getItemNames());
-        return this.getItemNames();
-
+        return this;
     }
 
-    public List<String> createShowValueLowestRatingResult(){
-        List<String> result = new ArrayList<>();
-        result.add("Palm Treo Pro");
-        result.add("iPhone");
-        result.add("HTC Touch HD");
-        return result;
+    public CategoryPageStep compareResult(List<String> expected, List<String> actual){
+        assertEquals(expected,actual);
+        return this;
+    }
+
+    public CategoryPageStep verifyCurrentPage(String expectedUrl) {
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        String actual = this.getDriver().getLinkUrl();
+        assertEquals(expectedUrl, actual);
+        return this;
+    }
+
+
+    public List<String> getItemNames(){
+        List<String> names = new ArrayList<>();
+        for (ProductItem item :
+                this.categoryPage.getProductItemList()) {
+            names.add(item.getProductName());
+
+        }
+        return names;
     }
 
     public void clickAddToCartButton(){
@@ -118,14 +94,11 @@ public class CategoryPageStep extends BaseStep{
         }
     }
 
-    public List<String> getItemNames(){
-        List<String> names = new ArrayList<>();
+    public void clickAddToShoppingCartButton(){
         for (ProductItem item :
                 this.categoryPage.getProductItemList()) {
-            names.add(item.getProductName());
-
+            item.clickAddToCart();
         }
-        return names;
     }
 
 

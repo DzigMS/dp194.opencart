@@ -4,13 +4,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.element.*;
 
-@FindBy(xpath = "//*[@id='accordion']/div[1]")
-public class FirstStepOfCheckoutPage {
+@FindBy(id = "collapse-checkout-option")
+public class FirstStepOfCheckoutPage extends HtmlElement {
     @FindBy(xpath = "//*[@class='panel-heading']")
     private WebElement checkoutOptionsPanel;
     @FindBy(xpath = "//*[@class='radio'][1]")
     private Radio registerAccountRadio;
-    @FindBy(xpath = "//*[@class='radio'][2]")
+    @FindBy(xpath = "div/div/div[1]/div[2]/label/input")
     private Radio guestCheckoutRadio;
     @FindBy(id = "button-account")
     private Button continueButton;
@@ -36,70 +36,33 @@ public class FirstStepOfCheckoutPage {
     private Select regionSelect;
     @FindBy(xpath = "//*[@class='checkbox']")
     private CheckBox shippingAddressCheckbox;
-    @FindBy(id = "button-guest")
+    @FindBy(id = "button-account")
     private Button continueBillingDetailsButton;
+    @FindBy(id = "button-login")
+    private Button continueLoggedButton;
 
-    public WebElement getCheckoutOptionsPanel() {
-        return checkoutOptionsPanel;
+
+    public void clickContinueLoggedUser(){
+        continueLoggedButton.click();
     }
 
-    public Radio getRegisterAccountRadio() {
-        return registerAccountRadio;
+    public void clickGuestCheckoutRadio() {
+        guestCheckoutRadio.click();
     }
 
-    public Radio getGuestCheckoutRadio() {
-        return guestCheckoutRadio;
+    public void clickRegisterCheckoutRadio(){
+        registerAccountRadio.click();
     }
 
-    public Button getContinueButton() {
-        return continueButton;
+    public void fillEmailField(String str){
+        emailInput.sendKeys(str);
     }
 
-    public TextInput getEmailInput() {
-        return emailInput;
+    public void fillPasswordField(String str){
+        passwordInput.sendKeys(str);
     }
 
-    public TextInput getPasswordInput() {
-        return passwordInput;
-    }
-
-    public Button getLoginButton() {
-        return loginButton;
-    }
-
-    public TextInput getCompanyPaymentInput() {
-        return companyPaymentInput;
-    }
-
-    public TextInput getAddress1PaymentInput() {
-        return address1PaymentInput;
-    }
-
-    public TextInput getAddress2PaymentInput() {
-        return address2PaymentInput;
-    }
-
-    public TextInput getCityPaymentInput() {
-        return cityPaymentInput;
-    }
-
-    public TextInput getPostcodePaymentInput() {
-        return postcodePaymentInput;
-    }
-
-    public Select getCountrySelect() {
-        return countrySelect;
-    }
-
-    public Select getRegionSelect() {
-        return regionSelect;
-    }
-
-    public CheckBox getShippingAddressCheckbox() {
-        return shippingAddressCheckbox;
-    }
-
-    public Button getContinueBillingDetailsButton() {
-        return continueBillingDetailsButton;
+    public void clickContinueBillingDetailsButton() {
+        continueBillingDetailsButton.click();
     }
 }
