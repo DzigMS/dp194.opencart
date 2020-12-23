@@ -1,4 +1,7 @@
+package ShoppingCartTest;
+
 import basetest.CommonConditionTest;
+import constants.PagesURL;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -10,11 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TC_DP194_8 extends CommonConditionTest {
     private static final String SUCCESS_MESSAGE = "Success: Your coupon discount has been applied!\n×";
-    private static final String PRODUCT_PAGE_URL = "http://34.121.117.87/htc-touch-hd";
+
 
     @BeforeEach
     public void openProductPage() {
-        driver.openUrl(PRODUCT_PAGE_URL);
+        driver.openUrl(PagesURL.PRODUCT_PAGE_URL);
     }
 
     @ParameterizedTest
