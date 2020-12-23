@@ -11,10 +11,10 @@ import steps.LoginPageStep;
  * TC_DP194_63
  * Login page: Validation of Logging In, invalid values
  */
-public class TC_DP194_63 extends CommonConditionTest {
+public class TC_DP194_81 extends CommonConditionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/InvalidLoginCredits.csv", numLinesToSkip = 1)
-    public void TCDP194_63(String email, String password) {
+    public void TCDP194_81(String email, String password) {
         HomePageStep homePageStep = new HomePageStep(this.driver);
         LoginPageStep loginPageStep = homePageStep.goToLoginPage();
         loginPageStep.
