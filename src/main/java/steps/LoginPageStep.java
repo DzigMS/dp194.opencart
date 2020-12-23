@@ -25,6 +25,11 @@ public class LoginPageStep extends BaseStep {
         return this;
     }
 
+    public ForgottenPasswordPageStep clickForgottenPasswordLink() {
+        this.page.clickForgottenPasswordLink();
+        return new ForgottenPasswordPageStep(this.getDriver());
+    }
+
     public LoginPageStep clickLoginButton() {
         this.page.clickLoginButton();
         return this;
