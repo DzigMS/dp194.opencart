@@ -11,8 +11,6 @@ public class LoginPageStep extends BaseStep {
     public LoginPageStep(Driver driver) {
         super(driver);
         this.page = new LoginPage(this.getDriver());
-        this.page.getTopNavBar().clickMyAccountDropdown();
-        this.page.getTopNavBar().clickLoginLink();
     }
 
     public LoginPageStep fillEmailField(String text) {
@@ -27,18 +25,19 @@ public class LoginPageStep extends BaseStep {
         return this;
     }
 
-    public ForgottenPasswordPageStep clickForgottenPasswordLink() {
-        this.page.clickForgottenPasswordLink();
-        return new ForgottenPasswordPageStep(this.getDriver());
-    }
-
-    public MyAccountPageStep clickLoginButton() {
+    public LoginPageStep clickLoginButton() {
         this.page.clickLoginButton();
-        return new MyAccountPageStep(this.getDriver());
+        return this;
     }
 
-    public RegisterPageStep clickNewCustomerContinueLink() {
-        this.page.clickNewCustomerContinueLink();
-        return new RegisterPageStep(this.getDriver());
+    public LoginPageStep verifyCurrentPage(String pageURL) {
+        assertEquals(pageURL, this.getDriver().getLinkUrl());
+        return this;
+    }
+
+    public LoginPageStep loginErrorMessageAppeared() {
+        boolean expected = true;
+        assertEquals(expected, this.page.loginErrorMessageExists());
+        return this;
     }
 }
