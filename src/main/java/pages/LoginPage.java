@@ -20,7 +20,7 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(),'Continue')]")
     private Link newCustomerContinueLink;
 
-    @FindBy(className = "alert alert-danger alert-dismissible")
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
     private HtmlElement loginErrorMessage;
 
     public LoginPage(Driver driver) {

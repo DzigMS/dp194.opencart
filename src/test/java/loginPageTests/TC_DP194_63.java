@@ -21,6 +21,7 @@ public class TC_DP194_63 extends CommonConditionTest {
                 fillEmailField(email).
                 fillPasswordField(password).
                 clickLoginButton().
-                verifyCurrentPage(PagesURL.LOGIN_PAGE_URL);
+                verifyCurrentPage(PagesURL.LOGIN_PAGE_URL).
+                loginErrorMessageAppeared();
     }
 }
