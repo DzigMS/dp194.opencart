@@ -5,6 +5,6 @@ public interface PagesURL {
     String SUCCESS_CONTACT_PAGE_URL = "http://34.121.117.87/index.php?route=information/contact/success";
     String OPENCART_ADMIN_CUSTOMER_LIST = "https://34.121.117.87/admin/index.php?route=customer/customer";
     String PRODUCT_PAGE_URL = "http://34.121.117.87/htc-touch-hd";
-    String URL_HOME_PAGE = "http://34.121.117.87/index.php?route=common/home";
+    String HOME_PAGE_URL = "http://34.121.117.87/index.php?route=common/home";
 }
 

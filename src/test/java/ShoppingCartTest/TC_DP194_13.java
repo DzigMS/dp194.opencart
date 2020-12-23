@@ -22,6 +22,6 @@ public class TC_DP194_13 extends CommonConditionTest {
         String actual = productPageStep.addProductToShoppingCartStep()
                 .goToShoppingCartStep(driver).clickContinueShoppingButtonInShoppingCartStep()
                 .getCurrentPage();
-        assertEquals(PagesURL.URL_HOME_PAGE, actual);
+        assertEquals(PagesURL.HOME_PAGE_URL, actual);
     }
 }
