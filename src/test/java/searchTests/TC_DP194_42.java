@@ -9,7 +9,7 @@ import steps.SearchPageStep;
 //Search page: Validation the search by invalid keywords
 public class TC_DP194_42 extends CommonConditionTest {
 	@ParameterizedTest
-	@CsvFileSource(resources = "/InvalidKeywords.csv", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/InvalidSearchKeywords.csv", numLinesToSkip = 1)
 	@EmptySource
 	@ValueSource(strings = {" ", "   "})
 	public void TCDP194_42(String keyword) {

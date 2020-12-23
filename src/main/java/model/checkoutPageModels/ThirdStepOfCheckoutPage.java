@@ -2,12 +2,10 @@ package model.checkoutPageModels;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ru.yandex.qatools.htmlelements.element.Button;
-import ru.yandex.qatools.htmlelements.element.CheckBox;
-import ru.yandex.qatools.htmlelements.element.Select;
-import ru.yandex.qatools.htmlelements.element.TextInput;
+import ru.yandex.qatools.htmlelements.element.*;
+
 @FindBy(xpath = "//*[@id='accordion']/div[3]")
-public class ThirdStepOfCheckoutPage {
+public class ThirdStepOfCheckoutPage extends HtmlElement {
     @FindBy(xpath = "//*[@class='panel-heading']")
     private WebElement deliveryDetailsPanel;
 
@@ -36,6 +34,10 @@ public class ThirdStepOfCheckoutPage {
     private CheckBox shippingAddressCheckbox;
     @FindBy(id = "button-guest")
     private Button continueBillingDetailsButton;
+    @FindBy(id="button-shipping-address")
+    private Button continueRegisterButton;
 
-
+    public void clickContinueButton(){
+        continueRegisterButton.click();
+    }
 }

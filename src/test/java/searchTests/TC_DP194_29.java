@@ -7,7 +7,7 @@ import steps.SearchPageStep;
 //Search page: Validation the possibility to display products in different quantity
 public class TC_DP194_29 extends CommonConditionTest {
 	@ParameterizedTest
-	@CsvFileSource(resources = "/ShowValues.csv", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/ShowValuesSearchPage.csv", numLinesToSkip = 1)
 	public void TCDP194_29(int index, int maxValue) {
 		HomePageStep homePageStep = new HomePageStep(this.driver);
 		SearchPageStep searchPageStep = homePageStep.fillSearchField("d").clickSearchButton();
