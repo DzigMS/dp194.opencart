@@ -32,4 +32,8 @@ public class TopNavBar extends HtmlElement {
     public void clickContactUsLink() {
         contactUsLink.click();
     }
+
+    public void clickCheckoutLink() {
+        checkoutLink.click();
+    }
 }

@@ -17,11 +17,11 @@ public class ProductItem extends HtmlElement {
     private TextBlock productPrice;
     @FindBy(className = "price-tax")
     private TextBlock productTax;
-    @FindBy(xpath = "span[text()='Add to Cart']/..")
+    @FindBy(xpath = "div[2]/div[2]/button[1]/span")
     private Button addToCartButton;
-    @FindBy(xpath = "button[@data-original-title='Add to Wish List']")
+    @FindBy(xpath = "div[2]/div[2]/button[2]/span")
     private Button addToWishListButton;
-    @FindBy(xpath = "button[@data-original-title='Compare this Product']")
+    @FindBy(xpath = "div[2]/div[2]/button[3]/span")
     private Button addToCompareButton;
 
     public void clickAddToCart() {
@@ -47,4 +47,9 @@ public class ProductItem extends HtmlElement {
     public String getProductName() {
         return productNameLink.getText();
     }
+
+    public void clickOnProductLink(){
+        productImage.click();
+    }
+
 }
