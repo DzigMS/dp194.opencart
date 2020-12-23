@@ -27,8 +27,8 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public void fillEmailField(CharSequence... firstName) {
-        this.email.sendKeys(firstName);
+    public void fillEmailField(CharSequence... email) {
+        this.email.sendKeys(email);
     }
 
     public String getEmailText() {
@@ -36,8 +36,8 @@ public class LoginPage extends BasePage {
     }
 
 
-    public void fillPasswordField(CharSequence... firstName) {
-        this.password.sendKeys(firstName);
+    public void fillPasswordField(CharSequence... password) {
+        this.password.sendKeys(password);
     }
 
     public String getPasswordText() {

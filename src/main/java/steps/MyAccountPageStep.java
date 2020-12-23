@@ -10,4 +10,14 @@ public class MyAccountPageStep extends BaseStep {
         super(driver);
         this.page = new MyAccountPage(this.getDriver());
     }
+
+    public MyAccountPageStep clickEditInfoLink() {
+        this.page.clickEditInfoLink();
+        return new MyAccountPageStep(this.getDriver());
+    }
+
+    public MyAccountPageStep clickChangePasswordLink() {
+        this.page.clickChangePasswordLink();
+        return new MyAccountPageStep(this.getDriver());
+    }
 }

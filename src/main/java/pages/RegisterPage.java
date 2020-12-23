@@ -43,40 +43,40 @@ public class RegisterPage extends BasePage {
         return this.firstName.getText();
     }
 
-    public void fillLastNameField(CharSequence... firstName) {
-        this.lastName.sendKeys(firstName);
+    public void fillLastNameField(CharSequence... lastName) {
+        this.lastName.sendKeys(lastName);
     }
 
     public String getLastNameText() {
         return this.lastName.getText();
     }
 
-    public void fillEmailField(CharSequence... firstName) {
-        this.email.sendKeys(firstName);
+    public void fillEmailField(CharSequence... email) {
+        this.email.sendKeys(email);
     }
 
     public String getEmailText() {
         return this.email.getText();
     }
 
-    public void fillTelephoneField(CharSequence... firstName) {
-        this.telephone.sendKeys(firstName);
+    public void fillTelephoneField(CharSequence... telephone) {
+        this.telephone.sendKeys(telephone);
     }
 
     public String getTelephoneText() {
         return this.telephone.getText();
     }
 
-    public void fillPasswordField(CharSequence... firstName) {
-        this.password.sendKeys(firstName);
+    public void fillPasswordField(CharSequence... password) {
+        this.password.sendKeys(password);
     }
 
     public String getPasswordText() {
         return this.password.getText();
     }
 
-    public void fillPasswordConfirmField(CharSequence... firstName) {
-        this.passwordConfirm.sendKeys(firstName);
+    public void fillPasswordConfirmField(CharSequence... passwordConfirm) {
+        this.passwordConfirm.sendKeys(passwordConfirm);
     }
 
     public String getPasswordConfirmText() {
