@@ -22,7 +22,7 @@ public class TC_DP194_82 extends CommonConditionTest {
         forgottenPasswordPageStep.
                 fillEmailField(email).
                 clickContinueButton().
-                verifyCurrentPage(PagesURL.FORGOTTEN_PASS_PAGE_PAGE).
+                verifyCurrentPage(PagesURL.FORGOTTEN_PASS_PAGE).
                 passwordRestoreErrorMessageAppeared();
     }
 }

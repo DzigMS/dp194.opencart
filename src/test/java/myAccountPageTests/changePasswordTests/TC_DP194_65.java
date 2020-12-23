@@ -2,7 +2,6 @@ package myAccountPageTests.changePasswordTests;
 
 import basetest.CommonConditionTest;
 import constants.PagesURL;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import steps.ChangePasswordPageStep;
