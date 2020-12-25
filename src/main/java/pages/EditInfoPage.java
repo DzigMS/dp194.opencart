@@ -7,7 +7,6 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
 public class EditInfoPage extends BasePage {
-    //@FindBy(xpath = "//a[text() = 'Back']")
     @FindBy(linkText = "Back")
     private Button backButton;
 
