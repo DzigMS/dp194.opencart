@@ -4,6 +4,7 @@ import driver.Driver;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.CheckBox;
+import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
 public class RegisterPage extends BasePage {
@@ -25,11 +26,14 @@ public class RegisterPage extends BasePage {
     @FindBy(id = "input-confirm")
     private TextInput passwordConfirm;
 
-    @FindBy(xpath = "//*[@id=\"content\"]/form/div/div/input[1]")
+    @FindBy(xpath = "//input[@type = 'checkbox']")
     private CheckBox privacyPolicy;
 
-    @FindBy(xpath = "//*[@id=\"content\"]/form/div/div/input[2]")
+    @FindBy(xpath = "//input[@type = 'submit'][@value = 'Continue']")
     private Button continueButton;
+
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible'][text() = ' Warning: You must agree to the Privacy Policy!']")
+    private HtmlElement privacyPolicyErrorMessage;
 
     public RegisterPage(Driver driver) {
         super(driver);
@@ -38,7 +42,9 @@ public class RegisterPage extends BasePage {
     public void fillFirstNameField(CharSequence... firstName) {
         this.firstName.sendKeys(firstName);
     }
-
+    public void clearFirstNameField() {
+        this.firstName.clear();
+    }
     public String getFirstNameText() {
         return this.firstName.getText();
     }
@@ -46,7 +52,9 @@ public class RegisterPage extends BasePage {
     public void fillLastNameField(CharSequence... lastName) {
         this.lastName.sendKeys(lastName);
     }
-
+    public void clearLastNameField() {
+        this.lastName.clear();
+    }
     public String getLastNameText() {
         return this.lastName.getText();
     }
@@ -54,7 +62,9 @@ public class RegisterPage extends BasePage {
     public void fillEmailField(CharSequence... email) {
         this.email.sendKeys(email);
     }
-
+    public void clearEmailField() {
+        this.email.clear();
+    }
     public String getEmailText() {
         return this.email.getText();
     }
@@ -62,7 +72,9 @@ public class RegisterPage extends BasePage {
     public void fillTelephoneField(CharSequence... telephone) {
         this.telephone.sendKeys(telephone);
     }
-
+    public void clearTelephoneField() {
+        this.telephone.clear();
+    }
     public String getTelephoneText() {
         return this.telephone.getText();
     }
@@ -70,7 +82,9 @@ public class RegisterPage extends BasePage {
     public void fillPasswordField(CharSequence... password) {
         this.password.sendKeys(password);
     }
-
+    public void clearPasswordField() {
+        this.password.clear();
+    }
     public String getPasswordText() {
         return this.password.getText();
     }
@@ -78,7 +92,9 @@ public class RegisterPage extends BasePage {
     public void fillPasswordConfirmField(CharSequence... passwordConfirm) {
         this.passwordConfirm.sendKeys(passwordConfirm);
     }
-
+    public void clearPasswordConfirmField() {
+        this.passwordConfirm.clear();
+    }
     public String getPasswordConfirmText() {
         return this.passwordConfirm.getText();
     }
@@ -89,5 +105,9 @@ public class RegisterPage extends BasePage {
 
     public void clickContinueButton() {
         this.continueButton.click();
+    }
+
+    public boolean privacyPolicyErrorMessageExists() {
+        return this.privacyPolicyErrorMessage.exists();
     }
 }

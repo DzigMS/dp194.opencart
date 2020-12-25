@@ -7,7 +7,7 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
 public class EditInfoPage extends BasePage {
-    @FindBy(xpath = "//a[contains(text(),'Back')]")
+    @FindBy(xpath = "//a[text() = 'Back']")
     private Button backButton;
 
     @FindBy(id = "input-firstname")
@@ -25,21 +25,18 @@ public class EditInfoPage extends BasePage {
     @FindBy(xpath = "//input[@value='Continue']")
     private Button continueButton;
 
-
-    @FindBy(xpath = "//div[@class='text-danger'][contains(text(),'First Name must be between 1 and 32 characters!')]")
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'First Name must be between 1 and 32 characters!']")
     private HtmlElement firstNameErrorMessage;
-    @FindBy(xpath = "//div[@class='text-danger'][contains(text(),'Last Name must be between 1 and 32 characters!')]")
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'Last Name must be between 1 and 32 characters!']")
     private HtmlElement lastNameErrorMessage;
-    @FindBy(xpath = "//div[@class='text-danger'][contains(text(),'E-Mail Address does not appear to be valid!')]")
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'E-Mail Address does not appear to be valid!']")
     private HtmlElement emailErrorMessage;
-    @FindBy(xpath = "//div[@class='text-danger'][contains(text(),'Telephone must be between 3 and 32 characters!')]")
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'Telephone must be between 3 and 32 characters!']")
     private HtmlElement telephoneErrorMessage;
-
 
     public EditInfoPage(Driver driver) {
         super(driver);
     }
-
 
     public void clickBackButton() {
         this.backButton.click();
@@ -85,11 +82,9 @@ public class EditInfoPage extends BasePage {
         return this.telephone.getText();
     }
 
-
     public void clickContinueButton() {
         this.continueButton.click();
     }
-
 
     public boolean firstNameErrorMessageExists() {
         return this.firstNameErrorMessage.exists();
