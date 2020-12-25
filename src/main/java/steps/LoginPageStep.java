@@ -42,7 +42,7 @@ public class LoginPageStep extends BaseStep {
 
     public LoginPageStep loginErrorMessageAppeared() {
         boolean expected = true;
-        assertEquals(expected, this.page.loginErrorMessageExists());
+        assertEquals(expected, this.page.loginErrMsgExists());
         return this;
     }
 }

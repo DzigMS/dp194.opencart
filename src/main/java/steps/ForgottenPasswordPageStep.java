@@ -32,7 +32,7 @@ public class ForgottenPasswordPageStep extends BaseStep {
 
     public ForgottenPasswordPageStep passwordRestoreErrorMessageAppeared() {
         boolean expected = true;
-        assertEquals(expected, this.page.passwordRestoreErrorMessageExists());
+        assertEquals(expected, this.page.passwordRestoreErrMsgExists());
         return this;
     }
 }

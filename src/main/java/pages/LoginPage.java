@@ -23,7 +23,9 @@ public class LoginPage extends BasePage {
     private Button loginButton;
 
     @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible'][text() = ' Warning: No match for E-Mail Address and/or Password.']")
-    private HtmlElement loginErrorMessage;
+    private HtmlElement loginErrMsg;
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible'][text() = ' An email with a confirmation link has been sent your email address.']")
+    private HtmlElement passwordRestoreScsMsg;
 
     public LoginPage(Driver driver) {
         super(driver);
@@ -61,7 +63,11 @@ public class LoginPage extends BasePage {
         this.loginButton.click();
     }
 
-    public boolean loginErrorMessageExists() {
-        return this.loginErrorMessage.exists();
+    public boolean loginErrMsgExists() {
+        return this.loginErrMsg.exists();
     }
+    public boolean passwordRestoreScsMsgExists() {
+        return this.passwordRestoreScsMsg.exists();
+    }
+
 }

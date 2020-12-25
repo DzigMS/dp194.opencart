@@ -7,7 +7,8 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
 public class ChangePasswordPage extends BasePage {
-    @FindBy(xpath = "//a[text() = 'Back'")
+    //@FindBy(xpath = "//a[text() = 'Back'")
+    @FindBy(linkText = "Back")
     private Button backButton;
 
     @FindBy(id = "input-password")
@@ -19,11 +20,10 @@ public class ChangePasswordPage extends BasePage {
     @FindBy(xpath = "//input[@value='Continue']")
     private Button continueButton;
 
-    @FindBy(xpath = "//div[@class='text-danger'][text() = 'Password must be between 4 and 20 characters!'")
-    private HtmlElement passwordErrorMessage;
-
-    @FindBy(xpath = "//div[@class='text-danger'][text() = 'Password confirmation does not match password!'")
-    private HtmlElement passwordConfirmErrorMessage;
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'Password must be between 4 and 20 characters!']")
+    private HtmlElement passwordErrMsg;
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'Password confirmation does not match password!']")
+    private HtmlElement passwordConfirmErrMsg;
 
     public ChangePasswordPage(Driver driver) {
         super(driver);
@@ -57,10 +57,10 @@ public class ChangePasswordPage extends BasePage {
         this.continueButton.click();
     }
 
-    public boolean passwordErrorMessageExists() {
-        return this.passwordErrorMessage.exists();
+    public boolean passwordErrMsgExists() {
+        return this.passwordErrMsg.exists();
     }
-    public boolean passwordConfirmErrorMessageExists() {
-        return this.passwordConfirmErrorMessage.exists();
+    public boolean passwordConfirmErrMsgExists() {
+        return this.passwordConfirmErrMsg.exists();
     }
 }

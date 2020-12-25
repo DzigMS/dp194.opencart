@@ -39,13 +39,13 @@ public class ChangePasswordPageStep extends BaseStep {
 
     public ChangePasswordPageStep passwordErrorMessageAppeared() {
         boolean expected = true;
-        assertEquals(expected, this.page.passwordErrorMessageExists());
+        assertEquals(expected, this.page.passwordErrMsgExists());
         return this;
     }
 
     public ChangePasswordPageStep passwordConfirmErrorMessageAppeared() {
         boolean expected = true;
-        assertEquals(expected, this.page.passwordConfirmErrorMessageExists());
+        assertEquals(expected, this.page.passwordConfirmErrMsgExists());
         return this;
     }
 }

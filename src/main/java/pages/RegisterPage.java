@@ -2,29 +2,30 @@ package pages;
 
 import driver.Driver;
 import org.openqa.selenium.support.FindBy;
-import ru.yandex.qatools.htmlelements.element.Button;
-import ru.yandex.qatools.htmlelements.element.CheckBox;
-import ru.yandex.qatools.htmlelements.element.HtmlElement;
-import ru.yandex.qatools.htmlelements.element.TextInput;
+import ru.yandex.qatools.htmlelements.element.*;
 
 public class RegisterPage extends BasePage {
+    @FindBy(linkText = "login page")
+    private Link loginPageLink;
+
     @FindBy(id = "input-firstname")
     private TextInput firstName;
-
     @FindBy(id = "input-lastname")
     private TextInput lastName;
-
     @FindBy(id = "input-email")
     private TextInput email;
-
     @FindBy(id = "input-telephone")
     private TextInput telephone;
 
     @FindBy(id = "input-password")
     private TextInput password;
-
     @FindBy(id = "input-confirm")
     private TextInput passwordConfirm;
+
+    @FindBy(xpath = "//input[@type = 'radio' and @name = 'newsletter' and @value = '1']")
+    private Radio newsLetterYes;
+    @FindBy(xpath = "//input[@type = 'radio' and @name = 'newsletter' and @value = '0']")
+    private Radio newsLetterNo;
 
     @FindBy(xpath = "//input[@type = 'checkbox']")
     private CheckBox privacyPolicy;
@@ -33,10 +34,28 @@ public class RegisterPage extends BasePage {
     private Button continueButton;
 
     @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible'][text() = ' Warning: You must agree to the Privacy Policy!']")
-    private HtmlElement privacyPolicyErrorMessage;
+    private HtmlElement privacyPolicyErrMsg;
+
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'First Name must be between 1 and 32 characters!']")
+    private HtmlElement firstNameErrMsg;
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'Last Name must be between 1 and 32 characters!']")
+    private HtmlElement lastNameErrMsg;
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'E-Mail Address does not appear to be valid!']")
+    private HtmlElement emailErrMsg;
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'Telephone must be between 3 and 32 characters!']")
+    private HtmlElement telephoneErrMsg;
+
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'Password must be between 4 and 20 characters!']")
+    private HtmlElement passwordErrMsg;
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'Password confirmation does not match password!']")
+    private HtmlElement passwordConfirmErrMsg;
 
     public RegisterPage(Driver driver) {
         super(driver);
+    }
+
+    public void clickLoginPageLink() {
+        this.loginPageLink.click();
     }
 
     public void fillFirstNameField(CharSequence... firstName) {
@@ -99,6 +118,13 @@ public class RegisterPage extends BasePage {
         return this.passwordConfirm.getText();
     }
 
+    public void clickNewsLetterYesRadio() {
+        this.newsLetterYes.click();
+    }
+    public void clickNewsLetterNoRadio() {
+        this.newsLetterNo.click();
+    }
+
     public void setPrivacyPolicyCheckBox(boolean value) {
         this.privacyPolicy.set(value);
     }
@@ -107,7 +133,27 @@ public class RegisterPage extends BasePage {
         this.continueButton.click();
     }
 
-    public boolean privacyPolicyErrorMessageExists() {
-        return this.privacyPolicyErrorMessage.exists();
+    public boolean privacyPolicyErrMsgExists() {
+        return this.privacyPolicyErrMsg.exists();
+    }
+
+    public boolean firstNameErrMsgExists() {
+        return this.firstNameErrMsg.exists();
+    }
+    public boolean lastNameErrMsgExists() {
+        return this.lastNameErrMsg.exists();
+    }
+    public boolean emailErrMsgExists() {
+        return this.emailErrMsg.exists();
+    }
+    public boolean telephoneErrMsgExists() {
+        return this.telephoneErrMsg.exists();
+    }
+
+    public boolean passwordErrMsgExists() {
+        return this.passwordErrMsg.exists();
+    }
+    public boolean passwordConfirmErrMsgExists() {
+        return this.passwordConfirmErrMsg.exists();
     }
 }

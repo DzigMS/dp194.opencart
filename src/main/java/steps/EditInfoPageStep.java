@@ -55,25 +55,25 @@ public class EditInfoPageStep extends BaseStep {
 
     public EditInfoPageStep firstNameErrorMessageAppeared() {
         boolean expected = true;
-        assertEquals(expected, this.page.firstNameErrorMessageExists());
+        assertEquals(expected, this.page.firstNameErrMsgExists());
         return this;
     }
 
     public EditInfoPageStep lastNameErrorMessageAppeared() {
         boolean expected = true;
-        assertEquals(expected, this.page.lastNameErrorMessageExists());
+        assertEquals(expected, this.page.lastNameErrMsgExists());
         return this;
     }
 
     public EditInfoPageStep emailErrorMessageAppeared() {
         boolean expected = true;
-        assertEquals(expected, this.page.emailErrorMessageExists());
+        assertEquals(expected, this.page.emailErrMsgExists());
         return this;
     }
 
     public EditInfoPageStep telephoneErrorMessageAppeared() {
         boolean expected = true;
-        assertEquals(expected, this.page.telephoneErrorMessageExists());
+        assertEquals(expected, this.page.telephoneErrMsgExists());
         return this;
     }
 }

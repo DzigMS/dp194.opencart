@@ -7,7 +7,8 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
 public class ForgottenPasswordPage extends BasePage {
-    @FindBy(xpath = "//a[text() = 'Back'")
+    //@FindBy(xpath = "//a[text() = 'Back'")
+    @FindBy(linkText = "Back")
     private Button backButton;
 
     @FindBy(id = "input-email")
@@ -17,7 +18,7 @@ public class ForgottenPasswordPage extends BasePage {
     private Button continueButton;
 
     @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible'][text() = ' Warning: The E-Mail Address was not found in our records, please try again!']")
-    private HtmlElement passwordRestoreErrorMessage;
+    private HtmlElement passwordRestoreErrMsg;
 
     public ForgottenPasswordPage(Driver driver) {
         super(driver);
@@ -41,8 +42,8 @@ public class ForgottenPasswordPage extends BasePage {
         this.continueButton.click();
     }
 
-    public boolean passwordRestoreErrorMessageExists() {
-        return this.passwordRestoreErrorMessage.exists();
+    public boolean passwordRestoreErrMsgExists() {
+        return this.passwordRestoreErrMsg.exists();
     }
 
 }

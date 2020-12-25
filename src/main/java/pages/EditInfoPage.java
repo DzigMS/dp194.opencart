@@ -7,7 +7,8 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
 public class EditInfoPage extends BasePage {
-    @FindBy(xpath = "//a[text() = 'Back']")
+    //@FindBy(xpath = "//a[text() = 'Back']")
+    @FindBy(linkText = "Back")
     private Button backButton;
 
     @FindBy(id = "input-firstname")
@@ -26,13 +27,13 @@ public class EditInfoPage extends BasePage {
     private Button continueButton;
 
     @FindBy(xpath = "//div[@class='text-danger'][text() = 'First Name must be between 1 and 32 characters!']")
-    private HtmlElement firstNameErrorMessage;
+    private HtmlElement firstNameErrMsg;
     @FindBy(xpath = "//div[@class='text-danger'][text() = 'Last Name must be between 1 and 32 characters!']")
-    private HtmlElement lastNameErrorMessage;
+    private HtmlElement lastNameErrMsg;
     @FindBy(xpath = "//div[@class='text-danger'][text() = 'E-Mail Address does not appear to be valid!']")
-    private HtmlElement emailErrorMessage;
+    private HtmlElement emailErrMsg;
     @FindBy(xpath = "//div[@class='text-danger'][text() = 'Telephone must be between 3 and 32 characters!']")
-    private HtmlElement telephoneErrorMessage;
+    private HtmlElement telephoneErrMsg;
 
     public EditInfoPage(Driver driver) {
         super(driver);
@@ -86,16 +87,16 @@ public class EditInfoPage extends BasePage {
         this.continueButton.click();
     }
 
-    public boolean firstNameErrorMessageExists() {
-        return this.firstNameErrorMessage.exists();
+    public boolean firstNameErrMsgExists() {
+        return this.firstNameErrMsg.exists();
     }
-    public boolean lastNameErrorMessageExists() {
-        return this.lastNameErrorMessage.exists();
+    public boolean lastNameErrMsgExists() {
+        return this.lastNameErrMsg.exists();
     }
-    public boolean emailErrorMessageExists() {
-        return this.emailErrorMessage.exists();
+    public boolean emailErrMsgExists() {
+        return this.emailErrMsg.exists();
     }
-    public boolean telephoneErrorMessageExists() {
-        return this.telephoneErrorMessage.exists();
+    public boolean telephoneErrMsgExists() {
+        return this.telephoneErrMsg.exists();
     }
 }
