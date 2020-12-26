@@ -45,12 +45,13 @@ public class ShoppingCartStep extends BaseStep {
 
     public ShoppingCartStep removeShoppingCartStep() {
         shoppingCartPage.clickRemoveButtonFromShoppingCar();
+        this.shoppingCartPage = new ShoppingCartPage(this.getDriver());
         return this;
     }
 
-    public HomePageStep clickContinueButtonInShoppingCartStep() {
-        shoppingCartPage.clickContinueButtonFromShoppingCar();
-        return new HomePageStep(this.getDriver());
+    public ShoppingCartStep clickContinueButtonInShoppingCartStep() {
+        this.shoppingCartPage.clickContinueButtonFromShoppingCar();
+        return this;
     }
 
     public String getSuccessMessageModifiedShoppingCartStep() {

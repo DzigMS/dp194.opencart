@@ -5,7 +5,6 @@ import constants.PagesURL;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import steps.ProductPageStep;
-import steps.ShoppingCartStep;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,13 +17,14 @@ public class TC_DP194_4 extends CommonConditionTest {
     }
 
     @Test
-    public void TCDP194_4() throws InterruptedException {
+    public void TCDP194_4() {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
-        ShoppingCartStep shoppingCartStep = productPageStep.addProductToShoppingCartStep()
+
+        productPageStep.addProductToShoppingCartStep()
                 .goToShoppingCartStep(this.driver)
-                .removeShoppingCartStep();
-        Thread.sleep(10000);
-        String actual = shoppingCartStep.clickContinueButtonInShoppingCartStep().getCurrentPage();
-        assertEquals(PagesURL.HOME_PAGE_URL, actual);
+                .removeShoppingCartStep()
+                .clickContinueButtonInShoppingCartStep();
+
+        assertEquals(PagesURL.HOME_PAGE_URL, this.driver.getLinkUrl());
     }
 }
