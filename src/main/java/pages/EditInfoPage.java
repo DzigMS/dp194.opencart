@@ -12,13 +12,10 @@ public class EditInfoPage extends BasePage {
 
     @FindBy(id = "input-firstname")
     private TextInput firstName;
-
     @FindBy(id = "input-lastname")
     private TextInput lastName;
-
     @FindBy(id = "input-email")
     private TextInput email;
-
     @FindBy(id = "input-telephone")
     private TextInput telephone;
 

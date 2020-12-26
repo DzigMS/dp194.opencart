@@ -12,7 +12,6 @@ public class ChangePasswordPage extends BasePage {
 
     @FindBy(id = "input-password")
     private TextInput password;
-
     @FindBy(id = "input-confirm")
     private TextInput passwordConfirm;
 

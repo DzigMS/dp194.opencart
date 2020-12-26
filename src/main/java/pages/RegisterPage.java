@@ -27,10 +27,10 @@ public class RegisterPage extends BasePage {
     @FindBy(xpath = "//input[@type = 'radio' and @name = 'newsletter' and @value = '0']")
     private Radio newsLetterNo;
 
-    @FindBy(xpath = "//input[@type = 'checkbox']")
+    @FindBy(xpath = "//input[@type = 'checkbox' and @name = 'agree']")
     private CheckBox privacyPolicy;
 
-    @FindBy(xpath = "//input[@type = 'submit'][@value = 'Continue']")
+    @FindBy(xpath = "//input[@type = 'submit' and @value = 'Continue']")
     private Button continueButton;
 
     @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible'][text() = ' Warning: You must agree to the Privacy Policy!']")
