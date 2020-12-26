@@ -1,4 +1,4 @@
-package loginPageTests;
+package loginPageTests.passwordRestoringTests;
 
 import basetest.CommonConditionTest;
 import constants.PagesURL;
@@ -17,8 +17,12 @@ public class TC_DP194_63 extends CommonConditionTest {
     @CsvFileSource(resources = "/ForgottenPasswordPageValidEmail.csv", numLinesToSkip = 1)
     public void TCDP194_63(String email) {
         HomePageStep homePageStep = new HomePageStep(this.driver);
-        LoginPageStep loginPageStep = homePageStep.goToLoginPage();
-        ForgottenPasswordPageStep forgottenPasswordPageStep = loginPageStep.clickForgottenPasswordLink();
+        homePageStep.goToLoginPage();
+
+        LoginPageStep loginPageStep = new LoginPageStep(this.driver);
+        loginPageStep.clickForgottenPasswordLink();
+
+        ForgottenPasswordPageStep forgottenPasswordPageStep = new ForgottenPasswordPageStep(this.driver);
         forgottenPasswordPageStep.
                 fillEmailField(email).
                 clickContinueButton().

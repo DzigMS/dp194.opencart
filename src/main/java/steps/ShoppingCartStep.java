@@ -11,7 +11,7 @@ public class ShoppingCartStep extends BaseStep {
         this.shoppingCartPage = new ShoppingCartPage(this.getDriver());
     }
 
-    public String getAddedProductNameFromShoppingCart() {
+    public String getAddedProductNameFromShoppingCartStep() {
         return shoppingCartPage.getProductNameFromShoppingCarTable();
     }
 
@@ -20,62 +20,62 @@ public class ShoppingCartStep extends BaseStep {
         return new ProductPageStep(this.getDriver());
     }
 
-    public String getAddedProductPriceFromShoppingCart() {
+    public String getAddedProductPriceFromShoppingCartStep() {
         return shoppingCartPage.getProductPriceFromShoppingCarTable();
     }
 
-    public String getAddedProductQuantityFromShoppingCart() {
+    public String getAddedProductQuantityFromShoppingCartStep() {
         return shoppingCartPage.getProductQuantityFromShoppingCarTable();
     }
 
-    public ShoppingCartStep clearFieldQuantityProductInShoppingCart() {
+    public ShoppingCartStep clearFieldQuantityProductInShoppingCartStep() {
         shoppingCartPage.clearFieldProductQuantityInShoppingCartTable();
         return this;
     }
 
-    public ShoppingCartStep fillQuantityProductInShoppingCart(String quantity) {
+    public ShoppingCartStep fillQuantityProductInShoppingCartStep(String quantity) {
         shoppingCartPage.fillProductQuantityInShoppingCartTable(quantity);
         return this;
     }
 
-    public ShoppingCartStep updateQuantityInShoppingCart() {
+    public ShoppingCartStep updateQuantityInShoppingCartStep() {
         shoppingCartPage.clickUpdateButtonFromShoppingCar();
         return this;
     }
 
-    public ShoppingCartStep removeShoppingCart() {
+    public ShoppingCartStep removeShoppingCartStep() {
         shoppingCartPage.clickRemoveButtonFromShoppingCar();
         return this;
     }
 
-    public HomePageStep clickContinueButtonInShoppingCart() {
-               shoppingCartPage.clickContinueButtonFromShoppingCar();
+    public HomePageStep clickContinueButtonInShoppingCartStep() {
+        shoppingCartPage.clickContinueButtonFromShoppingCar();
         return new HomePageStep(this.getDriver());
     }
 
-    public String getSuccessMessageModifiedShoppingCart() {
+    public String getSuccessMessageModifiedShoppingCartStep() {
         return shoppingCartPage.getSuccessMessageModifiedShoppingCart();
     }
 
-    public CheckoutStep clickCheckoutLinkShoppingCart() {
+    public CheckoutStep clickCheckoutLinkShoppingCartStep() {
         shoppingCartPage.clickCheckoutLinkShoppingCart();
         return new CheckoutStep(this.getDriver());
     }
 
-    public HomePageStep clickContinueShoppingButtonInShoppingCart() {
+    public HomePageStep clickContinueShoppingButtonInShoppingCartStep() {
         shoppingCartPage.clickContinueShoppingButtonFromShoppingCar();
         return new HomePageStep(this.getDriver());
     }
 
-    public ShoppingCartStep clickUseCouponCodeLinkDropdown() {
+    public ShoppingCartStep clickUseCouponCodeLinkDropdownStep() {
         shoppingCartPage.getCoupon().clickUseCouponCodeLinkDropdown();
         return this;
     }
-    public ShoppingCartStep fillCouponTextInput(String coupon) {
+    public ShoppingCartStep fillCouponTextInputStep(String coupon) {
         shoppingCartPage.getCoupon().fillCouponTextInput(coupon);
         return this;
     }
-    public ShoppingCartStep clickApplyCouponButton() {
+    public ShoppingCartStep clickApplyCouponButtonStep() {
         shoppingCartPage.getCoupon().clickApplyCouponButton();
         return this;
     }

@@ -13,12 +13,6 @@ public class EditInfoPageStep extends BaseStep {
         this.page = new EditInfoPage(this.getDriver());
     }
 
-    public EditInfoPageStep clickContinueButton() {
-        this.page.clickContinueButton();
-        this.page = new EditInfoPage(this.getDriver());
-        return this;
-    }
-
     public EditInfoPageStep fillFirstNameField(String text) {
         this.page.clearFirstNameField();
         this.page.fillFirstNameField(text);
@@ -47,33 +41,38 @@ public class EditInfoPageStep extends BaseStep {
         return this;
     }
 
+    public EditInfoPageStep clickContinueButton() {
+        this.page.clickContinueButton();
+        this.page = new EditInfoPage(this.getDriver());
+        return this;
+    }
+
     public EditInfoPageStep verifyCurrentPage(String pageURL) {
         assertEquals(pageURL, this.getDriver().getLinkUrl());
         return this;
     }
 
-
-    public EditInfoPageStep firstNameErrorMessageAppeared() {
+    public EditInfoPageStep firstNameErrMsgAppeared() {
         boolean expected = true;
-        assertEquals(expected, this.page.firstNameErrorMessageExists());
+        assertEquals(expected, this.page.firstNameErrMsgExists());
         return this;
     }
 
-    public EditInfoPageStep lastNameErrorMessageAppeared() {
+    public EditInfoPageStep lastNameErrMsgAppeared() {
         boolean expected = true;
-        assertEquals(expected, this.page.lastNameErrorMessageExists());
+        assertEquals(expected, this.page.lastNameErrMsgExists());
         return this;
     }
 
-    public EditInfoPageStep emailErrorMessageAppeared() {
+    public EditInfoPageStep emailErrMsgAppeared() {
         boolean expected = true;
-        assertEquals(expected, this.page.emailErrorMessageExists());
+        assertEquals(expected, this.page.emailErrMsgExists());
         return this;
     }
 
-    public EditInfoPageStep telephoneErrorMessageAppeared() {
+    public EditInfoPageStep telephoneErrMsgAppeared() {
         boolean expected = true;
-        assertEquals(expected, this.page.telephoneErrorMessageExists());
+        assertEquals(expected, this.page.telephoneErrMsgExists());
         return this;
     }
 }

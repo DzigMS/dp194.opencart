@@ -33,6 +33,6 @@ public class TC_DP194_83  extends CommonConditionTest {
                 fillEmailField(newEmail).
                 clickContinueButton().
                 verifyCurrentPage(PagesURL.EDIT_INFO_PAGE).
-                emailErrorMessageAppeared();
+                emailErrMsgAppeared();
     }
 }

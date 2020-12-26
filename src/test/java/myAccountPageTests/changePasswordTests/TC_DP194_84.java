@@ -34,6 +34,6 @@ public class TC_DP194_84 extends CommonConditionTest {
                 fillPasswordConfirmField(newPassword).
                 clickContinueButton().
                 verifyCurrentPage(PagesURL.PASSWORD_CHANGE_PAGE).
-                passwordErrorMessageAppeared();
+                passwordErrMsgAppeared();
     }
 }

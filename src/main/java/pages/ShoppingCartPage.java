@@ -2,13 +2,8 @@ package pages;
 
 import driver.Driver;
 import model.Coupon;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.htmlelements.element.*;
-import steps.ShoppingCartStep;
 
 public class ShoppingCartPage extends BasePage {
     private Coupon coupon;
@@ -26,13 +21,13 @@ public class ShoppingCartPage extends BasePage {
     private Button updateButtonFromShoppingCar;
     @FindBy(xpath = "//button[@data-original-title='Remove']")
     private Button removeButtonFromShoppingCar;
-    @FindBy(xpath = "//a[contains(text(),'Continue Shopping')]")
+    @FindBy(linkText = "Continue Shopping")
     private Button continueShoppingButtonFromShoppingCar;
-    @FindBy(xpath = "//a[contains(text(),'Continue')]")
+    @FindBy(linkText = "Continue")
     private Link continueButtonFromShoppingCar;
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     private TextBlock successMessageModifiedShoppingCart;
-    @FindBy(xpath = "//a[contains(text(),'Checkout')]")
+    @FindBy(linkText = "Checkout")
     private Link checkoutLinkShoppingCart;
 
     public ShoppingCartPage(Driver driver) {
