@@ -21,13 +21,13 @@ public class ShoppingCartPage extends BasePage {
     private Button updateButtonFromShoppingCar;
     @FindBy(xpath = "//button[@data-original-title='Remove']")
     private Button removeButtonFromShoppingCar;
-    @FindBy(linkText = "Continue Shopping")
+    @FindBy(partialLinkText = "Continue Shopping")
     private Button continueShoppingButtonFromShoppingCar;
-    @FindBy(linkText = "Continue")
+    @FindBy(partialLinkText = "Continue")
     private Link continueButtonFromShoppingCar;
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     private TextBlock successMessageModifiedShoppingCart;
-    @FindBy(linkText = "Checkout")
+    @FindBy(partialLinkText = "Checkout")
     private Link checkoutLinkShoppingCart;
 
     public ShoppingCartPage(Driver driver) {

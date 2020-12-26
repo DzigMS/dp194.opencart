@@ -20,11 +20,10 @@ public class TC_DP194_4 extends CommonConditionTest {
     public void TCDP194_4() {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
 
-        productPageStep.addProductToShoppingCartStep()
-                .goToShoppingCartStep(this.driver)
-                .removeShoppingCartStep()
-                .clickContinueButtonInShoppingCartStep();
-
+        productPageStep.addProductToShoppingCart()
+                .goToShoppingCart()
+                .removeShoppingCart()
+                .clickContinueButtonInShoppingCart();
         assertEquals(PagesURL.HOME_PAGE_URL, this.driver.getLinkUrl());
     }
 }
