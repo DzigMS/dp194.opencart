@@ -17,12 +17,14 @@ public class ShoppingCartStep extends BaseStep {
         assertEquals(expected, shoppingCartPage.getProductName());
         return this;
     }
+
     public ShoppingCartStep verifyAddedProductPrice(String expected) {
         assertEquals(expected, shoppingCartPage.getProductPrice());
         return this;
     }
+
     public ShoppingCartStep verifyAddedProductQuantity(String expected) {
-        assertEquals(expected,shoppingCartPage.getProductQuantity());
+        assertEquals(expected, shoppingCartPage.getProductQuantity());
         return this;
     }
 
@@ -57,9 +59,8 @@ public class ShoppingCartStep extends BaseStep {
     }
 
     public ShoppingCartStep verifySuccessMsgModified(String expectedMsg) {
-        assertEquals (expectedMsg,shoppingCartPage.getSuccessMessageModified());
+        assertEquals(expectedMsg, shoppingCartPage.getSuccessMessageModified());
         return this;
-
     }
 
     public CheckoutStep clickCheckoutLink() {

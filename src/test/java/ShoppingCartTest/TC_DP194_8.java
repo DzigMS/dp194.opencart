@@ -20,7 +20,7 @@ public class TC_DP194_8 extends CommonConditionTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/ShoppingCartPageValidCoupon.csv", numLinesToSkip = 1)
-    public void TCDP194_4(String coupon) {
+    public void TCDP194_8(String coupon) {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
         productPageStep.addProductToShoppingCart()
                 .goToShoppingCart()

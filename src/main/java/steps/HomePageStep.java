@@ -2,8 +2,6 @@ package steps;
 
 import driver.Driver;
 import pages.HomePage;
-import pages.MyAccountPage;
-import pages.RegisterPage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

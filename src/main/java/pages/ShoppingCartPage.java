@@ -27,7 +27,7 @@ public class ShoppingCartPage extends BasePage {
     private Link continueButton;
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     private TextBlock successMessageModified;
-    @FindBy(partialLinkText = "Checkout")
+    @FindBy(linkText = "Checkout")
     private Link checkoutLink;
 
     public ShoppingCartPage(Driver driver) {

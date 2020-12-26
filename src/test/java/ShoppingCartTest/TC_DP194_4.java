@@ -15,7 +15,7 @@ public class TC_DP194_4 extends CommonConditionTest {
     }
 
     @Test
-    public void TCDP194_4_1() {
+    public void TCDP194_4() {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
 
         productPageStep.addProductToShoppingCart()

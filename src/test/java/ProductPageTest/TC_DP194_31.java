@@ -23,6 +23,5 @@ public class TC_DP194_31 extends CommonConditionTest {
                 .fillNameTexBoxProductReview(name).fillReviewTexBoxProductReview(review)
                 .murkDownProductRatingRadioProductReview()
                 .clickContinueButtonProductReview().verifySuccessMsg(message);
-
     }
 }

@@ -24,7 +24,7 @@ public class TC_DP194_2 extends CommonConditionTest {
     }
 
     @Test
-    public void TCDP194_2TCDP194_2ValidationPrice() {
+    public void TCDP194_2ValidationPrice() {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
         String expected = productPageStep.getProductPrice();
         productPageStep.addProductToShoppingCart()
@@ -32,7 +32,7 @@ public class TC_DP194_2 extends CommonConditionTest {
     }
 
     @Test
-    public void TCDP194_2TCDP194_2ValidationQuantity() {
+    public void TCDP194_2ValidationQuantity() {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
         String expected = productPageStep.getProductQuantity();
         productPageStep.addProductToShoppingCart()

@@ -16,6 +16,7 @@ public class ProductPageStep extends BaseStep {
     public String getCurrentPage() {
         return this.getDriver().getLinkUrl();
     }
+
     public ProductPageStep verifyCurrentPage(String expectedUrl) {
         assertEquals(expectedUrl, this.getDriver().getLinkUrl());
         return this;
@@ -69,12 +70,12 @@ public class ProductPageStep extends BaseStep {
     }
 
     public ProductPageStep verifySuccessMsgAddedProductToShoppingCart(String expected) {
-        assertEquals(expected,productPage.getSuccessMessage());
+        assertEquals(expected, productPage.getSuccessMessage());
         return this;
     }
 
     public ProductPageStep verifyWarningMsgAddedProductToShoppingCart(String expected) {
-        assertEquals(expected,productPage.getWarningMessage());
+        assertEquals(expected, productPage.getWarningMessage());
         return this;
     }
 
