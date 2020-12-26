@@ -2,13 +2,8 @@ package pages;
 
 import driver.Driver;
 import model.Coupon;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.htmlelements.element.*;
-import steps.ShoppingCartStep;
 
 public class ShoppingCartPage extends BasePage {
     private Coupon coupon;

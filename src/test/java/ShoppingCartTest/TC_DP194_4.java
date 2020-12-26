@@ -1,4 +1,3 @@
-
 package ShoppingCartTest;
 
 import basetest.CommonConditionTest;
@@ -6,9 +5,6 @@ import constants.PagesURL;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import steps.ProductPageStep;
-import steps.ShoppingCartStep;
-
-import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
