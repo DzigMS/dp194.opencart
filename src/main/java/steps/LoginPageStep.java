@@ -14,24 +14,28 @@ public class LoginPageStep extends BaseStep {
     }
 
     public LoginPageStep fillEmailField(String text) {
+        this.page.clearEmailField();
         this.page.fillEmailField(text);
         assertEquals(text, this.page.getEmailText());
         return this;
     }
 
     public LoginPageStep fillPasswordField(String text) {
+        this.page.clearPasswordField();
         this.page.fillPasswordField(text);
         assertEquals(text, this.page.getPasswordText());
         return this;
     }
 
-    public ForgottenPasswordPageStep clickForgottenPasswordLink() {
+    public LoginPageStep clickForgottenPasswordLink() {
         this.page.clickForgottenPasswordLink();
-        return new ForgottenPasswordPageStep(this.getDriver());
+        this.page = new LoginPage(this.getDriver());
+        return this;
     }
 
     public LoginPageStep clickLoginButton() {
         this.page.clickLoginButton();
+        this.page = new LoginPage(this.getDriver());
         return this;
     }
 
@@ -40,7 +44,7 @@ public class LoginPageStep extends BaseStep {
         return this;
     }
 
-    public LoginPageStep loginErrorMessageAppeared() {
+    public LoginPageStep loginErrMsgAppeared() {
         boolean expected = true;
         assertEquals(expected, this.page.loginErrMsgExists());
         return this;

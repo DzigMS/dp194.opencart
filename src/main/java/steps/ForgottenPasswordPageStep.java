@@ -14,6 +14,7 @@ public class ForgottenPasswordPageStep extends BaseStep {
     }
 
     public ForgottenPasswordPageStep fillEmailField(String text) {
+        this.page.clearEmailField();
         this.page.fillEmailField(text);
         assertEquals(text, this.page.getEmailText());
         return this;
@@ -30,7 +31,7 @@ public class ForgottenPasswordPageStep extends BaseStep {
         return this;
     }
 
-    public ForgottenPasswordPageStep passwordRestoreErrorMessageAppeared() {
+    public ForgottenPasswordPageStep passwordRestoreErrMsgAppeared() {
         boolean expected = true;
         assertEquals(expected, this.page.passwordRestoreErrMsgExists());
         return this;
