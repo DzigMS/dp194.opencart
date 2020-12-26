@@ -3,6 +3,8 @@ package steps;
 import driver.Driver;
 import pages.ShoppingCartPage;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class ShoppingCartStep extends BaseStep {
     private ShoppingCartPage shoppingCartPage;
 
@@ -11,59 +13,62 @@ public class ShoppingCartStep extends BaseStep {
         this.shoppingCartPage = new ShoppingCartPage(this.getDriver());
     }
 
-    public String getAddedProductNameFromShoppingCart() {
-        return shoppingCartPage.getProductNameFromShoppingCarTable();
+    public ShoppingCartStep verifyAddedProductName(String expected) {
+        assertEquals(expected, shoppingCartPage.getProductName());
+        return this;
+    }
+    public ShoppingCartStep verifyAddedProductPrice(String expected) {
+        assertEquals(expected, shoppingCartPage.getProductPrice());
+        return this;
+    }
+    public ShoppingCartStep verifyAddedProductQuantity(String expected) {
+        assertEquals(expected,shoppingCartPage.getProductQuantity());
+        return this;
     }
 
-    public ProductPageStep clickLinkProductNameFromShoppingCarTable() {
-        shoppingCartPage.clickLinkProductNameFromShoppingCarTable();
+    public ProductPageStep clickLinkProductName() {
+        shoppingCartPage.clickLinkProductName();
         return new ProductPageStep(this.getDriver());
     }
 
-    public String getAddedProductPriceFromShoppingCart() {
-        return shoppingCartPage.getProductPriceFromShoppingCarTable();
-    }
-
-    public String getAddedProductQuantityFromShoppingCart() {
-        return shoppingCartPage.getProductQuantityFromShoppingCarTable();
-    }
-
-    public ShoppingCartStep clearFieldQuantityProductInShoppingCart() {
-        shoppingCartPage.clearFieldProductQuantityInShoppingCartTable();
+    public ShoppingCartStep clearFieldQuantityProduct() {
+        shoppingCartPage.clearFieldProductQuantity();
         return this;
     }
 
-    public ShoppingCartStep fillQuantityProductInShoppingCart(String quantity) {
-        shoppingCartPage.fillProductQuantityInShoppingCartTable(quantity);
+    public ShoppingCartStep fillQuantityProduct(String quantity) {
+        shoppingCartPage.fillProductQuantity(quantity);
         return this;
     }
 
-    public ShoppingCartStep updateQuantityInShoppingCart() {
-        shoppingCartPage.clickUpdateButtonFromShoppingCar();
+    public ShoppingCartStep updateQuantity() {
+        shoppingCartPage.clickUpdateButton();
         return this;
     }
 
     public ShoppingCartStep removeShoppingCart() {
-        shoppingCartPage.clickRemoveButtonFromShoppingCar();
+        shoppingCartPage.clickRemoveButton();
         return this;
     }
 
-    public HomePageStep clickContinueButtonInShoppingCart() {
-        shoppingCartPage.clickContinueButtonFromShoppingCar();
+    public HomePageStep clickContinueButton() {
+        shoppingCartPage.clickContinueButton();
         return new HomePageStep(this.getDriver());
     }
 
-    public String getSuccessMessageModifiedShoppingCart() {
-        return shoppingCartPage.getSuccessMessageModifiedShoppingCart();
+    public ShoppingCartStep verifySuccessMsgModified(String expectedMsg) {
+        assertEquals (expectedMsg,shoppingCartPage.getSuccessMessageModified());
+        return this;
+
     }
 
-    public CheckoutStep clickCheckoutLinkShoppingCart() {
-        shoppingCartPage.clickCheckoutLinkShoppingCart();
+    public CheckoutStep clickCheckoutLink() {
+        shoppingCartPage.clickCheckoutLink();
         return new CheckoutStep(this.getDriver());
     }
 
-    public HomePageStep clickContinueShoppingButtonInShoppingCart() {
-        shoppingCartPage.clickContinueShoppingButtonFromShoppingCar();
+    public HomePageStep clickContinueShoppingButton() {
+        shoppingCartPage.clickContinueShoppingButton();
         return new HomePageStep(this.getDriver());
     }
 
@@ -71,10 +76,12 @@ public class ShoppingCartStep extends BaseStep {
         shoppingCartPage.getCoupon().clickUseCouponCodeLinkDropdown();
         return this;
     }
+
     public ShoppingCartStep fillCouponTextInput(String coupon) {
         shoppingCartPage.getCoupon().fillCouponTextInput(coupon);
         return this;
     }
+
     public ShoppingCartStep clickApplyCouponButton() {
         shoppingCartPage.getCoupon().clickApplyCouponButton();
         return this;

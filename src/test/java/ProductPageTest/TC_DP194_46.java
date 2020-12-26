@@ -7,12 +7,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import steps.ProductPageStep;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-//Validation the function adding a product review with invalid quantity data
+//Validation the function of add the product to the shopping cart with invalid quantity data
 public class TC_DP194_46 extends CommonConditionTest {
-
-    private String warningMessage = "Incorrect format!";
 
     @BeforeEach
     public void openProductPage() {
@@ -20,14 +16,12 @@ public class TC_DP194_46 extends CommonConditionTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/invalidQuantity.csv", numLinesToSkip = 1)
-    public void TCDP194_46(String quantity) {
+    @CsvFileSource(resources = "/ProductPageInvalidQuantity.csv", numLinesToSkip = 1)
+    public void TCDP194_46(String quantity, String warningMessage) {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
-        String actual = productPageStep.clearFieldProductQuantity()
+        productPageStep.clearFieldProductQuantity()
                 .fillFieldProductQuantity(quantity)
                 .addProductToShoppingCart()
-                .getWaringMessageAboutAddedProductToShoppingCart();
-        assertEquals
-                (warningMessage, actual);
+                .verifyWarningMsgAddedProductToShoppingCart(warningMessage);
     }
 }

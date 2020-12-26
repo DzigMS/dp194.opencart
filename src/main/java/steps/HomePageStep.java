@@ -8,12 +8,12 @@ import pages.RegisterPage;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class HomePageStep extends BaseStep {
-	private HomePage homePage;
-	
-	public HomePageStep(Driver driver) {
-		super(driver);
-		this.homePage = new HomePage(this.getDriver());
-	}
+    private HomePage homePage;
+
+    public HomePageStep(Driver driver) {
+        super(driver);
+        this.homePage = new HomePage(this.getDriver());
+    }
 
     public HomePageStep fillSearchField(String keyword) {
         homePage.getHeader().fillSearchField(keyword);
@@ -42,49 +42,50 @@ public class HomePageStep extends BaseStep {
         return new CategoryPageStep(this.getDriver());
     }
 
-    public CategoryPageStep clickPhoneNavBar(){
+    public CategoryPageStep clickPhoneNavBar() {
         homePage.getCategoryMenu().clickPhoneLink();
         return new CategoryPageStep(this.getDriver());
     }
 
-    public CheckoutPageAsGuestStep clickOnCheckoutLinkAsGuest(){
+    public CheckoutPageAsGuestStep clickOnCheckoutLinkAsGuest() {
         homePage.getTopNavBar().clickCheckoutLink();
         return new CheckoutPageAsGuestStep(this.getDriver());
     }
 
-    public CheckoutPageRegisterStep clickOnCheckoutLinkRegister(){
+    public CheckoutPageRegisterStep clickOnCheckoutLinkRegister() {
         homePage.getTopNavBar().clickCheckoutLink();
         return new CheckoutPageRegisterStep(this.getDriver());
     }
 
-    public CheckoutPageAsLoggedUserStep clickOnCheckoutLinkLogged(){
+    public CheckoutPageAsLoggedUserStep clickOnCheckoutLinkLogged() {
         homePage.getTopNavBar().clickCheckoutLink();
         return new CheckoutPageAsLoggedUserStep(this.getDriver());
     }
 
-	public RegisterPageStep goToRegisterPage() {
-		this.homePage.getTopNavBar().clickMyAccountDropdown();
-		this.homePage.getTopNavBar().clickRegisterLink();
+    public RegisterPageStep goToRegisterPage() {
+        this.homePage.getTopNavBar().clickMyAccountDropdown();
+        this.homePage.getTopNavBar().clickRegisterLink();
 
-		return new RegisterPageStep(this.getDriver());
-	}
+        return new RegisterPageStep(this.getDriver());
+    }
 
-	public LoginPageStep goToLoginPage() {
-		this.homePage.getTopNavBar().clickMyAccountDropdown();
-		this.homePage.getTopNavBar().clickLoginLink();
+    public LoginPageStep goToLoginPage() {
+        this.homePage.getTopNavBar().clickMyAccountDropdown();
+        this.homePage.getTopNavBar().clickLoginLink();
 
-		return new LoginPageStep(this.getDriver());
-	}
+        return new LoginPageStep(this.getDriver());
+    }
 
-	public MyAccountPageStep goToMyAccountPage() {
-		this.homePage.getTopNavBar().clickMyAccountDropdown();
-		this.homePage.getTopNavBar().clickMyAccountLink();
+    public MyAccountPageStep goToMyAccountPage() {
+        this.homePage.getTopNavBar().clickMyAccountDropdown();
+        this.homePage.getTopNavBar().clickMyAccountLink();
 
-		return new MyAccountPageStep(this.getDriver());
-	}
+        return new MyAccountPageStep(this.getDriver());
+    }
 
-    public String getCurrentPage() {
-        return this.getDriver().getLinkUrl();
+    public HomePageStep verifyCurrentPage(String expectedUrl) {
+        assertEquals(expectedUrl, this.getDriver().getLinkUrl());
+        return this;
     }
 
 }

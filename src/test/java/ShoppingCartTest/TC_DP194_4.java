@@ -6,8 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import steps.ProductPageStep;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 //Validation removing items from cart
 public class TC_DP194_4 extends CommonConditionTest {
 
@@ -17,13 +15,12 @@ public class TC_DP194_4 extends CommonConditionTest {
     }
 
     @Test
-    public void TCDP194_4() {
+    public void TCDP194_4_1() {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
 
         productPageStep.addProductToShoppingCart()
                 .goToShoppingCart()
                 .removeShoppingCart()
-                .clickContinueButtonInShoppingCart();
-        assertEquals(PagesURL.HOME_PAGE_URL, this.driver.getLinkUrl());
+                .clickContinueButton().verifyCurrentPage(PagesURL.HOME_PAGE_URL);
     }
 }
