@@ -15,79 +15,80 @@ public class ProductPageStep extends BaseStep {
         return this.getDriver().getLinkUrl();
     }
 
-    public ProductPageStep goToModelProductReviewStep() {
+    public ProductPageStep goToModelProductReview() {
         productPage.goToModelProductReview();
         return this;
     }
 
-    public ProductPageStep fillNameTexBoxProductReviewStep(String name) {
+    public ProductPageStep fillNameTexBoxProductReview(String name) {
         productPage.getProductReview().fillNameTexBox(name);
         return this;
     }
 
-    public ProductPageStep fillReviewTexBoxProductReviewStep(String review) {
+    public ProductPageStep fillReviewTexBoxProductReview(String review) {
         productPage.getProductReview().fillReviewTextBox(review);
         return this;
     }
 
-    public ProductPageStep murkDownProductRatingRadioProductReviewStep() {
+    public ProductPageStep murkDownProductRatingRadioProductReview() {
         productPage.getProductReview().murkDownProductRatingRadio();
         return this;
     }
 
-    public ProductPageStep clickContinueButtonProductReviewStep() {
+    public ProductPageStep clickContinueButtonProductReview() {
         productPage.getProductReview().clickContinueButtonReview();
         return this;
     }
 
-    public String getMessageSuccessProductReviewStep() {
+    public String getMessageSuccessProductReview() {
         return productPage.getProductReview().getMessageSuccess();
     }
 
-
-    public ProductPageStep addProductToShoppingCartStep() {
+    public ProductPageStep addProductToShoppingCart() {
         productPage.addProductToShoppingCart();
         return this;
     }
 
-    public ProductPageStep fillFieldProductQuantityStep(String quantity) {
+    public ProductPageStep fillFieldProductQuantity(String quantity) {
+
         productPage.fillFieldProductQuantity(quantity);
         return this;
     }
 
-    public ProductPageStep clearFieldProductQuantityStep() {
+    public ProductPageStep clearFieldProductQuantity() {
+
         productPage.clearFieldProductQuantity();
         return this;
     }
 
-    public String getSuccessMessageAboutAddedProductToShoppingCartStep() {
+    public String getSuccessMessageAboutAddedProductToShoppingCart() {
         return productPage.getSuccessMessage();
     }
 
-    public String getWaringMessageAboutAddedProductToShoppingCartStep() {
+    public String getWaringMessageAboutAddedProductToShoppingCart() {
         return productPage.getWarningMessage();
     }
 
-    public String getProductNameFromProductPageStep() {
+    public String getProductNameFromProductPage() {
         return productPage.getProductName();
     }
 
-    public String getProductPriceFromProductPagStep() {
+    public String getProductPriceFromProductPage() {
         return productPage.getProductPrice();
     }
 
-    public String getProductQuantityFromProductPagStep() {
+    public String getProductQuantityFromProductPage() {
         return productPage.getProductQuantity();
     }
 
-    public String createExpectedSuccessMessageAddProductToShoppingCartStep() {
+    public String createExpectedSuccessMessageAddProductToShoppingCart() {
         return "Success: You have added "
-                + this.getProductNameFromProductPageStep() +
+                + this.getProductNameFromProductPage() +
                 " to your shopping cart!\n×";
     }
 
-    public ShoppingCartStep goToShoppingCartStep(Driver driver) {
+    public ShoppingCartStep goToShoppingCart() {
         productPage.getTopNavBar().goToShoppingCartPage();
-        return new ShoppingCartStep(driver);
+        return new ShoppingCartStep(this.getDriver());
     }
 }

@@ -17,14 +17,27 @@ public class TC_DP194_4 extends CommonConditionTest {
         driver.openUrl(PagesURL.PRODUCT_PAGE_URL);
     }
 
+
     @Test
     public void TCDP194_4() throws InterruptedException {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
-        ShoppingCartStep shoppingCartStep = productPageStep.addProductToShoppingCartStep()
-                .goToShoppingCartStep(this.driver)
-                .removeShoppingCartStep();
+        ShoppingCartStep shoppingCartStep = productPageStep.addProductToShoppingCart()
+                .goToShoppingCart()
+                .removeShoppingCart();
         Thread.sleep(10000);
-        String actual = shoppingCartStep.clickContinueButtonInShoppingCartStep().getCurrentPage();
+        String actual = shoppingCartStep.clickContinueButtonInShoppingCart().getCurrentPage();
+        assertEquals(PagesURL.HOME_PAGE_URL, actual);
+    }
+
+    @Test
+    public void TCDP194_41()  {
+        ProductPageStep productPageStep = new ProductPageStep(this.driver);
+        ShoppingCartStep shoppingCartStep = productPageStep.addProductToShoppingCart()
+                .goToShoppingCart()
+                .removeShoppingCart();
+
+
+        String actual = shoppingCartStep.clickContinueButtonInShoppingCart().getCurrentPage();
         assertEquals(PagesURL.HOME_PAGE_URL, actual);
     }
 }

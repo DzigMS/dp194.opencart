@@ -19,26 +19,26 @@ public class TC_DP194_2 extends CommonConditionTest {
     @Test
     public void TCDP194_2ValidationName() {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
-        String expected = productPageStep.getProductNameFromProductPageStep();
-        String actual = productPageStep.addProductToShoppingCartStep()
-                .goToShoppingCartStep(this.driver).getAddedProductNameFromShoppingCartStep();
+        String expected = productPageStep.getProductNameFromProductPage();
+        String actual = productPageStep.addProductToShoppingCart()
+                .goToShoppingCart().getAddedProductNameFromShoppingCart();
         assertEquals(expected,actual);
     }
     @Test
     public void TCDP194_2TCDP194_2ValidationPrice() {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
-        String expected = productPageStep.getProductPriceFromProductPagStep();
-        String actual = productPageStep.addProductToShoppingCartStep()
-                .goToShoppingCartStep(this.driver).getAddedProductPriceFromShoppingCartStep();
+        String expected = productPageStep.getProductPriceFromProductPage();
+        String actual = productPageStep.addProductToShoppingCart()
+                .goToShoppingCart().getAddedProductPriceFromShoppingCart();
         assertEquals(expected,actual);
     }
 
     @Test
     public void TCDP194_2TCDP194_2ValidationQuantity() {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
-        String expected = productPageStep.getProductQuantityFromProductPagStep();
-        String actual = productPageStep.addProductToShoppingCartStep()
-                .goToShoppingCartStep(this.driver).getAddedProductQuantityFromShoppingCartStep();
+        String expected = productPageStep.getProductQuantityFromProductPage();
+        String actual = productPageStep.addProductToShoppingCart()
+                .goToShoppingCart().getAddedProductQuantityFromShoppingCart();
         assertEquals(expected,actual);
     }
 }

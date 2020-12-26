@@ -24,12 +24,12 @@ public class TC_DP194_8 extends CommonConditionTest {
     @CsvFileSource(resources = "/validCoupon.csv", numLinesToSkip = 1)
     public void TCDP194_4(String coupon) {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
-        String actual = productPageStep.addProductToShoppingCartStep()
-                .goToShoppingCartStep(this.driver)
-                .clickUseCouponCodeLinkDropdownStep()
-                .fillCouponTextInputStep(coupon)
-                .clickApplyCouponButtonStep()
-                .getSuccessMessageModifiedShoppingCartStep();
+        String actual = productPageStep.addProductToShoppingCart()
+                .goToShoppingCart()
+                .clickUseCouponCodeLinkDropdown()
+                .fillCouponTextInput(coupon)
+                .clickApplyCouponButton()
+                .getSuccessMessageModifiedShoppingCart();
         assertEquals(SUCCESS_MESSAGE, actual);
     }
 }

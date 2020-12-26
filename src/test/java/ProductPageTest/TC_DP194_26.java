@@ -21,11 +21,11 @@ public class TC_DP194_26 extends CommonConditionTest {
     @CsvFileSource(resources = "/validQuantity.csv", numLinesToSkip = 1)
     public void TCDP194_26(String quantity) {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
-        String actual = productPageStep.clearFieldProductQuantityStep()
-                .fillFieldProductQuantityStep(quantity)
-                .addProductToShoppingCartStep()
-                .getSuccessMessageAboutAddedProductToShoppingCartStep();
+        String actual = productPageStep.clearFieldProductQuantity()
+                .fillFieldProductQuantity(quantity)
+                .addProductToShoppingCart()
+                .getSuccessMessageAboutAddedProductToShoppingCart();
         assertEquals
-                (productPageStep.createExpectedSuccessMessageAddProductToShoppingCartStep(), actual);
+                (productPageStep.createExpectedSuccessMessageAddProductToShoppingCart(), actual);
     }
 }

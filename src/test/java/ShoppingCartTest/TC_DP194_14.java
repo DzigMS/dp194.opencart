@@ -19,8 +19,8 @@ public class TC_DP194_14 extends CommonConditionTest {
     @Test
     public void TCDP194_14() {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
-        String actual = productPageStep.addProductToShoppingCartStep()
-                .goToShoppingCartStep(driver)
+        String actual = productPageStep.addProductToShoppingCart()
+                .goToShoppingCart()
                 .clickLinkProductNameFromShoppingCarTable().getCurrentPage();
         assertEquals(PagesURL.PRODUCT_PAGE_URL, actual);
     }
