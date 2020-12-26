@@ -11,7 +11,6 @@ public class MyAccountPage extends BasePage {
     @FindBy(linkText = "Change your password")
     private Link changePasswordLink;
 
-
     public MyAccountPage(Driver driver) {
         super(driver);
     }

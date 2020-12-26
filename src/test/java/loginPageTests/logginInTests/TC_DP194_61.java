@@ -1,4 +1,4 @@
-package loginPageTests;
+package loginPageTests.logginInTests;
 
 import basetest.CommonConditionTest;
 import constants.PagesURL;
@@ -16,10 +16,13 @@ public class TC_DP194_61 extends CommonConditionTest {
     @CsvFileSource(resources = "/LoginPageValidLoginCredits.csv", numLinesToSkip = 1)
     public void TCDP194_61(String email, String password) {
         HomePageStep homePageStep = new HomePageStep(this.driver);
-        LoginPageStep loginPageStep = homePageStep.goToLoginPage();
+        homePageStep.goToLoginPage();
+
+        LoginPageStep loginPageStep = new LoginPageStep(this.driver);
         loginPageStep.
                 fillEmailField(email).
                 fillPasswordField(password).
-                clickLoginButton().verifyCurrentPage(PagesURL.MY_ACCOUNT_PAGE);
+                clickLoginButton().
+                verifyCurrentPage(PagesURL.MY_ACCOUNT_PAGE);
     }
 }

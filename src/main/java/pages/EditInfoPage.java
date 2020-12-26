@@ -7,39 +7,33 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
 public class EditInfoPage extends BasePage {
-    @FindBy(xpath = "//a[contains(text(),'Back')]")
+    @FindBy(linkText = "Back")
     private Button backButton;
 
     @FindBy(id = "input-firstname")
     private TextInput firstName;
-
     @FindBy(id = "input-lastname")
     private TextInput lastName;
-
     @FindBy(id = "input-email")
     private TextInput email;
-
     @FindBy(id = "input-telephone")
     private TextInput telephone;
 
     @FindBy(xpath = "//input[@value='Continue']")
     private Button continueButton;
 
-
-    @FindBy(xpath = "//div[@class='text-danger'][contains(text(),'First Name must be between 1 and 32 characters!')]")
-    private HtmlElement firstNameErrorMessage;
-    @FindBy(xpath = "//div[@class='text-danger'][contains(text(),'Last Name must be between 1 and 32 characters!')]")
-    private HtmlElement lastNameErrorMessage;
-    @FindBy(xpath = "//div[@class='text-danger'][contains(text(),'E-Mail Address does not appear to be valid!')]")
-    private HtmlElement emailErrorMessage;
-    @FindBy(xpath = "//div[@class='text-danger'][contains(text(),'Telephone must be between 3 and 32 characters!')]")
-    private HtmlElement telephoneErrorMessage;
-
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'First Name must be between 1 and 32 characters!']")
+    private HtmlElement firstNameErrMsg;
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'Last Name must be between 1 and 32 characters!']")
+    private HtmlElement lastNameErrMsg;
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'E-Mail Address does not appear to be valid!']")
+    private HtmlElement emailErrMsg;
+    @FindBy(xpath = "//div[@class='text-danger'][text() = 'Telephone must be between 3 and 32 characters!']")
+    private HtmlElement telephoneErrMsg;
 
     public EditInfoPage(Driver driver) {
         super(driver);
     }
-
 
     public void clickBackButton() {
         this.backButton.click();
@@ -85,22 +79,20 @@ public class EditInfoPage extends BasePage {
         return this.telephone.getText();
     }
 
-
     public void clickContinueButton() {
         this.continueButton.click();
     }
 
-
-    public boolean firstNameErrorMessageExists() {
-        return this.firstNameErrorMessage.exists();
+    public boolean firstNameErrMsgExists() {
+        return this.firstNameErrMsg.exists();
     }
-    public boolean lastNameErrorMessageExists() {
-        return this.lastNameErrorMessage.exists();
+    public boolean lastNameErrMsgExists() {
+        return this.lastNameErrMsg.exists();
     }
-    public boolean emailErrorMessageExists() {
-        return this.emailErrorMessage.exists();
+    public boolean emailErrMsgExists() {
+        return this.emailErrMsg.exists();
     }
-    public boolean telephoneErrorMessageExists() {
-        return this.telephoneErrorMessage.exists();
+    public boolean telephoneErrMsgExists() {
+        return this.telephoneErrMsg.exists();
     }
 }
