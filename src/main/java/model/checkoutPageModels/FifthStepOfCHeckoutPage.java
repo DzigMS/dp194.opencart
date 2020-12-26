@@ -2,12 +2,10 @@ package model.checkoutPageModels;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ru.yandex.qatools.htmlelements.element.Button;
-import ru.yandex.qatools.htmlelements.element.CheckBox;
-import ru.yandex.qatools.htmlelements.element.Radio;
-import ru.yandex.qatools.htmlelements.element.TextInput;
+import ru.yandex.qatools.htmlelements.element.*;
 
-public class FifthStepOfCHeckoutPage {
+@FindBy(xpath = "//*[@id='accordion']/div[5]")
+public class FifthStepOfCHeckoutPage extends HtmlElement {
     @FindBy(xpath = "//*[@class='panel-heading']")
     private WebElement checkoutOptionsPanel;
     @FindBy(xpath = "//*[@class='radio']/label/input")
@@ -19,23 +17,13 @@ public class FifthStepOfCHeckoutPage {
     @FindBy(id = "button-payment-method")
     private Button continuePaymentButton;
 
-    public WebElement getCheckoutOptionsPanel() {
-        return checkoutOptionsPanel;
-    }
+   public void clickButton(){
+       continuePaymentButton.click();
+   }
 
-    public Radio getPaymentMethodRadio() {
-        return paymentMethodRadio;
-    }
 
-    public TextInput getCommentAboutOrderInput() {
-        return commentAboutOrderInput;
-    }
-
-    public CheckBox getAgreeCheckBox() {
-        return agreeCheckBox;
-    }
-
-    public Button getContinuePaymentButton() {
-        return continuePaymentButton;
-    }
+   public void clickCheckBox(){
+       agreeCheckBox.select();
+   }
 }
+
