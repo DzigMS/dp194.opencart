@@ -32,8 +32,12 @@ public class RemoveNewCustomer {
         this.adminPassword = adminPassword;
     }
 
-    public void setCustomerEmail(String customerEmail) {
-        this.customerEmail = customerEmail;
+    public boolean setCustomerEmail(String customerEmail) {
+        if (customerEmail.contains("@")) {
+            this.customerEmail = customerEmail;
+            return true;
+        }
+        return false;
     }
 
     public void login() {
