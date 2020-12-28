@@ -19,7 +19,8 @@ public class TC_DP194_37 extends CommonConditionTest {
     public void SortAZ(List<String> expected){
         HomePageStep homePageStep = new HomePageStep(this.driver);
         CategoryPageStep categoryPageStep = homePageStep.clickPhoneNavBar();
-        categoryPageStep.compareResult(expected, categoryPageStep.selectShowValueNameAZStep().getItemNames());
+        categoryPageStep.selectShowValueNameAZStep();
+        categoryPageStep.compareResult(expected);
     }
 
     private static Stream<List<String>> AZValues() {
@@ -38,7 +39,8 @@ public class TC_DP194_37 extends CommonConditionTest {
     public void SortZA(List<String> expected){
         HomePageStep homePageStep = new HomePageStep(this.driver);
         CategoryPageStep categoryPageStep = homePageStep.clickPhoneNavBar();
-        categoryPageStep.compareResult(expected, categoryPageStep.selectShowValueNameZAStep().getItemNames());
+        categoryPageStep.selectShowValueNameZAStep();
+        categoryPageStep.compareResult(expected);
     }
 
     private static Stream<List<String>> ZAValues() {
@@ -56,7 +58,8 @@ public class TC_DP194_37 extends CommonConditionTest {
     public void PriceLowHigh(List<String> expected){
         HomePageStep homePageStep = new HomePageStep(this.driver);
         CategoryPageStep categoryPageStep = homePageStep.clickPhoneNavBar();
-        categoryPageStep.compareResult(expected, categoryPageStep.selectShowValueNamePriceLowHigh().getItemNames());
+        categoryPageStep.selectShowValueNamePriceLowHigh();
+        categoryPageStep.compareResult(expected);
     }
 
 
@@ -65,7 +68,8 @@ public class TC_DP194_37 extends CommonConditionTest {
     public void PriceHighLow(List<String> expected){
         HomePageStep homePageStep = new HomePageStep(this.driver);
         CategoryPageStep categoryPageStep = homePageStep.clickPhoneNavBar();
-        categoryPageStep.compareResult(expected, categoryPageStep.selectShowValueNamePriceHighLow().getItemNames());
+        categoryPageStep.selectShowValueNamePriceHighLow();
+        categoryPageStep.compareResult(expected);
     }
 
 
@@ -74,7 +78,8 @@ public class TC_DP194_37 extends CommonConditionTest {
     public void HighestRating(List<String> expected){
         HomePageStep homePageStep = new HomePageStep(this.driver);
         CategoryPageStep categoryPageStep = homePageStep.clickPhoneNavBar();
-        categoryPageStep.compareResult(expected, categoryPageStep.selectShowValueNameHighestRatingStep().getItemNames());
+        categoryPageStep.selectShowValueNameHighestRatingStep();
+        categoryPageStep.compareResult(expected);
     }
 
 
@@ -83,7 +88,8 @@ public class TC_DP194_37 extends CommonConditionTest {
     public void LowestRating(List<String> expected){
         HomePageStep homePageStep = new HomePageStep(this.driver);
         CategoryPageStep categoryPageStep = homePageStep.clickPhoneNavBar();
-        categoryPageStep.compareResult(expected, categoryPageStep.selectShowValueNameLowestRatingStep().getItemNames());
+        categoryPageStep.selectShowValueNameLowestRatingStep();
+        categoryPageStep.compareResult(expected);
     }
 
 }

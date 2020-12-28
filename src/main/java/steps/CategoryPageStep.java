@@ -52,8 +52,8 @@ public class CategoryPageStep extends BaseStep {
         return this;
     }
 
-    public CategoryPageStep compareResult(List<String> expected, List<String> actual) {
-        assertEquals(expected, actual);
+    public CategoryPageStep compareResult(List<String> expected) {
+        assertEquals(expected, this.getItemNames());
         return this;
     }
 
@@ -70,7 +70,7 @@ public class CategoryPageStep extends BaseStep {
     }
 
 
-    public List<String> getItemNames() {
+    private List<String> getItemNames() {
         List<String> names = new ArrayList<>();
         for (ProductItem item :
                 this.categoryPage.getProductItemList()) {
