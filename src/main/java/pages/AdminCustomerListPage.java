@@ -5,14 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import ru.yandex.qatools.htmlelements.element.Table;
-import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
-import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 
 import java.util.List;
 
-public class AdminCustomerListPage {
+public class AdminCustomerListPage extends AbstractPage {
     private static final int CHECKBOX_INDEX = 0;
     public enum TableTextValue
     {
@@ -51,8 +48,7 @@ public class AdminCustomerListPage {
     private WebElement logoutButton;
 
     public AdminCustomerListPage(Driver driver) {
-        PageFactory.initElements
-                (new HtmlElementDecorator(new HtmlElementLocatorFactory(driver.getWebDriver())), this);
+        super(driver);
     }
 
     public void setCheckBox(int index, boolean value) {

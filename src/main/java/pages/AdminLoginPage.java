@@ -4,14 +4,8 @@ import driver.Driver;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import ru.yandex.qatools.htmlelements.element.Button;
-import ru.yandex.qatools.htmlelements.element.TextInput;
-import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
-import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 
-public class AdminLoginPage {
-
+public class AdminLoginPage extends AbstractPage {
     @FindBy(xpath = "//div[@class = 'alert alert-danger alert-dismissible']")
     private WebElement loginErrMsg;
 
@@ -24,8 +18,7 @@ public class AdminLoginPage {
     private WebElement loginButton;
 
     public AdminLoginPage(Driver driver) {
-        PageFactory.initElements
-                (new HtmlElementDecorator(new HtmlElementLocatorFactory(driver.getWebDriver())), this);
+        super(driver);
     }
 
     public boolean loginErrMsgExists() {
