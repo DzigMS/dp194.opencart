@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AdminLoginPage extends AbstractPage {
-    @FindBy(xpath = "//div[@class = 'alert alert-danger alert-dismissible']")
+    @FindBy(xpath = "//div[@class = 'alert alert-danger alert-dismissible'][text() = ' No match for Username and/or Password.\n              ']")
     private WebElement loginErrMsg;
 
     @FindBy(xpath = "//input[@type = 'text' and @name = 'username' and @id = 'input-username']")
