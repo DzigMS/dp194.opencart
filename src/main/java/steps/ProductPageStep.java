@@ -13,10 +13,6 @@ public class ProductPageStep extends BaseStep {
         this.productPage = new ProductPage(this.getDriver());
     }
 
-    public String getCurrentPage() {
-        return this.getDriver().getLinkUrl();
-    }
-
     public ProductPageStep verifyCurrentPage(String expectedUrl) {
         assertEquals(expectedUrl, this.getDriver().getLinkUrl());
         return this;
@@ -59,7 +55,6 @@ public class ProductPageStep extends BaseStep {
     }
 
     public ProductPageStep fillFieldProductQuantity(String quantity) {
-
         productPage.fillFieldProductQuantity(quantity);
         return this;
     }
@@ -78,25 +73,10 @@ public class ProductPageStep extends BaseStep {
         return this;
     }
 
-    public ProductPageStep verifyWarningMsgAddedProductToShoppingCart(String expected) {
-        assertEquals(expected, productPage.getWarningMessage());
+    public ProductPageStep verifyWarningMsgAddedProductToShoppingCart(boolean expected) {
+        boolean actual = productPage.isWarningMessageExists();
+        assertEquals(expected, actual);
         return this;
-    }
-
-    public String getProductName() {
-        return productPage.getProductName();
-    }
-
-    public String getProductPrice() {
-        return productPage.getProductPrice();
-    }
-
-    public String getProductQuantity() {
-        return productPage.getProductQuantity();
-    }
-
-    public String createExpectedSuccessMessageAddProductToShoppingCart(String fistPathMsg, String endPathMsg) {
-        return fistPathMsg + " " + this.getProductName() + " " + endPathMsg;
     }
 
     public ShoppingCartStep goToShoppingCart() {

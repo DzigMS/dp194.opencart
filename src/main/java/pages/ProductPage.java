@@ -44,24 +44,12 @@ public class ProductPage extends BasePage {
         productQuantity.sendKeys(quantity);
     }
 
-    public String getProductQuantity() {
-        return productQuantity.getText();
-    }
-
     public void addProductToShoppingCart() {
         addToCardButton.click();
     }
 
     public void addProductToWishList() {
         addToWishListButton.click();
-    }
-
-    public String getProductName() {
-        return productName.getText();
-    }
-
-    public String getProductPrice() {
-        return productPrice.getText();
     }
 
     public void goToModelProductReview() {
@@ -72,7 +60,7 @@ public class ProductPage extends BasePage {
         return successMessage.getText();
     }
 
-    public String getWarningMessage() {
-        return warningMessage.getText();
+    public boolean isWarningMessageExists() {
+        return warningMessage.exists();
     }
 }

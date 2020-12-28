@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import steps.ProductPageStep;
+import static org.junit.jupiter.api.Assertions.*;
 
 //Validation the function of add the product to the shopping cart with invalid quantity data
 public class TC_DP194_46 extends CommonConditionTest {
@@ -22,6 +23,6 @@ public class TC_DP194_46 extends CommonConditionTest {
         productPageStep.clearFieldProductQuantity()
                 .fillFieldProductQuantity(quantity)
                 .addProductToShoppingCart()
-                .verifyWarningMsgAddedProductToShoppingCart(warningMessage);
+                .verifyWarningMsgAddedProductToShoppingCart(true);
     }
 }
