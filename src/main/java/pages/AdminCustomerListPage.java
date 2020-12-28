@@ -5,7 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.Table;
+import ru.yandex.qatools.htmlelements.element.TextInput;
 
 import java.util.List;
 
@@ -36,15 +38,15 @@ public class AdminCustomerListPage extends AbstractPage {
     private Table customerTable;
 
     @FindBy(xpath = "//input[@type = 'text' and @name = 'filter_email' and @id = 'input-email']")
-    private WebElement emailTextBox;
+    private TextInput emailTextBox;
     @FindBy(xpath = "//button[@type = 'button' and @id = 'button-filter' and @class = 'btn btn-default']")
-    private WebElement filterButton;
+    private Button filterButton;
 
     @FindBy(xpath = "//button[@type = 'button' and @class = 'btn btn-danger']")
-    private WebElement deleteButton;
+    private Button deleteButton;
 
     @FindBy(xpath = "//ul[@class = 'nav navbar-nav navbar-right']/li[2]/a")
-    private WebElement logoutButton;
+    private Button logoutButton;
 
     public AdminCustomerListPage(Driver driver) {
         super(driver);

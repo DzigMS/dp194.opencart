@@ -2,20 +2,22 @@ package pages;
 
 import driver.Driver;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.element.Button;
+import ru.yandex.qatools.htmlelements.element.HtmlElement;
+import ru.yandex.qatools.htmlelements.element.TextInput;
 
 public class AdminLoginPage extends AbstractPage {
     @FindBy(xpath = "//div[@class = 'alert alert-danger alert-dismissible'][text() = ' No match for Username and/or Password.\n              ']")
-    private WebElement loginErrMsg;
+    private HtmlElement loginErrMsg;
 
     @FindBy(xpath = "//input[@type = 'text' and @name = 'username' and @id = 'input-username']")
-    private WebElement usernameTextBox;
+    private TextInput usernameTextBox;
     @FindBy(xpath = "//input[@type = 'password' and @name = 'password' and @id = 'input-password']")
-    private WebElement passwordTextBox;
+    private TextInput passwordTextBox;
 
     @FindBy(xpath = "//button[@type = 'submit' and @class = 'btn btn-primary']")
-    private WebElement loginButton;
+    private Button loginButton;
 
     public AdminLoginPage(Driver driver) {
         super(driver);
