@@ -17,8 +17,7 @@ public class AdminCustomerListPage extends AbstractPage {
         EMAIL_INDEX(2),
         GROUP_INDEX(3),
         IP_INDEX(4),
-        DATE_ADDED_INDEX(5)
-        ;
+        DATE_ADDED_INDEX(5);
 
         private int index;
 
