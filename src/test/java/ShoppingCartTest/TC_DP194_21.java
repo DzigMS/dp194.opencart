@@ -10,8 +10,6 @@ import steps.ProductPageStep;
 //Validation changing quantity of items in cart to correct value
 public class TC_DP194_21 extends CommonConditionTest {
 
-    private String successMessage = "Success: You have modified your shopping cart!\n×";
-
     @BeforeEach
     public void openProductPage() {
         driver.openUrl(PagesURL.PRODUCT_PAGE_URL);
@@ -19,13 +17,13 @@ public class TC_DP194_21 extends CommonConditionTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/ShoppingCartValidQuantity.csv", numLinesToSkip = 1)
-    public void TCDP194_21(String quantity) {
+    public void TCDP194_21(String quantity, String message) {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
         productPageStep.addProductToShoppingCart()
                 .goToShoppingCart()
                 .clearFieldQuantityProduct()
                 .fillQuantityProduct(quantity)
                 .updateQuantity()
-                .verifySuccessMsgModified(successMessage);
+                .verifySuccessMsgModified(message);
     }
 }

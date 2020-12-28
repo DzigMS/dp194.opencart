@@ -70,7 +70,11 @@ public class ProductPageStep extends BaseStep {
     }
 
     public ProductPageStep verifySuccessMsgAddedProductToShoppingCart(String expected) {
-        assertEquals(expected, productPage.getSuccessMessage());
+        assertEquals
+                (expected,
+                        productPage.getSuccessMessage()
+                                .substring(0, productPage
+                                        .getSuccessMessage().indexOf('\n')));
         return this;
     }
 
@@ -91,10 +95,8 @@ public class ProductPageStep extends BaseStep {
         return productPage.getProductQuantity();
     }
 
-    public String createExpectedSuccessMessageAddProductToShoppingCart() {
-        return "Success: You have added "
-                + this.getProductName() +
-                " to your shopping cart!\n×";
+    public String createExpectedSuccessMessageAddProductToShoppingCart(String fistPathMsg, String endPathMsg) {
+        return fistPathMsg + " " + this.getProductName() + " " + endPathMsg;
     }
 
     public ShoppingCartStep goToShoppingCart() {

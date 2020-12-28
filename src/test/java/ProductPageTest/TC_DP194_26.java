@@ -17,12 +17,12 @@ public class TC_DP194_26 extends CommonConditionTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/ProductPageValidQuantity.csv", numLinesToSkip = 1)
-    public void TCDP194_26(String quantity) {
+    public void TCDP194_26(String quantity,String fistPathMsg, String endPathMsg) {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
         productPageStep.clearFieldProductQuantity()
                 .fillFieldProductQuantity(quantity)
                 .addProductToShoppingCart()
                 .verifySuccessMsgAddedProductToShoppingCart
-                        (productPageStep.createExpectedSuccessMessageAddProductToShoppingCart());
+                        (productPageStep.createExpectedSuccessMessageAddProductToShoppingCart(fistPathMsg, endPathMsg));
     }
 }

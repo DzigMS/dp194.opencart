@@ -17,7 +17,7 @@ public class TC_DP194_46 extends CommonConditionTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/ProductPageInvalidQuantity.csv", numLinesToSkip = 1)
-    public void TCDP194_46(String quantity, String warningMessage) {
+    public void TCDP194_46 (String quantity, String warningMessage) {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
         productPageStep.clearFieldProductQuantity()
                 .fillFieldProductQuantity(quantity)

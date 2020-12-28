@@ -10,8 +10,6 @@ import steps.ProductPageStep;
 //Validation applying correct coupon code
 
 public class TC_DP194_8 extends CommonConditionTest {
-    private static final String SUCCESS_MESSAGE = "Success: Your coupon discount has been applied!\n×";
-
 
     @BeforeEach
     public void openProductPage() {
@@ -20,13 +18,13 @@ public class TC_DP194_8 extends CommonConditionTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/ShoppingCartPageValidCoupon.csv", numLinesToSkip = 1)
-    public void TCDP194_8(String coupon) {
+    public void TCDP194_8(String coupon, String message) {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
         productPageStep.addProductToShoppingCart()
                 .goToShoppingCart()
                 .clickUseCouponCodeLinkDropdown()
                 .fillCouponTextInput(coupon)
                 .clickApplyCouponButton()
-                .verifySuccessMsgModified(SUCCESS_MESSAGE);
+                .verifySuccessMsgModified(message);
     }
 }
