@@ -9,10 +9,10 @@ import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 
 public class AdminLoginPage {
-    @FindBy(xpath = "//input[@type = 'text' and @name = 'username' and @id = 'input-username' and @class = 'form-control']")
+    @FindBy(xpath = "//input[@type = 'text' and @name = 'username' and @id = 'input-username']")
     private TextInput loginTextBox;
 
-    @FindBy(xpath = "//input[@type = 'password' and @name = 'password' and @id = 'input-password' and @class = 'form-control']")
+    @FindBy(xpath = "//input[@type = 'password' and @name = 'password' and @id = 'input-password']")
     private TextInput passwordTextBox;
 
     @FindBy(xpath = "//button[@type = 'submit' and @class = 'btn btn-primary']")
