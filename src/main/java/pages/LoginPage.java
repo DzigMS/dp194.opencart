@@ -19,7 +19,7 @@ public class LoginPage extends BasePage {
     @FindBy(linkText = "Forgotten Password")
     private Link forgottenPassword;
 
-    @FindBy(xpath = "//input[@value='Login']")
+    @FindBy(xpath = "//input[@type = 'submit' and @class = 'btn btn-primary']")
     private Button loginButton;
 
     @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible'][text() = ' Warning: No match for E-Mail Address and/or Password.']")
