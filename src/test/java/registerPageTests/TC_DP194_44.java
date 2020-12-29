@@ -18,9 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TC_DP194_44 extends CommonConditionTest {
     private RemoveNewCustomer rnc;
 
-    @BeforeEach
-    @CsvFileSource(resources = "/OpenCart_AdminCredit.csv", numLinesToSkip = 1)
     public void setupRnc(String username, String password) {
+        String csvFile = "/OpenCart_AdminCredit.csv";
         this.rnc = new RemoveNewCustomer(this.driver);
         this.rnc.setAdminUsername(username);
         this.rnc.setAdminPassword(password);
