@@ -59,7 +59,11 @@ public class ShoppingCartStep extends BaseStep {
     }
 
     public ShoppingCartStep verifySuccessMsgModified(String expectedMsg) {
-        assertEquals(expectedMsg, shoppingCartPage.getSuccessMessageModified());
+        assertEquals
+                (expectedMsg,
+                        shoppingCartPage.getSuccessMessageModified()
+                                .substring(0, shoppingCartPage
+                                        .getSuccessMessageModified().indexOf('\n')));
         return this;
     }
 

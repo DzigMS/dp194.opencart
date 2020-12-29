@@ -17,11 +17,11 @@ public class ProductItem extends HtmlElement {
     private TextBlock productPrice;
     @FindBy(className = "price-tax")
     private TextBlock productTax;
-    @FindBy(xpath = "div[2]/div[2]/button[1]/span")
+    @FindBy(xpath = "div[2]/div[@class='button-group']/button[1]")
     private Button addToCartButton;
-    @FindBy(xpath = "div[2]/div[2]/button[2]/span")
+    @FindBy(xpath = "div[2]/div[@class='button-group']/button[2]")
     private Button addToWishListButton;
-    @FindBy(xpath = "div[2]/div[2]/button[3]/span")
+    @FindBy(xpath = "div[2]/div[@class='button-group']/button[3]")
     private Button addToCompareButton;
 
     public void clickAddToCart() {

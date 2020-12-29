@@ -1,40 +1,32 @@
 package ProductPageTest;
 
-import basetest.CommonConditionTest;
-import constants.PagesURL;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import steps.ProductPageStep;
 
 //Validation adding item into shopping cart
-public class TC_DP194_2 extends CommonConditionTest {
+public class TC_DP194_2 extends ProductPagePreCondition {
 
-
-    @BeforeEach
-    public void openProductPage() {
-        driver.openUrl(PagesURL.PRODUCT_PAGE_URL);
-    }
-
-    @Test
-    public void TCDP194_2ValidationName() {
+    @ParameterizedTest
+    @CsvFileSource(resources = "/ProductPageName.csv", numLinesToSkip = 1)
+    public void TCDP194_2ValidationName(String expected) {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
-        String expected = productPageStep.getProductName();
         productPageStep.addProductToShoppingCart()
                 .goToShoppingCart().verifyAddedProductName(expected);
     }
 
-    @Test
-    public void TCDP194_2ValidationPrice() {
+    @ParameterizedTest
+    @CsvFileSource(resources = "/ProductPagePrice.csv", numLinesToSkip = 1)
+    public void TCDP194_2ValidationPrice(String expected) {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
-        String expected = productPageStep.getProductPrice();
         productPageStep.addProductToShoppingCart()
                 .goToShoppingCart().verifyAddedProductPrice(expected);
     }
 
-    @Test
-    public void TCDP194_2ValidationQuantity() {
+    @ParameterizedTest
+    @CsvFileSource(resources = "/ProductPageQuantity.csv", numLinesToSkip = 1)
+    public void TCDP194_2ValidationQuantity(String expected) {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
-        String expected = productPageStep.getProductQuantity();
         productPageStep.addProductToShoppingCart()
                 .goToShoppingCart().verifyAddedProductQuantity(expected);
     }
