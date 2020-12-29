@@ -1,6 +1,5 @@
 package ProductPageTest;
 
-import basetest.CommonConditionTest;
 import constants.PagesURL;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -8,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import steps.ProductPageStep;
 
 //Validation the function adding a product review with valid quantity data
-public class TC_DP194_31 extends CommonConditionTest {
+public class TC_DP194_31 extends ProductPagePreCondition {
 
     @BeforeEach
     public void openProductPage() {
