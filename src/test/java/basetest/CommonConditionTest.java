@@ -27,7 +27,6 @@ public class CommonConditionTest {
                 .selectShowValue(index)
                 .verifyQuantity(maxValue);
     }
-
     @AfterEach
     public void endTest() {
         driver.closeDriver();
