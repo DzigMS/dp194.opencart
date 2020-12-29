@@ -9,35 +9,35 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CategoryPageStep extends BaseStep{
-    CategoryPage categoryPage;
+public class CategoryPageStep extends BaseStep {
+    private CategoryPage categoryPage;
 
     public CategoryPageStep(Driver driver) {
         super(driver);
         this.categoryPage = new CategoryPage(driver);
     }
 
-    public CategoryPageStep clickProduct(){
+    public CategoryPageStep clickProduct() {
         categoryPage.getProductItemList().get(0).clickOnProductLink();
         return this;
     }
 
-    public CategoryPageStep selectShowValueNameAZStep(){
+    public CategoryPageStep selectShowValueNameAZStep() {
         categoryPage.getProductActions().selectSortByIndex(1);
         return this;
     }
 
-    public CategoryPageStep selectShowValueNameZAStep(){
+    public CategoryPageStep selectShowValueNameZAStep() {
         categoryPage.getProductActions().selectSortByIndex(2);
         return this;
     }
 
-    public CategoryPageStep selectShowValueNamePriceLowHigh(){
+    public CategoryPageStep selectShowValueNamePriceLowHigh() {
         categoryPage.getProductActions().selectSortByIndex(3);
         return this;
     }
 
-    public CategoryPageStep selectShowValueNamePriceHighLow(){
+    public CategoryPageStep selectShowValueNamePriceHighLow() {
         categoryPage.getProductActions().selectSortByIndex(4);
         return this;
     }
@@ -52,8 +52,8 @@ public class CategoryPageStep extends BaseStep{
         return this;
     }
 
-    public CategoryPageStep compareResult(List<String> expected, List<String> actual){
-        assertEquals(expected,actual);
+    public CategoryPageStep compareResult(List<String> expected) {
+        assertEquals(expected, this.getItemNames());
         return this;
     }
 
@@ -70,7 +70,7 @@ public class CategoryPageStep extends BaseStep{
     }
 
 
-    public List<String> getItemNames(){
+    private List<String> getItemNames() {
         List<String> names = new ArrayList<>();
         for (ProductItem item :
                 this.categoryPage.getProductItemList()) {
@@ -80,26 +80,30 @@ public class CategoryPageStep extends BaseStep{
         return names;
     }
 
-    public void clickAddToCartButton(){
+    public void clickAddToCartButton() {
         for (ProductItem item :
                 this.categoryPage.getProductItemList()) {
             item.clickAddToCart();
         }
     }
 
-    public void clickAddToCompareButton(){
+    public void clickAddToCompareButton() {
         for (ProductItem item :
                 this.categoryPage.getProductItemList()) {
             item.clickAddToComparePage();
         }
     }
 
-    public void clickAddToShoppingCartButton(){
+    public void clickAddToShoppingCartButton() {
         for (ProductItem item :
                 this.categoryPage.getProductItemList()) {
             item.clickAddToCart();
         }
     }
 
+    public <T> T clickOnCheckoutLink(T t) {
+        categoryPage.getTopNavBar().clickCheckoutLink();
+        return t;
+    }
 
 }
