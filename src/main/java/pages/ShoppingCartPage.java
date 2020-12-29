@@ -50,10 +50,6 @@ public class ShoppingCartPage extends BasePage {
         return productPrice.getText();
     }
 
-    public String getTotalPrice() {
-        return productPrice.getText();
-    }
-
     public String getProductQuantity() {
         return productQuantity.getText();
     }
