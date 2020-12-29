@@ -3,6 +3,8 @@ package steps;
 import driver.Driver;
 import pages.ProductPage;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class ProductPageStep extends BaseStep {
     private ProductPage productPage;
 
@@ -11,83 +13,74 @@ public class ProductPageStep extends BaseStep {
         this.productPage = new ProductPage(this.getDriver());
     }
 
-    public String getCurrentPage() {
-        return this.getDriver().getLinkUrl();
+    public ProductPageStep verifyCurrentPage(String expectedUrl) {
+        assertEquals(expectedUrl, this.getDriver().getLinkUrl());
+        return this;
     }
 
-    public ProductPageStep goToModelProductReviewStep() {
+    public ProductPageStep goToModelProductReview() {
         productPage.goToModelProductReview();
         return this;
     }
 
-    public ProductPageStep fillNameTexBoxProductReviewStep(String name) {
+    public ProductPageStep fillNameTexBoxProductReview(String name) {
         productPage.getProductReview().fillNameTexBox(name);
         return this;
     }
 
-    public ProductPageStep fillReviewTexBoxProductReviewStep(String review) {
+    public ProductPageStep fillReviewTexBoxProductReview(String review) {
         productPage.getProductReview().fillReviewTextBox(review);
         return this;
     }
 
-    public ProductPageStep murkDownProductRatingRadioProductReviewStep() {
+    public ProductPageStep murkDownProductRatingRadioProductReview() {
         productPage.getProductReview().murkDownProductRatingRadio();
         return this;
     }
 
-    public ProductPageStep clickContinueButtonProductReviewStep() {
+    public ProductPageStep clickContinueButtonProductReview() {
         productPage.getProductReview().clickContinueButtonReview();
         return this;
     }
 
-    public String getMessageSuccessProductReviewStep() {
-        return productPage.getProductReview().getMessageSuccess();
+    public ProductPageStep verifySuccessMsg(String expectedMsg) {
+        String actualMsg = productPage.getProductReview().getMessageSuccess();
+        assertEquals(expectedMsg, actualMsg);
+        return this;
     }
 
-
-    public ProductPageStep addProductToShoppingCartStep() {
+    public ProductPageStep addProductToShoppingCart() {
         productPage.addProductToShoppingCart();
         return this;
     }
 
-    public ProductPageStep fillFieldProductQuantityStep(String quantity) {
+    public ProductPageStep fillFieldProductQuantity(String quantity) {
         productPage.fillFieldProductQuantity(quantity);
         return this;
     }
 
-    public ProductPageStep clearFieldProductQuantityStep() {
+    public ProductPageStep clearFieldProductQuantity() {
         productPage.clearFieldProductQuantity();
         return this;
     }
 
-    public String getSuccessMessageAboutAddedProductToShoppingCartStep() {
-        return productPage.getSuccessMessage();
+    public ProductPageStep verifySuccessMsgAddedProductToShoppingCart(String expected) {
+        assertEquals
+                (expected,
+                        productPage.getSuccessMessage()
+                                .substring(0, productPage
+                                        .getSuccessMessage().indexOf('\n')));
+        return this;
     }
 
-    public String getWaringMessageAboutAddedProductToShoppingCartStep() {
-        return productPage.getWarningMessage();
+    public ProductPageStep verifyWarningMsgAddedProductToShoppingCart(boolean expected) {
+        boolean actual = productPage.isWarningMessageExists();
+        assertEquals(expected, actual);
+        return this;
     }
 
-    public String getProductNameFromProductPageStep() {
-        return productPage.getProductName();
-    }
-
-    public String getProductPriceFromProductPagStep() {
-        return productPage.getProductPrice();
-    }
-
-    public String getProductQuantityFromProductPagStep() {
-        return productPage.getProductQuantity();
-    }
-
-    public String createExpectedSuccessMessageAddProductToShoppingCartStep() {
-        return "Success: You have added "
-                + this.getProductNameFromProductPageStep() +
-                " to your shopping cart!\n×";
-    }
-
-    public ShoppingCartStep goToShoppingCartStep(Driver driver) {
+    public ShoppingCartStep goToShoppingCart() {
         productPage.getTopNavBar().goToShoppingCartPage();
-        return new ShoppingCartStep(driver);
+        return new ShoppingCartStep(this.getDriver());
     }
 }

@@ -2,38 +2,33 @@ package pages;
 
 import driver.Driver;
 import model.Coupon;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.htmlelements.element.*;
-import steps.ShoppingCartStep;
 
 public class ShoppingCartPage extends BasePage {
     private Coupon coupon;
     @FindBy(xpath = "//div[@class='table-responsive']")
     private Table shoppingCarTable;
     @FindBy(xpath = "//div[@class='table-responsive']/table/tbody/tr/td[2]/a")
-    private Link productNameFromShoppingCar;
+    private Link productName;
     @FindBy(xpath = "//div[@class='table-responsive']/table/tbody/tr/td[5]")
-    private TextBlock productPriceFromShoppingCar;
+    private TextBlock productPrice;
     @FindBy(xpath = "//div[@class='table-responsive']/table/tbody/tr/td[6]")
-    private TextBlock totalPriceFromShoppingCar;
+    private TextBlock totalPrice;
     @FindBy(xpath = "//input[contains(@name,'quantity')]")
-    private TextInput productQuantityFromShoppingCar;
+    private TextInput productQuantity;
     @FindBy(xpath = "//button[@data-original-title='Update']")
-    private Button updateButtonFromShoppingCar;
+    private Button updateButton;
     @FindBy(xpath = "//button[@data-original-title='Remove']")
-    private Button removeButtonFromShoppingCar;
-    @FindBy(xpath = "//a[contains(text(),'Continue Shopping')]")
-    private Button continueShoppingButtonFromShoppingCar;
-    @FindBy(xpath = "//a[contains(text(),'Continue')]")
-    private Link continueButtonFromShoppingCar;
+    private Button removeButton;
+    @FindBy(linkText = "Continue Shopping")
+    private Button continueShopping;
+    @FindBy(linkText = "Continue")
+    private Link continueButton;
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
-    private TextBlock successMessageModifiedShoppingCart;
-    @FindBy(xpath = "//a[contains(text(),'Checkout')]")
-    private Link checkoutLinkShoppingCart;
+    private TextBlock successMessageModified;
+    @FindBy(linkText = "Checkout")
+    private Link checkoutLink;
 
     public ShoppingCartPage(Driver driver) {
         super(driver);
@@ -43,56 +38,52 @@ public class ShoppingCartPage extends BasePage {
         return coupon;
     }
 
-    public String getProductNameFromShoppingCarTable() {
-        return productNameFromShoppingCar.getText();
+    public String getProductName() {
+        return productName.getText();
     }
 
-    public void clickLinkProductNameFromShoppingCarTable() {
-        productNameFromShoppingCar.click();
+    public void clickLinkProductName() {
+        productName.click();
     }
 
-    public String getProductPriceFromShoppingCarTable() {
-        return productPriceFromShoppingCar.getText();
+    public String getProductPrice() {
+        return productPrice.getText();
     }
 
-    public String getTotalPriceFromShoppingCarTable() {
-        return productPriceFromShoppingCar.getText();
+    public String getProductQuantity() {
+        return productQuantity.getText();
     }
 
-    public String getProductQuantityFromShoppingCarTable() {
-        return productQuantityFromShoppingCar.getText();
+    public void clearFieldProductQuantity() {
+        productQuantity.clear();
     }
 
-    public void clearFieldProductQuantityInShoppingCartTable() {
-        productQuantityFromShoppingCar.clear();
+    public void fillProductQuantity(String quantity) {
+        productQuantity.sendKeys(quantity);
     }
 
-    public void fillProductQuantityInShoppingCartTable(String quantity) {
-        productQuantityFromShoppingCar.sendKeys(quantity);
+    public void clickUpdateButton() {
+        updateButton.click();
     }
 
-    public void clickUpdateButtonFromShoppingCar() {
-        updateButtonFromShoppingCar.click();
+    public void clickRemoveButton() {
+        removeButton.click();
     }
 
-    public void clickRemoveButtonFromShoppingCar() {
-        removeButtonFromShoppingCar.click();
+    public void clickContinueShoppingButton() {
+        continueShopping.click();
     }
 
-    public void clickContinueShoppingButtonFromShoppingCar() {
-        continueShoppingButtonFromShoppingCar.click();
+    public void clickContinueButton() {
+        continueButton.click();
     }
 
-    public void clickContinueButtonFromShoppingCar() {
-        continueButtonFromShoppingCar.click();
+    public String getSuccessMessageModified() {
+        return successMessageModified.getText();
     }
 
-    public String getSuccessMessageModifiedShoppingCart() {
-        return successMessageModifiedShoppingCart.getText();
-    }
-
-    public void clickCheckoutLinkShoppingCart() {
-        checkoutLinkShoppingCart.click();
+    public void clickCheckoutLink() {
+        checkoutLink.click();
     }
 
 }
