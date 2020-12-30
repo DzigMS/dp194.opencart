@@ -1,6 +1,6 @@
-package ShoppingCartTest;
+package shoppingCartTest;
 
-import ProductPageTest.ProductPagePreCondition;
+import productPageTest.ProductPagePreCondition;
 import constants.PagesURL;
 import org.junit.jupiter.api.Test;
 import steps.ProductPageStep;
