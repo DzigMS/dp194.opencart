@@ -7,7 +7,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import steps.HomePageStep;
 import steps.RegisterPageStep;
+import subsidiaryClasses.CSVParser;
 import subsidiaryClasses.RemoveNewCustomer;
+
+import java.io.FileNotFoundException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,13 +20,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Registration page: Validation the registration, valid values
  */
 public class TC_DP194_44 extends CommonConditionTest {
+    private final static int LINE_INDEX = 0;
+    private final static int USERNAME_INDEX = 0;
+    private final static int PASSWORD_INDEX = 1;
+
+    private final static String RESOURCE_DIR = "\\src\\test\\resources";
+    private final static String FILEPATH = "\\OpenCart_AdminCredit.csv";
+
     private RemoveNewCustomer rnc;
 
-    public void setupRnc(String username, String password) {
-        String csvFile = "/OpenCart_AdminCredit.csv";
+    @BeforeEach
+    public void setupRnc() {
         this.rnc = new RemoveNewCustomer(this.driver);
-        this.rnc.setAdminUsername(username);
-        this.rnc.setAdminPassword(password);
+        String csvFile = System.getProperty("user.dir") + TC_DP194_44.RESOURCE_DIR + TC_DP194_44.FILEPATH;
+
+        List<List<String>> credits;
+        try {
+            credits = CSVParser.parseFile(csvFile, 1);
+
+            this.rnc.setAdminUsername(credits.get(TC_DP194_44.LINE_INDEX).get(TC_DP194_44.USERNAME_INDEX));
+            this.rnc.setAdminPassword(credits.get(TC_DP194_44.LINE_INDEX).get(TC_DP194_44.PASSWORD_INDEX));
+        }
+        catch (FileNotFoundException | IndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
     }
 
     @ParameterizedTest
