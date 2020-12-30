@@ -59,6 +59,12 @@ public class Driver {
             driver = null;
         }
     }
+    public void quitDriver() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
+    }
 
     public void openUrl(String url) {
         if (driver != null) {
