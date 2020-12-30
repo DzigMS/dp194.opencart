@@ -10,7 +10,7 @@ public class CommonConditionTest {
 
     @BeforeEach
     public void startTest() {
-        driver = Driver.configureDriver("chrome");
+        driver = Driver.configureDriver("firefox");
         driver.openUrl(PagesURL.HOME_PAGE_URL);
     }
 
