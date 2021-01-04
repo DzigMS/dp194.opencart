@@ -1,22 +1,22 @@
-package shoppingCartTest;
+package ShoppingCartTest;
 
 import ProductPageTest.ProductPagePreCondition;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import steps.ProductPageStep;
 
-//Validation changing quantity of items in cart to correct value
-public class TC_DP194_21 extends ProductPagePreCondition {
+//Validation applying correct coupon code
+public class TC_DP194_8 extends ProductPagePreCondition {
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/ShoppingCartValidQuantity.csv", numLinesToSkip = 1)
-    public void TCDP194_21(String quantity, String message) {
+    @CsvFileSource(resources = "/ShoppingCartPageValidCoupon.csv", numLinesToSkip = 1)
+    public void TCDP194_8(String coupon, String message) {
         ProductPageStep productPageStep = new ProductPageStep(this.driver);
         productPageStep.addProductToShoppingCart()
                 .goToShoppingCart()
-                .clearFieldQuantityProduct()
-                .fillQuantityProduct(quantity)
-                .updateQuantity()
+                .clickUseCouponCodeLinkDropdown()
+                .fillCouponTextInput(coupon)
+                .clickApplyCouponButton()
                 .verifySuccessMsgModified(message);
     }
 }

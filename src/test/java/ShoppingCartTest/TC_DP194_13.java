@@ -1,4 +1,4 @@
-package shoppingCartTest;
+package ShoppingCartTest;
 
 import ProductPageTest.ProductPagePreCondition;
 import constants.PagesURL;
