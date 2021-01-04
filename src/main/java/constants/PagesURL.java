@@ -12,5 +12,6 @@ public interface PagesURL {
     String FORGOTTEN_PASS_PAGE = "https://34.121.117.87/index.php?route=account/forgotten";
     String PASSWORD_CHANGE_PAGE = "https://34.121.117.87/index.php?route=account/password";
     String EDIT_INFO_PAGE = "https://34.121.117.87/index.php?route=account/edit";
+    String SUCCESS_REGISTRATION_PAGE = "http://34.121.117.87/index.php?route=account/success";
     String SUCCESS_CHECKOUT_PAGE = "http://34.121.117.87/index.php?route=checkout/success";
 }

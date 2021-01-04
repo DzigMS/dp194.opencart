@@ -1,3 +1,5 @@
+package subsidiaryClasses;
+
 import driver.Driver;
 import pages.AdminCustomerListPage;
 import pages.AdminLoginPage;
