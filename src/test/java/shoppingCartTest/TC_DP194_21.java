@@ -1,6 +1,6 @@
-package ShoppingCartTest;
+package shoppingCartTest;
 
-import ProductPageTest.ProductPagePreCondition;
+import productPageTest.ProductPagePreCondition;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import steps.ProductPageStep;
