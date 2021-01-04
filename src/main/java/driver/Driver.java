@@ -57,12 +57,6 @@ public class Driver {
         return new Driver(driver);
     }
 
-    public void closeDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
-        }
-    }
     public void quitDriver() {
         if (driver != null) {
             driver.quit();
