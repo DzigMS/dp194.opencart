@@ -1,4 +1,4 @@
-package productPageTest;
+package ProductPageTest;
 
 import constants.PagesURL;
 import org.junit.jupiter.api.BeforeEach;
