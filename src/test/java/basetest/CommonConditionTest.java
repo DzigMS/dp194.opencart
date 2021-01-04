@@ -16,6 +16,6 @@ public class CommonConditionTest {
 
     @AfterEach
     public void endTest() {
-        driver.closeDriver();
+        driver.quitDriver();
     }
 }
