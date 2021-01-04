@@ -46,8 +46,8 @@ public class Driver {
             case "chrome":
             default:
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-                options.addArguments("--no-sandbox"); // Bypass OS security model
+                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--no-sandbox");
                 options.addArguments("--headless");
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver(options.merge(capabilities));
