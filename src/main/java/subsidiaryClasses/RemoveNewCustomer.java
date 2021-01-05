@@ -65,7 +65,9 @@ public class RemoveNewCustomer {
         boolean isFound = false;
 
         if (this.isLoggedIn) {
-            this.listPage.clearEmailTextBox();
+            if (this.listPage.filterMenuButtonIsDisplayed()) {
+                this.listPage.clickFilterMenuButton();
+            }
             this.listPage.fillEmailTextBox(this.customerEmail);
             this.listPage.clickFilterButton();
 

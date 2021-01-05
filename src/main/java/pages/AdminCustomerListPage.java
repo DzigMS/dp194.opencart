@@ -37,6 +37,8 @@ public class AdminCustomerListPage extends AbstractPage {
     @FindBy(xpath = "//table[@class = 'table table-bordered table-hover']")
     private Table customerTable;
 
+    @FindBy(xpath = "//button[@type = 'button' and @class = 'btn btn-default hidden-md hidden-lg']")
+    private Button filterMenuButton;
     @FindBy(xpath = "//input[@type = 'text' and @name = 'filter_email' and @id = 'input-email']")
     private TextInput emailTextBox;
     @FindBy(xpath = "//button[@type = 'button' and @id = 'button-filter' and @class = 'btn btn-default']")
@@ -95,6 +97,13 @@ public class AdminCustomerListPage extends AbstractPage {
         catch (NoSuchElementException ex) {
             return false;
         }
+    }
+
+    public boolean filterMenuButtonIsDisplayed() {
+        return this.filterMenuButton.isDisplayed();
+    }
+    public void clickFilterMenuButton() {
+        this.filterMenuButton.click();
     }
 
     public void sendKeysEmailTextBox(CharSequence... keysToSend) {
