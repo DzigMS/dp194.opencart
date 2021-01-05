@@ -32,18 +32,20 @@ public class TC_DP194_44 extends CommonConditionTest {
     @BeforeEach
     public void setupRnc() {
         this.rnc = new RemoveNewCustomer(this.driver);
-        String csvFile = System.getProperty("user.dir") + TC_DP194_44.RESOURCE_DIR + TC_DP194_44.FILEPATH;
-
-        List<List<String>> credits;
-        try {
-            credits = CSVParser.parseFile(csvFile, 1);
-
-            this.rnc.setAdminUsername(credits.get(TC_DP194_44.LINE_INDEX).get(TC_DP194_44.USERNAME_INDEX));
-            this.rnc.setAdminPassword(credits.get(TC_DP194_44.LINE_INDEX).get(TC_DP194_44.PASSWORD_INDEX));
-        }
-        catch (FileNotFoundException | IndexOutOfBoundsException e) {
-            e.printStackTrace();
-        }
+//        String csvFile = System.getProperty("user.dir") + TC_DP194_44.RESOURCE_DIR + TC_DP194_44.FILEPATH;
+//
+//        List<List<String>> credits;
+//        try {
+//            credits = CSVParser.parseFile(csvFile, 1);
+//
+//            this.rnc.setAdminUsername(credits.get(TC_DP194_44.LINE_INDEX).get(TC_DP194_44.USERNAME_INDEX));
+//            this.rnc.setAdminPassword(credits.get(TC_DP194_44.LINE_INDEX).get(TC_DP194_44.PASSWORD_INDEX));
+//        }
+//        catch (FileNotFoundException | IndexOutOfBoundsException e) {
+//            e.printStackTrace();
+//        }
+        this.rnc.setAdminUsername("Test");
+        this.rnc.setAdminPassword("Test1");
     }
 
     @ParameterizedTest
