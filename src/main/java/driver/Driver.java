@@ -49,6 +49,7 @@ public class Driver {
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--headless");
+                options.addArguments("--window-size=1920,1080");
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver(options.merge(capabilities));
         }
