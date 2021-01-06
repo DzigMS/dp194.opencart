@@ -18,7 +18,7 @@ public class ProductItem extends HtmlElement {
     @FindBy(className = "price-tax")
     private TextBlock productTax;
     @FindBy(xpath = "div[2]/div[@class='button-group']/button[1]")
-    private Button addToCartButton;
+    public Button addToCartButton;
     @FindBy(xpath = "div[2]/div[@class='button-group']/button[2]")
     private Button addToWishListButton;
     @FindBy(xpath = "div[2]/div[@class='button-group']/button[3]")

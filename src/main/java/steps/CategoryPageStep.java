@@ -84,10 +84,13 @@ public class CategoryPageStep extends BaseStep {
     }
 
     public void clickAddToCartButton() {
-        for (ProductItem item :
-                this.categoryPage.getProductItemList()) {
-            item.clickAddToCart();
-        }
+        WebDriverWait wait =new WebDriverWait(this.getDriver().getWebDriver(), 90);
+//        for (ProductItem item :
+//                this.categoryPage.getProductItemList() {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"content\"]/div[2]/div[1]/div/div[2]/div[2]/button[1]")));
+            this.getDriver().getWebDriver().findElement(By.xpath("//*[@id=\"content\"]/div[2]/div[1]/div/div[2]/div[2]/button[1]")).click();
+//            item.clickAddToCart();
+//        }
     }
 
     public void clickAddToCompareButton() {
