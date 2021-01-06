@@ -23,7 +23,7 @@ public class TopNavBar extends HtmlElement {
 
     @FindBy(xpath = "//a[@title='Shopping Cart']")
     private Link shoppingCartLink;
-    @FindBy(xpath = "//a[@title='Checkout']")
+    @FindBy(linkText = "Checkout")
     private Link checkoutLink;
 
     public void clickContactUsLink() {

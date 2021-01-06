@@ -45,20 +45,18 @@ public class Driver {
                 break;
             case "chrome":
             default:
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--headless");
+                options.addArguments("--window-size=1920,1080");
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver(new ChromeOptions().merge(capabilities));
+                driver = new ChromeDriver(options.merge(capabilities));
         }
         driver.manage().window().maximize();
-
         return new Driver(driver);
     }
 
-    public void closeDriver() {
-        if (driver != null) {
-            driver.close();
-            driver = null;
-        }
-    }
     public void quitDriver() {
         if (driver != null) {
             driver.quit();
@@ -71,6 +69,7 @@ public class Driver {
             driver.get(url);
         }
     }
+
     public String getLinkUrl() {
         return driver.getCurrentUrl();
     }
