@@ -1,4 +1,4 @@
-package productPageTest;
+package product.page.test;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;

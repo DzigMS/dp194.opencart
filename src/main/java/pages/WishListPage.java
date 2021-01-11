@@ -14,7 +14,7 @@ public class WishListPage extends BasePage {
     @FindBy(xpath = "//a[@data-original-title='Remove']")
     private Button removeButtonFromWishList;
     @FindBy(xpath = "//button[@data-original-title='Add to Cart']")
-    private Button AddToCartButtonFromWishList;
+    private Button addToCartButtonFromWishList;
     public WishListPage(Driver driver) {
         super(driver);
     }

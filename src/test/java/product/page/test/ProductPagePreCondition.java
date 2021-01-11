@@ -1,4 +1,4 @@
-package productPageTest;
+package product.page.test;
 
 import basetest.CommonConditionTest;
 import constants.PagesURL;
