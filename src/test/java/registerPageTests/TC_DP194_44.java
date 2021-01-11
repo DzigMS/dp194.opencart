@@ -20,12 +20,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Registration page: Validation the registration, valid values
  */
 public class TC_DP194_44 extends CommonConditionTest {
-    private final static int LINE_INDEX = 0;
-    private final static int USERNAME_INDEX = 0;
-    private final static int PASSWORD_INDEX = 1;
+    private static final int LINE_INDEX = 0;
+    private static final int USERNAME_INDEX = 0;
+    private static final int PASSWORD_INDEX = 1;
 
-    private final static String RESOURCE_DIR = "\\src\\test\\resources";
-    private final static String FILEPATH = "\\OpenCart_AdminCredit.csv";
+    private static final String RESOURCE_DIR = "\\src\\test\\resources";
+    private static final String FILEPATH = "\\OpenCart_AdminCredit.csv";
 
     private RemoveNewCustomer rnc;
 
@@ -40,8 +40,7 @@ public class TC_DP194_44 extends CommonConditionTest {
 
             this.rnc.setAdminUsername(credits.get(TC_DP194_44.LINE_INDEX).get(TC_DP194_44.USERNAME_INDEX));
             this.rnc.setAdminPassword(credits.get(TC_DP194_44.LINE_INDEX).get(TC_DP194_44.PASSWORD_INDEX));
-        }
-        catch (FileNotFoundException | IndexOutOfBoundsException e) {
+        } catch (FileNotFoundException | IndexOutOfBoundsException e) {
             e.printStackTrace();
 
             this.rnc.setAdminUsername("Test");

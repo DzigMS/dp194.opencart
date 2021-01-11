@@ -12,8 +12,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 
-import java.util.concurrent.TimeUnit;
-
 public class Driver {
     private WebDriver driver;
 

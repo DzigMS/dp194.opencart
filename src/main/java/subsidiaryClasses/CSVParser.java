@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CSVParser {
-    private final static String FILE_DELIMITER = "\\Z";
-    public static String LINE_DELIMITER = ",";
+    private static final String FILE_DELIMITER = "\\Z";
+    public static final String LINE_DELIMITER = ",";
 
     public static List<List<String>> parseFile(File file, int numLinesToSkip) throws FileNotFoundException {
         List<List<String>> values = new ArrayList<>();
@@ -17,12 +17,11 @@ public class CSVParser {
         Scanner fileScanner = new Scanner(file);
         fileScanner.useDelimiter(CSVParser.FILE_DELIMITER);
 
-        while(fileScanner.hasNextLine()) {
+        while (fileScanner.hasNextLine()) {
             if (numLinesToSkip > 0) {
                 fileScanner.nextLine();
                 --numLinesToSkip;
-            }
-            else {
+            } else {
                 values.add(Arrays.asList(fileScanner.nextLine().split(CSVParser.LINE_DELIMITER)));
             }
         }
@@ -31,12 +30,15 @@ public class CSVParser {
 
         return values;
     }
+
     public static List<List<String>> parseFile(File file) throws FileNotFoundException {
         return CSVParser.parseFile(file, 0);
     }
+
     public static List<List<String>> parseFile(String filepath, int numLinesToSkip) throws FileNotFoundException {
         return CSVParser.parseFile(new File(filepath), numLinesToSkip);
     }
+
     public static List<List<String>> parseFile(String filepath) throws FileNotFoundException {
         return CSVParser.parseFile(new File(filepath), 0);
     }
