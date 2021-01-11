@@ -8,20 +8,20 @@
     </properties>
 
 
-    <profiles>
-        <profile>
-            <id>sonar</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <!-- Optional URL to server. Default value is http://localhost:9000 -->
-                <sonar.host.url>
-                    http:34.83.16.216:9000
-                </sonar.host.url>
-            </properties>
-        </profile>
-    </profiles>
+<!--    <profiles>-->
+<!--        <profile>-->
+<!--            <id>sonar</id>-->
+<!--            <activation>-->
+<!--                <activeByDefault>true</activeByDefault>-->
+<!--            </activation>-->
+<!--            <properties>-->
+<!--                &lt;!&ndash; Optional URL to server. Default value is http://localhost:9000 &ndash;&gt;-->
+<!--                <sonar.host.url>-->
+<!--                    http:34.83.16.216:9000-->
+<!--                </sonar.host.url>-->
+<!--            </properties>-->
+<!--        </profile>-->
+<!--    </profiles>-->
 
     <groupId>org.example</groupId>
     <artifactId>com.softserveinc.ita.dp194</artifactId>
