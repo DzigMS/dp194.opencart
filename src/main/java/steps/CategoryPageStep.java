@@ -2,9 +2,6 @@ package steps;
 
 import driver.Driver;
 import model.ProductItem;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.CategoryPage;
 
 import java.util.ArrayList;
